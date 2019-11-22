@@ -1,0 +1,56 @@
+//? IMPORTS
+//! Modules
+import Document, {Html, Head, Main, NextScript} from 'next/document'
+import {ServerStyleSheet} from 'styled-components'
+
+//? EXPORT
+//! Component : MyDocument
+export default class MyDocument extends Document {
+    static async getInitialProps (ctx) {
+        const sheet = new ServerStyleSheet()
+        const originalRenderPage = ctx.renderPage
+        try {
+            ctx.renderPage = () =>
+                originalRenderPage({
+                    enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+                })
+            const initialProps = await Document.getInitialProps(ctx)
+            return {
+                ...initialProps,
+                styles: (
+                    <>
+                        {initialProps.styles}
+                        {sheet.getStyleElement()}
+                    </>
+                )
+            }
+        } finally {
+            sheet.seal()
+        }
+    }
+    render () {
+        return (
+            <Html lang="fr">
+                <Head>
+                    <meta charSet="utf-8" />
+                    <meta content="width=device-width,initial-scale=1" name="viewport" />
+                    <style>{`
+                        html {
+                            background-color: rgb(34, 34, 34);
+                            color: rgb(251, 251, 251);
+                        }
+                        body {
+                            margin: 0;
+                            padding: 0;
+                        }
+                    `}
+                    </style>
+                </Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+            </Html>
+        )
+    }
+}
