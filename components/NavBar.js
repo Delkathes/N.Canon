@@ -7,6 +7,12 @@ import styled from "styled-components"
 
 //! Content
 //! Constants
+const NavigationLinks = [
+    {clean: 'Projets', href: 'projects'},
+    {clean: 'A Propos', href: 'about'},
+    {clean: 'Contact', href: 'contact'},
+    {clean: 'Experiences', href: 'experiences'},
+]
 //! Utils
 //! Helpers
 //! Context
@@ -14,8 +20,24 @@ import styled from "styled-components"
 //! Actions
 //! Styles
 const Nav = styled.nav`
+    font-family: 'Source Sans Pro', sans-serif;
+    position: absolute;
+    right: calc(8.33333vw);
+    font-weight: bold;
 `
-const NavLink = styled.nav``
+const ListLink = styled.ul`
+    display: flex;
+`
+const NavLink = styled.li`
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 40px;
+`
+const CsLink = styled.a`
+    
+`
 
 //! Components
 //! High-order-components
@@ -25,18 +47,27 @@ const NavBar = () => {
     return (
         <>
             <Nav>
-                <Link href="/projects">
-                    <NavLink>Projets</NavLink>
-                </Link>
-                <Link href="/about">
-                    <NavLink>A propos</NavLink>
-                </Link>
-                <Link href="/contact">
-                    <NavLink>Contact</NavLink>
-                </Link>
-                <Link href="/experiences">
-                    <NavLink>Experience</NavLink>
-                </Link>
+                <ListLink>
+                    {NavigationLinks.map((link, i) => 
+                        <NavLink key={i} >
+                            <Link href={`/${link.href}`}>
+                                <CsLink>
+                                    {link.clean}
+                            </CsLink>
+                            </Link>
+                        </NavLink>
+                    )}
+                    <NavLink>
+                        <CsLink>
+                            GitHub
+                        </CsLink>
+                    </NavLink>
+                    <NavLink>
+                        <CsLink>
+                            LinkedIn
+                        </CsLink>
+                    </NavLink>
+                </ListLink>
             </Nav>
         </>
     )

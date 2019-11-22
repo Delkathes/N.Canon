@@ -34,12 +34,19 @@ export default class MyDocument extends Document {
                 <Head>
                     <meta charSet="utf-8" />
                     <meta content="width=device-width,initial-scale=1" name="viewport" />
+                    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+
                     <style>{`
                         html {
                             background-color: rgb(34, 34, 34);
                             color: rgb(251, 251, 251);
                         }
                         body {
+                            margin: 0;
+                            padding: 0;
+                        }
+                        ul {
+                            list-style: none;
                             margin: 0;
                             padding: 0;
                         }

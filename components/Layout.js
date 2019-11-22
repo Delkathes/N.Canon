@@ -14,11 +14,20 @@ import styled from 'styled-components'
 //! Actions
 //! Styles
 const Header = styled.header`
-  
+    height: 60px;
+    width: 100%;
+    position: fixed;
 `
 const Logo = styled.div`
-`
-const SocialMedias = styled.div`
+    position: relative;
+    left: calc(8.33333vw);
+    height: 60px;
+    width: 60px;
+    background-color: #4590af;
+    top: 0px;
+    display: flex;
+    align-items: flex-end;
+    font-size: bold;
 `
 const Footer = styled.footer`   
 `
@@ -36,10 +45,6 @@ const Layout = ({children}) => {
                     <Logo>NC</Logo>
                 </Link>
                 <NavBar />
-                <SocialMedias>
-                    <div>GitHub</div>
-                    <div>LinkedIn</div>
-                </SocialMedias>
             </Header>
             <main>{children}</main>
             <Footer>

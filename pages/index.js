@@ -13,14 +13,41 @@ import PropTypes from 'prop-types'
 //! Hooks
 //! Actions
 //! Styles
-const Presentation = styled.div`   
+const Section = styled.section`
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100vh;
+    width: 70%;
+    margin: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+`
+const Container = styled.div`
+    position: relative;
+    margin: auto 0px;
+    height: 400px;
+`
+const Presentation = styled.div`
+`
+const Me = styled.div`
+    font-size: 3em;
+    font-weight: 900;
+`
+const Ido = styled.div`
+    margin-bottom: 60px;
 `
 const Nav = styled.nav`
     
 `
-const NavLink = styled.a`
+const NavLink = styled.li`
+    margin-bottom: 10px;
+    font-weight: bold;
 `
-
+const ProfilePic = styled.div`
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+`
 //! Components
 //! High-order-components
 //!  Page : Home
@@ -28,23 +55,31 @@ const NavLink = styled.a`
 const Home = () => {
     return (
         <>
-            <Presentation>
-                {"Hey, my name is Nicolas. I'm a self taught web developer based in Paris, FR."}
-            </Presentation>
-            <Nav>
-                <Link href="/about">
-                    <NavLink>More about me</NavLink>
-                </Link>
-                <Link href="/projects">
-                    <NavLink>My recent projects</NavLink>
-                </Link>
-                <Link href="/contact">
-                    <NavLink>Get in touch</NavLink>
-                </Link>
-                <Link href="/experiences">
-                    <NavLink>View my experience</NavLink>
-                </Link>
-            </Nav>
+            <Section>
+                <Container>
+                    <Presentation>
+                        <Me>Hey, my name is Nicolas.</Me>
+                        <Ido>{" I'm a self taught web developer based in Paris, FR."}</Ido>
+                    </Presentation>
+                    <Nav>
+                        <ul>
+                            <Link href="/about">
+                                <NavLink>More about me</NavLink>
+                            </Link>
+                            <Link href="/projects">
+                                <NavLink>My recent projects</NavLink>
+                            </Link>
+                            <Link href="/contact">
+                                <NavLink>Get in touch</NavLink>
+                            </Link>
+                            <Link href="/experiences">
+                                <NavLink>View my experience</NavLink>
+                            </Link>
+                        </ul>
+                    </Nav>
+                </Container>
+                <ProfilePic>Profile pic</ProfilePic>
+            </Section>
         </>
     )
 }
