@@ -14,16 +14,17 @@ import styled from 'styled-components'
 //! Actions
 //! Styles
 const Header = styled.header`
-    height: 60px;
+    height: auto;
     width: 100%;
     position: fixed;
+    z-index: 1;
 `
 const Logo = styled.div`
     position: relative;
     left: calc(8.33333vw);
     height: 60px;
     width: 60px;
-    background-color: #4590af;
+    background-color: #68adef;
     top: 0px;
     display: flex;
     align-items: flex-end;
