@@ -17,6 +17,7 @@ const Header = styled.header`
     height: auto;
     width: 100%;
     position: fixed;
+    top: 0px;
     z-index: 1;
 `
 const Logo = styled.div`

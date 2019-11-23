@@ -14,7 +14,6 @@ import PropTypes from 'prop-types'
 //! Actions
 //! Styles
 const Section = styled.section`
-    font-family: 'Source Sans Pro', sans-serif;
     height: 100vh;
     width: 70%;
     margin: auto;
@@ -25,7 +24,7 @@ const Section = styled.section`
 const Container = styled.div`
     position: relative;
     margin: auto 0px;
-    height: 400px;
+    height: auto;
 `
 const Presentation = styled.div`
 `
@@ -40,7 +39,7 @@ const Nav = styled.nav`
     
 `
 const NavLink = styled.li`
-    margin-bottom: 10px;
+    margin-bottom: 14px;
     font-weight: bold;
 `
 const ProfilePic = styled.div`

@@ -20,7 +20,6 @@ const NavigationLinks = [
 //! Actions
 //! Styles
 const Nav = styled.nav`
-    font-family: 'Source Sans Pro', sans-serif;
     position: absolute;
     bottom: 0px;
     right: calc(8.33333vw);

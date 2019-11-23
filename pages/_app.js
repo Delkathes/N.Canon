@@ -28,6 +28,11 @@ class MyApp extends App {
             <Layout>
                 <Component {...pageProps} />
             </Layout>
+            <style jsx global>{`
+                html {
+                    font-family: 'Source Sans Pro', sans-serif;
+                }
+                `}</style>
         </ThemeProvider>
     }
 }
