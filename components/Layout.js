@@ -4,6 +4,7 @@
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+// import {animated, useSpring, config} from 'react-spring'
 
 //! Content
 //! Constants
@@ -45,6 +46,17 @@ import NavBar from './NavBar'
 //! Component : Layout
 //? EXPORT
 const Layout = ({children}) => {
+    // const pageSpring = useSpring({
+    //     config: config.default,
+    //     to: {
+    //         transform: 'translateY(0px)',
+    //         opacity: 1
+    //     },
+    //     from: {
+    //         transform: 'translateY(250px)',
+    //         opacity: 0
+    //     },
+    // })
     return (
         <>
             <Header>
@@ -53,7 +65,6 @@ const Layout = ({children}) => {
                         <a>NC</a>
                     </Link>
                 </Logo>
-                
                 <NavBar />
             </Header>
             <main>{children}</main>

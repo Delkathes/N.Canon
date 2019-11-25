@@ -3,6 +3,7 @@
 // import {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import {animated, useSpring, config} from 'react-spring'
 
 //! Content
 //! Constants
@@ -17,7 +18,7 @@ const ExpData = [
 //! Hooks
 //! Actions
 //! Styles
-const Section = styled.section`
+const Section = styled(animated.section)`
     width: 70%;
     margin: 0px auto;
 `
@@ -70,8 +71,19 @@ import Icon from '../../components/Global/Icon'
 //!  Page : Experiences
 //? EXPORT
 const Experiences = props => {
+    const pageSpring = useSpring({
+        config: config.default,
+        to: {
+            transform: 'translateY(0px)',
+            opacity: 1
+        },
+        from: {
+            transform: 'translateY(250px)',
+            opacity: 0
+        },
+    })
     return (
-        <Section>
+        <Section style={pageSpring}>
             <Container>
                 <PageInfo>
                     <h2>{props.Page}</h2>

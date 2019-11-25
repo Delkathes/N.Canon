@@ -4,6 +4,8 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import {animated, useSpring, config} from 'react-spring'
+
 //! Content
 //! Constants
 //! Utils
@@ -12,7 +14,7 @@ import PropTypes from 'prop-types'
 //! Hooks
 //! Actions
 //! Styles
-const Section = styled.section`
+const Section = styled(animated.section)`
     height: auto;
     width: 62%;
     margin: 0px auto;
@@ -39,14 +41,19 @@ const ElGrid = styled.li`
     position: relative;
     width: 100%;
     padding-top: 100%;
-    background-color: #340303;
+    /* background-color: #340303; */
+    background-color: ${({background}) => background};
     ${({long}) => long && `
         grid-column: span 2 / auto;
         padding-top: 50%;
+        color: #202020;
     `}
     &:hover {
         figure {
-            background-color: black;
+            /* background-color: black; */
+        }
+        img {
+            transform: scale(1.1);
         }
         .read {
             transform: translateY(${({top, bottom}) => top ? '50px' : bottom ? '-50px' : ''});
@@ -54,7 +61,6 @@ const ElGrid = styled.li`
     }
 `
 const Article = styled.article`
-    
 `
 const Figure = styled.figure`
     position: absolute;
@@ -66,6 +72,10 @@ const Figure = styled.figure`
     height: 100%;
     width: 100%;
     z-index: 0;
+    img {
+        transform-origin: bottom;
+        transition-duration: 0.4s;
+    }
 `
 const Read = styled.div`
     z-index: 2;
@@ -80,6 +90,7 @@ const Read = styled.div`
     left: ${({left}) => left && '60px'};
     padding: 0px 30px;
     background-color: rgb(34, 34, 34);
+    color: rgb(251, 251, 251);
     transition-duration: 0.3s;
 `
 const Infos = styled.div`
@@ -101,49 +112,63 @@ const Infos = styled.div`
 //!  Page : Projects
 //? EXPORT
 const Projects = props => {
-    return <Section>
+    const pageSpring = useSpring({
+        config: config.default,
+        to: {
+            transform: 'translateY(0px)',
+            opacity: 1
+        },
+        from: {
+            transform: 'translateY(250px)',
+            opacity: 0
+        },
+    })
+    return <Section style={pageSpring}>
         <Container>
             <PageName>{props.Page}</PageName>
             <Grid>
                 <Link href="/projects/project?slug=Neo-Town" as="/projects/neo-town">
-                    <ElGrid top>
+                    <ElGrid top background="#EF5F50">
                         <Article>
                             <Read className="read" right top>Read More</Read>
                             <Figure>
                                 <Infos bottom>
-                                    <h3>Neo Town</h3>
-                                    <h4>Meetup organiser</h4>
+                                    <h3>Simone Duez</h3>
+                                    <h4>Paint artist</h4>
                                 </Infos>
+                                <img src="/static/projects/" srcSet="" height="100%" width="100%" />
                             </Figure>
                         </Article>
                     </ElGrid>
                 </Link>
                 <Link href="/projects/project?slug=Neo-Town" as="/projects/neo-town">
-                    <ElGrid bottom>
+                    <ElGrid bottom background="#043144">
                         <Article>
                             <Read className="read" right bottom>Read More</Read>
                             <Figure>
                                 <Infos top>
-                                    <h3>Simone Duez</h3>
-                                    <h4>Paint artist</h4>
+                                    <h3>Neo Town</h3>
+                                    <h4>Meetup organizer</h4>
                                 </Infos>
+                                <img src="/static/projects/city.png" srcSet="" height="100%" width="100%" />
                             </Figure>
                         </Article>
                     </ElGrid>
                 </Link>
                 <Link href="/projects/project?slug=Neo-Town" as="/projects/neo-town">
-                    <ElGrid long top>
+                    <ElGrid long top background="#DAEBF1">
                         <Read className="read" right top>Read More</Read>
                         <Figure>
                             <Infos bottom>
                                 <h3>Libertia Et Conscia</h3>
                                 <h4>Online static newspaper</h4>
                             </Infos>
+                            <img src="/static/projects/" srcSet="" height="100%" width="100%" />
                         </Figure>
                     </ElGrid>
                 </Link>
                 <Link href="/projects/project?slug=Neo-Town" as="/projects/neo-town">
-                    <ElGrid bottom>
+                    <ElGrid bottom background="#0062af">
                         <Article>
                             <Read className="read" left bottom>Read More</Read>
                             <Figure>
@@ -151,12 +176,13 @@ const Projects = props => {
                                     <h3>To come</h3>
                                     <h4>Building project</h4>
                                 </Infos>
+                                <img src="/static/projects/" srcSet="" height="100%" width="100%" />
                             </Figure>
                         </Article>
                     </ElGrid>
                 </Link>
                 <Link href="/projects/project?slug=Neo-Town" as="/projects/neo-town">
-                    <ElGrid top>
+                    <ElGrid top background="#E1AE2A">
                         <Article>
                             <Read className="read" right top>Read More</Read>
                             <Figure>
@@ -164,6 +190,7 @@ const Projects = props => {
                                     <h3>Personal projects</h3>
                                     <h4>Templates</h4>
                                 </Infos>
+                                <img src="/static/projects/webdesign.png" srcSet="" height="100%" width="100%" />
                             </Figure>
                         </Article>
                     </ElGrid>

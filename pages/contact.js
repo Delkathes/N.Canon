@@ -3,6 +3,7 @@
 // import {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import {animated, useSpring, config} from 'react-spring'
 
 //! Content
 //! Constants
@@ -12,7 +13,7 @@ import PropTypes from 'prop-types'
 //! Hooks
 //! Actions
 //! Styles
-const Section = styled.section`
+const Section = styled(animated.section)`
     width: 70%;
     margin: 0px auto;
 `
@@ -77,8 +78,19 @@ const Submit = styled.button`
 //!  Page : Contact
 //? EXPORT
 const Contact = props => {
+    const pageSpring = useSpring({
+        config: config.default,
+        to: {
+            transform: 'translateY(0px)',
+            opacity: 1
+        },
+        from: {
+            transform: 'translateY(250px)',
+            opacity: 0
+        },
+    })
     return (
-        <Section>
+        <Section style={pageSpring}>
             <Container>
                 <div>
                     <PageName>{props.Page}</PageName>

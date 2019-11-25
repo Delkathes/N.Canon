@@ -4,7 +4,7 @@
 import Link from "next/link"
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Icon from "../components/Global/Icon"
+import {animated, useSpring, config} from 'react-spring'
 
 //! Content
 //! Constants
@@ -21,7 +21,7 @@ const NavigationLinks = [
 //! Hooks
 //! Actions
 //! Styles
-const Section = styled.section`
+const Section = styled(animated.section)`
     height: 100vh;
     width: 70%;
     margin: auto;
@@ -82,37 +82,46 @@ const ProfilePic = styled.div`
     right: 0px;
 `
 //! Components
+import Icon from "../components/Global/Icon"
+
 //! High-order-components
 //!  Page : Home
 //? EXPORT
 const Home = () => {
-    return (
-        <>
-            <Section>
-                <Container>
-                    <Presentation>
-                        <Me>Hey, my name is Nicolas.</Me>
-                        <Ido>{" I'm a self taught web developer based in Paris, FR."}</Ido>
-                    </Presentation>
-                    <Nav>
-                        <ul>
-                            {NavigationLinks.map((link, i) => 
-                                <Link key={i} href={link.href}>
-                                    <NavLink>
-                                        <TextLink>{link.clean}</TextLink>
-                                        <IconLink>
-                                            <Icon icon="ArrowRight" color="rgb(26, 160, 203)" />
-                                        </IconLink>
-                                    </NavLink>
-                                </Link>
-                            )}
-                        </ul>
-                    </Nav>
-                </Container>
-                <ProfilePic>Profile pic</ProfilePic>
-            </Section>
-        </>
-    )
+    const pageSpring = useSpring({
+        config: config.default,
+        to: {
+            transform: 'translateY(0px)',
+            opacity: 1
+        },
+        from: {
+            transform: 'translateY(250px)',
+            opacity: 0
+        },
+    })
+    return <Section style={pageSpring}>
+        <Container>
+            <Presentation>
+                <Me>Hey, my name is Nicolas.</Me>
+                <Ido>{" I'm a self taught web developer based in Paris, FR."}</Ido>
+            </Presentation>
+            <Nav>
+                <ul>
+                    {NavigationLinks.map((link, i) => 
+                        <Link key={i} href={link.href}>
+                            <NavLink>
+                                <TextLink>{link.clean}</TextLink>
+                                <IconLink>
+                                    <Icon icon="ArrowRight" color="rgb(26, 160, 203)" />
+                                </IconLink>
+                            </NavLink>
+                        </Link>
+                    )}
+                </ul>
+            </Nav>
+        </Container>
+        <ProfilePic>Profile pic</ProfilePic>
+    </Section>
 }
 
 //! Default Props
