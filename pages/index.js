@@ -44,7 +44,11 @@ const Ido = styled.div`
     margin-bottom: 60px;
 `
 const Nav = styled.nav`
-    
+    position: relative;
+    height: 130px;
+    ul {
+        position: absolute;
+    }
 `
 const NavLink = styled.li`
     display: flex;

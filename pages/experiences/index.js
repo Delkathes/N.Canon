@@ -7,8 +7,8 @@ import PropTypes from 'prop-types'
 //! Content
 //! Constants
 const ExpData = [
-    {title: 'Selt teaching', from: '01/18', to: 'Now', what: 'Learning web development from online sources. Specializing on React and late NextJS.  '},
-    {title: 'Real estate studies', from: '09-14', to: '08-16', what: 'Real estate studies and job in social real estates'},
+    {title: 'Self teaching', from: '01/18', to: 'Now', what: 'Learning web development from online sources. Specializing on React and late NextJS.'},
+    {title: 'Real estate studies', from: '09-14', to: '08-16', what: 'Real estate studies and work in social real estates'},
     {title: 'Business school', from: '09-13', to: '07-14', what: 'Business bachelor school'},
 ]
 //! Utils

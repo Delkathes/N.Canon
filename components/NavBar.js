@@ -10,8 +10,8 @@ import styled from "styled-components"
 //! Content
 //! Constants
 const NavigationLinks = [
-    {clean: 'Projets', href: '/projects'},
-    {clean: 'A Propos', href: '/about'},
+    {clean: 'Projects', href: '/projects'},
+    {clean: 'About', href: '/about'},
     {clean: 'Contact', href: '/contact'},
     {clean: 'Experiences', href: '/experiences'},
 ]
@@ -102,13 +102,13 @@ const NavBar = () => {
                 </NavLink>
             )}
             <NavLink>
-                <CsLink onMouseOver={(e) => handleHover(e)}>
-                    <Icon icon="GitHub" />
+                <CsLink onMouseOver={(e) => handleHover(e)} href="https://github.com/Delkathes" target="_blank">
+                    <Icon icon="GitHub" color="rgb(251, 251, 251)" />
                 </CsLink>
             </NavLink>
             <NavLink>
-                <CsLink onMouseOver={(e) => handleHover(e)}>
-                    <Icon icon="LinkedIn" />
+                <CsLink onMouseOver={(e) => handleHover(e)} href="https://www.linkedin.com/in/nicolas-canon-613296163/" target="_blank">
+                    <Icon icon="LinkedIn" color="rgb(251, 251, 251)" />
                 </CsLink>
             </NavLink>
         </ul>

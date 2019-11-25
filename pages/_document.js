@@ -37,9 +37,14 @@ export default class MyDocument extends Document {
                     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
 
                     <style>{`
+                        ::-webkit-scrollbar {
+                            display: none;
+                        }
                         html {
                             background-color: rgb(34, 34, 34);
                             color: rgb(251, 251, 251);
+                            -ms-overflow-style: none;
+                            scrollbar-width: none;
                         }
                         body {
                             margin: 0;
@@ -50,9 +55,13 @@ export default class MyDocument extends Document {
                             margin: 0;
                             padding: 0;
                         }
-                        p, h1, h2, h3 {
+                        p, h1, h2, h3, h4 {
                             margin: 0;
                             padding: 0;
+                            line-height: 1;
+                        }
+                        a {
+                            text-decoration: none;
                         }
                     `}
                     </style>

@@ -21,17 +21,20 @@ const Header = styled.header`
     z-index: 10;
 `
 const Logo = styled.div`
-`
-const LogoLink = styled.a`
-    position: absolute;
-    left: calc(8.33333vw);
-    height: 80px;
-    width: 80px;
-    background-color: #68adef;
-    top: 0px;
-    display: flex;
-    align-items: flex-end;
-    font-size: bold;
+    cursor: pointer;
+    a {
+        height: 80px;
+        width: 80px;
+        display: flex;
+        align-items: flex-end;
+        position: absolute;
+        top: 0px;
+        left: calc(8.33333vw);
+        background-color: #488dbf;
+        color: rgb(251, 251, 251);
+        font-weight: bold;
+        font-size: 2.6em;
+    }
 `
 const Footer = styled.footer`   
 `
@@ -47,7 +50,7 @@ const Layout = ({children}) => {
             <Header>
                 <Logo>
                     <Link href="/" as="/">
-                        <LogoLink>NC</LogoLink>
+                        <a>NC</a>
                     </Link>
                 </Logo>
                 
