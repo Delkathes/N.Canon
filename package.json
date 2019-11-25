@@ -1,8 +1,13 @@
 {
   "name": "nicolas-canon",
   "version": "1.0.0",
-  "description": "",
+  "description": "N.Canon personal website",
   "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.1.4",
@@ -10,6 +15,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-icons": "3.6.0",
     "react-spring": "^8.0.27",
     "styled-components": "^4.4.1"
   },
@@ -19,11 +25,6 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.3.0"
   },
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
-  },
-  "author": "",
+  "author": "Nicolas 'Delkathes' Canon - canon.nicolas@protonmail.com",
   "license": "ISC"
 }

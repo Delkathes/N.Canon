@@ -4,9 +4,17 @@
 import Link from "next/link"
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Icon from "../components/Global/Icon"
 
 //! Content
 //! Constants
+const NavigationLinks = [
+    {clean: 'More about me', href: 'about'},
+    {clean: 'My recent projects', href: 'projects'},
+    {clean: 'Get in touch', href: 'contact'},
+    {clean: 'View my experience', href: 'experiences'},
+]
+
 //! Utils
 //! Helpers
 //! Context
@@ -39,9 +47,31 @@ const Nav = styled.nav`
     
 `
 const NavLink = styled.li`
+    display: flex;
+    align-items: center;
     margin-bottom: 14px;
     font-weight: bold;
+    cursor: pointer;
+    &:hover {
+        span {
+            color: rgb(26, 160, 203);
+            transform: translateX(-6px);
+        }
+        div {
+            transform: translateX(6px);
+        }
+    }
 `
+const TextLink = styled.span`
+    transition-duration: 0.3s;
+`
+const IconLink = styled.div`
+    transition-duration: 0.3s;
+    display: flex;
+    align-self: flex-end;
+    margin-left: 8px;
+`
+
 const ProfilePic = styled.div`
     position: absolute;
     bottom: 0px;
@@ -62,18 +92,16 @@ const Home = () => {
                     </Presentation>
                     <Nav>
                         <ul>
-                            <Link href="/about">
-                                <NavLink>More about me</NavLink>
-                            </Link>
-                            <Link href="/projects">
-                                <NavLink>My recent projects</NavLink>
-                            </Link>
-                            <Link href="/contact">
-                                <NavLink>Get in touch</NavLink>
-                            </Link>
-                            <Link href="/experiences">
-                                <NavLink>View my experience</NavLink>
-                            </Link>
+                            {NavigationLinks.map((link, i) => 
+                                <Link key={i} href={link.href}>
+                                    <NavLink>
+                                        <TextLink>{link.clean}</TextLink>
+                                        <IconLink>
+                                            <Icon icon="ArrowRight" color="rgb(26, 160, 203)" />
+                                        </IconLink>
+                                    </NavLink>
+                                </Link>
+                            )}
                         </ul>
                     </Nav>
                 </Container>

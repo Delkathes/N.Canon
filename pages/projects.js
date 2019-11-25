@@ -14,13 +14,14 @@ import PropTypes from 'prop-types'
 //! Styles
 const Section = styled.section`
     height: auto;
-    width: 70%;
+    width: 62%;
     margin: 0px auto;
     padding-top: 180px;
 `
 const Container = styled.div`
     height: auto;
     width: 100%;
+    margin: auto;
 `
 const PageName = styled.div`
     font-weight: bold;
@@ -29,13 +30,15 @@ const PageName = styled.div`
 const Grid = styled.ul`
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-gap: 10px;
 `
-const SubGrid = styled.div`
-    border: 1px solid white;
-    height: 500px;
+const ElGrid = styled.li`
     width: 100%;
-    ${({long}) => long && `grid-column: span 2 / auto;`}
+    padding-top: 100%;
+    border: 1px solid white;
+    ${({long}) => long && `
+        grid-column: span 2 / auto;
+        padding-top: 50%;
+    `}
 `
 // const Grid = styled.ul`
 //     display: flex;
@@ -58,10 +61,18 @@ const Projects = props => {
                 <Container>
                     <PageName>{props.Page}</PageName>
                     <Grid>
-                        <SubGrid>SubGrid</SubGrid>
-                        <SubGrid>SubGrid</SubGrid>
-                        <SubGrid long>SubGrid</SubGrid>
-                        <SubGrid>SubGrid</SubGrid>
+                        <ElGrid>
+                            
+                        </ElGrid>
+                        <ElGrid>
+                            
+                        </ElGrid>
+                        <ElGrid long>
+                            
+                        </ElGrid>
+                        <ElGrid>
+                            
+                        </ElGrid>
                     </Grid>
                 </Container>
             </Section>

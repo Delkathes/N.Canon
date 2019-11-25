@@ -21,10 +21,12 @@ const Header = styled.header`
     z-index: 1;
 `
 const Logo = styled.div`
-    position: relative;
+`
+const LogoLink = styled.a`
+    position: absolute;
     left: calc(8.33333vw);
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
     background-color: #68adef;
     top: 0px;
     display: flex;
@@ -43,9 +45,12 @@ const Layout = ({children}) => {
     return (
         <>
             <Header>
-                <Link href="/" as="/">
-                    <Logo>NC</Logo>
-                </Link>
+                <Logo>
+                    <Link href="/" as="/">
+                        <LogoLink>NC</LogoLink>
+                    </Link>
+                </Logo>
+                
                 <NavBar />
             </Header>
             <main>{children}</main>
