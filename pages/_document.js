@@ -50,6 +50,10 @@ export default class MyDocument extends Document {
                             margin: 0;
                             padding: 0;
                         }
+                        p, h1, h2, h3 {
+                            margin: 0;
+                            padding: 0;
+                        }
                     `}
                     </style>
                 </Head>

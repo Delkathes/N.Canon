@@ -7,9 +7,9 @@ import PropTypes from 'prop-types'
 //! Content
 //! Constants
 const ExpData = [
-    {title: 'Selt teaching', from: '01/18', to: 'Now', what: 'Web development '},
-    {title: '', from: '', to: '', what: ''},
-    {title: '', from: '', to: '', what: ''},
+    {title: 'Selt teaching', from: '01/18', to: 'Now', what: 'Learning web development from online sources. Specializing on React and late NextJS.  '},
+    {title: 'Real estate studies', from: '09-14', to: '08-16', what: 'Real estate studies and job in social real estates'},
+    {title: 'Business school', from: '09-13', to: '07-14', what: 'Business bachelor school'},
 ]
 //! Utils
 //! Helpers
@@ -28,17 +28,44 @@ const Container = styled.div`
     grid-template-columns: 50% auto;
     grid-column-gap: 10px;
 `
-const PageName = styled.div`
-    font-weight: bold;
-    font-size: 3em;
+const PageInfo = styled.div`
+    h2 {
+        font-weight: bold;
+        font-size: 3em;
+    }
+    p {
+        margin: 16px 0px;
+    }
+    span {
+        cursor: pointer;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        margin: 16px 0px;
+        color: rgb(26, 160, 203);
+        font-weight: bold;
+        svg {
+            margin-left: 6px;
+        }
+    }
 `
-const ExpList = styled.ul`
-    
-`
-const Experience = styled.li`
-    
+const Article = styled.article`
+    display: flex;
+    flex-direction: column;
+    margin: ${({first}) => first ? '00px 0px 65px' : '35px 0px'};
+    h3 {
+        
+    }
+    div {
+        color: #aaa;
+    }
+    p {
+
+    }
 `
 //! Components
+import Icon from '../../components/Global/Icon'
+
 //! High-order-components
 //!  Page : Experiences
 //? EXPORT
@@ -46,19 +73,22 @@ const Experiences = props => {
     return (
         <Section>
             <Container>
-                <div>
-                    <PageName>{props.Page}</PageName>
+                <PageInfo>
+                    <h2>{props.Page}</h2>
                     <p>Download a copy of my CV below.</p>
-                </div>
-                <ExpList>
+                    <span>Download CV <Icon icon="PDF" color="rgb(26, 160, 203)" /></span>
+                </PageInfo>
+                <ul>
                     {ExpData.map((exp, i) =>
-                        <Experience key={i}>
-                            <h3>{exp.title}</h3>
-                            <div>{exp.from} - {exp.to}</div>
-                            <p>{exp.what}</p>
-                        </Experience>
+                        <li key={i}>
+                            <Article first={i === 0}>
+                                <h3>{exp.title}</h3>
+                                <div>{exp.from} - {exp.to}</div>
+                                <p>{exp.what}</p>
+                            </Article>
+                        </li>
                     )}
-                </ExpList>
+                </ul>
             </Container>
         </Section>
     )
