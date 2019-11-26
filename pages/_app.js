@@ -2,8 +2,8 @@
 //! Modules
 import React from 'react'
 import App from 'next/app'
-import {ThemeProvider} from 'styled-components'
 import 'isomorphic-unfetch'
+import {ThemeProvider} from 'styled-components'
 
 //! Components
 import Layout from '../components/Layout'
@@ -16,12 +16,6 @@ import Layout from '../components/Layout'
 
 //! Component : MyApp
 class MyApp extends App {
-    // static async getInitialProps ({Component, ctx}) {
-    //     const {query} = ctx
-    //     let pageProps = {}
-    //     if (Component.getInitialProps) {pageProps = await Component.getInitialProps(ctx)}
-    //     return {pageProps, query}
-    // }
     render () {
         const {Component, pageProps} = this.props
         return <ThemeProvider theme={{}}>

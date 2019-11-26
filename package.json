@@ -2,7 +2,10 @@
   "name": "nicolas-canon",
   "version": "1.0.0",
   "description": "N.Canon personal website",
-  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Delkathes/N.Canon"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -20,7 +23,7 @@
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
-    "eslint": "^6.7.0",
+    "eslint": "^6.7.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.3.0"

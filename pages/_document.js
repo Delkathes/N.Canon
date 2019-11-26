@@ -30,7 +30,7 @@ export default class MyDocument extends Document {
     }
     render () {
         return (
-            <Html lang="fr">
+            <Html lang="en">
                 <Head>
                     <meta charSet="utf-8" />
                     <meta content="width=device-width,initial-scale=1" name="viewport" />

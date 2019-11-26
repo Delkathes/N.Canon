@@ -9,13 +9,6 @@ import {animated, useSpring, config} from 'react-spring'
 //! Content
 //! Constants
 import ProjectsData from '../../content/projects.json'
-// const ProjectsData = [
-//     {title: 'Simone Duez', what: 'Paint artist', slug: 'simone-duez', image: '', background: '#EF5F50', top: true, bottom: false},
-//     {title: 'Neo Town', what: 'Meeting organizer', slug: 'neo-town', image: 'city.png', background: '#043144', top: false, bottom: true},
-//     {title: 'Libertia Et Conscia', what: 'Online static newspaper', slug: 'libertia-et-conscia', image: '', background: '#DAEBF1', top: false, bottom: true},
-//     {title: 'To come (private)', what: 'Building project', slug: 'to-come', image: '', background: '#0062af', top: true, bottom: false},
-//     {title: 'Personal projects', what: 'templates', slug: 'templates', image: '', background: '#E1AE2A', top: false, bottom: true},
-// ]
 
 //! Utils
 //! Helpers
@@ -117,6 +110,7 @@ const Infos = styled.div`
 //!  Page : Projects
 //? EXPORT
 const Projects = props => {
+
     const pageSpring = useSpring({
         config: config.default,
         to: {
@@ -128,13 +122,16 @@ const Projects = props => {
             opacity: 0
         },
     })
+
+
+
+
     return <Section style={pageSpring}>
         <Container>
             <PageName>{props.Page}</PageName>
             <Grid>
                 {ProjectsData.map((project, i) => 
                     <Link key={i} href={`/projects/[project]`} as={`/projects/${project.slug}`}>
-                    {/* <Link key={i} href={`/projects/project?slug=${project.slug}`} as={`/projects/${project.slug}`}> */}
                         <ElGrid top={project.top} bottom={project.bottom} background={project.background} long={i === 2 || i === 5}>
                             <Article>
                                 <Read className="read" right top={project.top} bottom={project.bottom}>Read More</Read>

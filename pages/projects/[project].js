@@ -1,10 +1,11 @@
 //? IMPORT
 //! Modules
-// import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
+import Router from 'next/router'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
+import {useSpring, useChain, config, animated} from 'react-spring'
 //! Content
 import ProjectsData from '../../content/projects.json'
 const ProjectsLength = ProjectsData.length - 1
@@ -26,12 +27,14 @@ const BottomNav = styled.nav`
         width: 100%;
         display: grid;
         grid-template-columns: ${({l}) => 100 / l}% ${({l}) => 100 / l}% ${({l}) => 100 / l}% ${({l}) => 100 / l}% ${({l}) => 100 / l}%;
+        box-shadow: 0px -12px 20px 0px #0006;
     }
 `
-const BottomLink = styled.li`
+const Tile = styled.li`
+    cursor: pointer;
     position: relative;
     width: 100%;
-    padding-top: 75%;
+    padding-top: 60%;
     background-color: ${({background}) => background};
     transition-duration: 0.2s;
     &:hover {
@@ -65,28 +68,62 @@ const Infos = styled.div`
         font-weight: bold;
     }
 `
+const Slider = styled(animated.section)`
+    position: absolute;
+    z-index: 2;
+    height: 100vh;
+    width: 120vw;
+    background-color: ${({background}) => background};
+`
+
 //! Components
 //! High-order-components
 //!  SubPage : Project
 //? EXPORT
 const Project = ({query, target: {title, what, background}}) => {
     
-    return(
-        <>
+    const SliderRef = useRef()
+    const PageRef = useRef()
+    const sliderS = {
+        ref: SliderRef,
+        config: config.molasses,
+        to: {transform: 'translateX(120vw)'},
+        from: {transform: 'translateX(-120vw)'}
+    }
+    const pageS = {
+        ref: PageRef,
+        config: config.default,
+        to: {opacity: 1},
+        from: {opacity: 0}
+    }
+    const springSlider = useSpring(sliderS)
+    const springPage = useSpring(pageS)
+    useChain([SliderRef, PageRef], [0, 0.6] /*1000*/)
+    useEffect(() => {
+        const handleRouteChange = url => {
+            console.log('App is changing to: ', url)
+        }
+
+        Router.events.on('routeChangeStart', handleRouteChange)
+        return () => {
+            Router.events.off('routeChangeStart', handleRouteChange)
+        }
+    }, [])
+
+    
+    return <>
+        <Slider style={springSlider} background={background} />
+        <animated.main style={springPage}>
             <Header background={background}>
                 {title}
                 {what}
             </Header>
             <section>
-                Contenu
-            </section>
-            <section>
                 <BottomNav l={ProjectsLength}>
                     <ul>
                         {ProjectsData.map((project, i) => project.slug !== query.project &&
                             <Link key={i} href={`/projects/[project]`} as={`/projects/${project.slug}`}>
-                            {/* <Link key={i} href={`/projects/project?slug=${project.slug}`} as={`/projects/${project.slug}`}> */}
-                                <BottomLink l={ProjectsLength} background={project.background}>
+                                <Tile l={ProjectsLength} background={project.background}>
                                     <Figure>
                                         <Infos top={!project.top} bottom={!project.bottom}>
                                             <h3>{project.title}</h3>
@@ -94,15 +131,14 @@ const Project = ({query, target: {title, what, background}}) => {
                                         </Infos>
                                         <img src={`/static/projects/${project.image}`} srcSet={`/static/projects/${project.image}`} height="100%" width="100%" />
                                     </Figure>
-                                </BottomLink>
+                                </Tile>
                             </Link>
-                            )
-                        }
+                        )}
                     </ul>
                 </BottomNav>
             </section>
-        </>
-    )
+        </animated.main>
+    </>
 }
 
 //! Get initial props

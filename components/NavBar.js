@@ -59,6 +59,7 @@ const CsLink = styled.a`
     cursor: pointer;
     margin-right: 25px;
     margin-left: 25px;
+    color: rgb(251, 251, 251);
 `
 const UnderBar = styled.span`
     position: fixed;
@@ -96,7 +97,7 @@ const NavBar = () => {
         <ul>
             {NavigationLinks.map((link, i) => 
                 <NavLink key={i} match={router.route === link.href}>
-                    <Link href={`${link.href}`}>
+                    <Link href={`${link.href}`} passHref>
                         <CsLink onMouseOver={(e) => handleHover(e)}>
                             {link.clean}
                         </CsLink>

@@ -17,6 +17,7 @@ const Logo = styled.div`
     cursor: pointer;
     z-index: 10;
     a {
+        z-index: 10;
         height: 70px;
         width: 70px;
         display: flex;
@@ -48,7 +49,9 @@ const Layout = ({children}) => {
             </Link>
         </Logo>
         <NavBar />
-        <main>{children}</main>
+        {children.props.Page && <main>{children}</main>}
+        {children.props.SubPage && children}
+        
     </>
 }
 
