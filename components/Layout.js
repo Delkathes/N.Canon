@@ -4,7 +4,6 @@
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import head from 'next/head'
 
 //! Content
 //! Constants
@@ -34,17 +33,15 @@ const Logo = styled.div`
 
 //! Components
 import NavBar from './NavBar'
-import CustomHead from './Global/Head'
+import Head from './Global/Head'
 
 //! High-order-components
 //! Component : Layout
 //? EXPORT
 const Layout = ({children}) => {
     return <>
-        {/* {console.log('children.props :', children.props)} */}
-        
-        {children.props.Page && <CustomHead head={children.props.Page + ' | Nicolas Canon'} />}
-        {children.props.SubPage && <CustomHead head={children.props.target.title + ' | Projects | Nicolas Canon'} />}
+        {children.props.Page && <Head head={children.props.Page + ' | Nicolas Canon'} />}
+        {children.props.SubPage && <Head head={children.props.target.title + ' | Projects | Nicolas Canon'} />}
         <Logo>
             <Link href="/" as="/">
                 <a>NC</a>

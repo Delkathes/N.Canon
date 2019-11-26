@@ -69,11 +69,8 @@ const Infos = styled.div`
 //! High-order-components
 //!  SubPage : Project
 //? EXPORT
-const Project = ({query, target}) => {
-
-    // console.log('query.project :', query.project)
+const Project = ({query, target: {title, what, background}}) => {
     
-    const {title, what, background} = target
     return(
         <>
             <Header background={background}>
@@ -87,7 +84,8 @@ const Project = ({query, target}) => {
                 <BottomNav l={ProjectsLength}>
                     <ul>
                         {ProjectsData.map((project, i) => project.slug !== query.project &&
-                            <Link key={i} href={`/projects/project?slug=${project.slug}`} as={`/projects/${project.slug}`}>
+                            <Link key={i} href={`/projects/[project]`} as={`/projects/${project.slug}`}>
+                            {/* <Link key={i} href={`/projects/project?slug=${project.slug}`} as={`/projects/${project.slug}`}> */}
                                 <BottomLink l={ProjectsLength} background={project.background}>
                                     <Figure>
                                         <Infos top={!project.top} bottom={!project.bottom}>
