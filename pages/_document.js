@@ -34,7 +34,7 @@ export default class MyDocument extends Document {
                 <Head>
                     <meta charSet="utf-8" />
                     <meta content="width=device-width,initial-scale=1" name="viewport" />
-                    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=auto" rel="stylesheet" />
 
                     <style>{`
                         ::-webkit-scrollbar {

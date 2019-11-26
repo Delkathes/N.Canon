@@ -66,11 +66,16 @@ const Figure = styled.figure`
     left: 0px;
     margin: 0px;
     padding: 0px;
-    display: flex;
+    /* display: flex; */
     height: 100%;
     width: 100%;
     z-index: 0;
     img {
+        ${({cover}) => !cover && `
+            height: 50%;
+            width: auto;
+        `}
+        z-index: 0;
         transform-origin: bottom;
         transition-duration: 0.4s;
     }
@@ -92,6 +97,7 @@ const Read = styled.div`
     transition-duration: 0.3s;
 `
 const Infos = styled.div`
+    z-index: 1;
     padding: 30px;
     position: absolute;
     top: ${({top}) => top && '0px'};
@@ -123,24 +129,21 @@ const Projects = props => {
         },
     })
 
-
-
-
     return <Section style={pageSpring}>
         <Container>
             <PageName>{props.Page}</PageName>
             <Grid>
-                {ProjectsData.map((project, i) => 
-                    <Link key={i} href={`/projects/[project]`} as={`/projects/${project.slug}`}>
-                        <ElGrid top={project.top} bottom={project.bottom} background={project.background} long={i === 2 || i === 5}>
+                {ProjectsData.map(({slug, top, bottom, background, title, what, image, cover}, i) => 
+                    <Link key={i} href={`/projects/[project]`} as={`/projects/${slug}`}>
+                        <ElGrid top={top} bottom={bottom} background={background} long={i === 2 || i === 5}>
                             <Article>
-                                <Read className="read" right top={project.top} bottom={project.bottom}>Read More</Read>
-                                <Figure>
-                                    <Infos top={!project.top} bottom={!project.bottom}>
-                                        <h3>{project.title}</h3>
-                                        <h4>{project.what}</h4>
+                                <Read className="read" right top={top} bottom={bottom}>Read More</Read>
+                                <Figure cover={cover}>
+                                    <Infos top={!top} bottom={!bottom}>
+                                        <h3>{title}</h3>
+                                        <h4>{what}</h4>
                                     </Infos>
-                                    <img src={`/static/projects/${project.image}`} srcSet={`/static/projects/${project.image}`} height="100%" width="100%" />
+                                    <img src={`/static/projects/${image}`} srcSet={`/static/projects/${image}`} height="100%" width="100%" />
                                 </Figure>
                             </Article>
                         </ElGrid>

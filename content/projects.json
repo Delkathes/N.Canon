@@ -3,10 +3,11 @@
         "title": "Simone Duez",
         "what": "Paint artist",
         "slug": "simone-duez",
-        "image": "",
+        "image": "paint.webp",
         "background": "#EF5F50",
         "top": true,
-        "bottom": false
+        "bottom": false,
+        "cover": true
     },
     {
         "title": "Neo Town",
@@ -15,16 +16,18 @@
         "image": "city.png",
         "background": "#043144",
         "top": false,
-        "bottom": true
+        "bottom": true,
+        "cover": true
     },
     {
         "title": "Libertia Et Conscia",
         "what": "Online static newspaper",
         "slug": "libertia-et-conscia",
-        "image": "",
+        "image": "480px-Newspaper.png",
         "background": "#DAEBF1",
         "top": false,
-        "bottom": true
+        "bottom": true,
+        "cover": false
     },
     {
         "title": "To come (private)",
@@ -33,15 +36,17 @@
         "image": "",
         "background": "#0062af",
         "top": true,
-        "bottom": false
+        "bottom": false,
+        "cover": false
     },
     {
         "title": "Personal projects",
         "what": "templates",
         "slug": "templates",
-        "image": "webdesign.png",
+        "image": "webdesign.webp",
         "background": "#E1AE2A",
         "top": false,
-        "bottom": true
+        "bottom": true,
+        "cover": false
     }
 ]
