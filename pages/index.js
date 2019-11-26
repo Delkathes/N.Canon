@@ -23,7 +23,7 @@ const NavigationLinks = [
 //! Styles
 const Section = styled(animated.section)`
     height: 100vh;
-    width: 70%;
+    width: 66%;
     margin: auto;
     position: relative;
     display: flex;
@@ -35,17 +35,18 @@ const Container = styled.div`
     height: auto;
 `
 const Presentation = styled.div`
-`
-const Me = styled.div`
-    font-size: 3em;
-    font-weight: 900;
-`
-const Ido = styled.div`
-    margin-bottom: 60px;
+    h2 {
+        font-size: 3em;
+        font-weight: 900;
+    }
+    p {
+        margin-top: 10px;
+        margin-bottom: 60px;
+    }
 `
 const Nav = styled.nav`
     position: relative;
-    height: 130px;
+    height: 140px;
     ul {
         position: absolute;
     }
@@ -53,7 +54,7 @@ const Nav = styled.nav`
 const NavLink = styled.li`
     display: flex;
     align-items: center;
-    margin-bottom: 14px;
+    margin-bottom: 22px;
     font-weight: bold;
     cursor: pointer;
     &:hover {
@@ -102,8 +103,8 @@ const Home = () => {
     return <Section style={pageSpring}>
         <Container>
             <Presentation>
-                <Me>Hey, my name is Nicolas.</Me>
-                <Ido>{" I'm a self taught web developer based in Paris, FR."}</Ido>
+                <h2>Hey, my name is Nicolas.</h2>
+                <p>{" I'm a self taught web developer based in Paris, FR."}</p>
             </Presentation>
             <Nav>
                 <ul>

@@ -19,7 +19,7 @@ const ExpData = [
 //! Actions
 //! Styles
 const Section = styled(animated.section)`
-    width: 70%;
+    width: 66%;
     margin: 0px auto;
 `
 const Container = styled.div`

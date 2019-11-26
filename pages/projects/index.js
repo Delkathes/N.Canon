@@ -8,6 +8,15 @@ import {animated, useSpring, config} from 'react-spring'
 
 //! Content
 //! Constants
+import ProjectsData from '../../content/projects.json'
+// const ProjectsData = [
+//     {title: 'Simone Duez', what: 'Paint artist', slug: 'simone-duez', image: '', background: '#EF5F50', top: true, bottom: false},
+//     {title: 'Neo Town', what: 'Meeting organizer', slug: 'neo-town', image: 'city.png', background: '#043144', top: false, bottom: true},
+//     {title: 'Libertia Et Conscia', what: 'Online static newspaper', slug: 'libertia-et-conscia', image: '', background: '#DAEBF1', top: false, bottom: true},
+//     {title: 'To come (private)', what: 'Building project', slug: 'to-come', image: '', background: '#0062af', top: true, bottom: false},
+//     {title: 'Personal projects', what: 'templates', slug: 'templates', image: '', background: '#E1AE2A', top: false, bottom: true},
+// ]
+
 //! Utils
 //! Helpers
 //! Context
@@ -41,7 +50,6 @@ const ElGrid = styled.li`
     position: relative;
     width: 100%;
     padding-top: 100%;
-    /* background-color: #340303; */
     background-color: ${({background}) => background};
     ${({long}) => long && `
         grid-column: span 2 / auto;
@@ -49,9 +57,6 @@ const ElGrid = styled.li`
         color: #202020;
     `}
     &:hover {
-        figure {
-            /* background-color: black; */
-        }
         img {
             transform: scale(1.1);
         }
@@ -127,74 +132,22 @@ const Projects = props => {
         <Container>
             <PageName>{props.Page}</PageName>
             <Grid>
-                <Link href="/projects/project?slug=Neo-Town" as="/projects/neo-town">
-                    <ElGrid top background="#EF5F50">
-                        <Article>
-                            <Read className="read" right top>Read More</Read>
-                            <Figure>
-                                <Infos bottom>
-                                    <h3>Simone Duez</h3>
-                                    <h4>Paint artist</h4>
-                                </Infos>
-                                <img src="/static/projects/" srcSet="" height="100%" width="100%" />
-                            </Figure>
-                        </Article>
-                    </ElGrid>
-                </Link>
-                <Link href="/projects/project?slug=Neo-Town" as="/projects/neo-town">
-                    <ElGrid bottom background="#043144">
-                        <Article>
-                            <Read className="read" right bottom>Read More</Read>
-                            <Figure>
-                                <Infos top>
-                                    <h3>Neo Town</h3>
-                                    <h4>Meetup organizer</h4>
-                                </Infos>
-                                <img src="/static/projects/city.png" srcSet="" height="100%" width="100%" />
-                            </Figure>
-                        </Article>
-                    </ElGrid>
-                </Link>
-                <Link href="/projects/project?slug=Neo-Town" as="/projects/neo-town">
-                    <ElGrid long top background="#DAEBF1">
-                        <Read className="read" right top>Read More</Read>
-                        <Figure>
-                            <Infos bottom>
-                                <h3>Libertia Et Conscia</h3>
-                                <h4>Online static newspaper</h4>
-                            </Infos>
-                            <img src="/static/projects/" srcSet="" height="100%" width="100%" />
-                        </Figure>
-                    </ElGrid>
-                </Link>
-                <Link href="/projects/project?slug=Neo-Town" as="/projects/neo-town">
-                    <ElGrid bottom background="#0062af">
-                        <Article>
-                            <Read className="read" left bottom>Read More</Read>
-                            <Figure>
-                                <Infos top>
-                                    <h3>To come</h3>
-                                    <h4>Building project</h4>
-                                </Infos>
-                                <img src="/static/projects/" srcSet="" height="100%" width="100%" />
-                            </Figure>
-                        </Article>
-                    </ElGrid>
-                </Link>
-                <Link href="/projects/project?slug=Neo-Town" as="/projects/neo-town">
-                    <ElGrid top background="#E1AE2A">
-                        <Article>
-                            <Read className="read" right top>Read More</Read>
-                            <Figure>
-                                <Infos bottom>
-                                    <h3>Personal projects</h3>
-                                    <h4>Templates</h4>
-                                </Infos>
-                                <img src="/static/projects/webdesign.png" srcSet="" height="100%" width="100%" />
-                            </Figure>
-                        </Article>
-                    </ElGrid>
-                </Link>
+                {ProjectsData.map((project, i) => 
+                    <Link key={i} href={`/projects/project?slug=${project.slug}`} as={`/projects/${project.slug}`}>
+                        <ElGrid top={project.top} bottom={project.bottom} background={project.background} long={i === 2}>
+                            <Article>
+                                <Read className="read" right top={project.top} bottom={project.bottom}>Read More</Read>
+                                <Figure>
+                                    <Infos top={!project.top} bottom={!project.bottom}>
+                                        <h3>{project.title}</h3>
+                                        <h4>{project.what}</h4>
+                                    </Infos>
+                                    <img src={`/static/projects/${project.image}`} srcSet={`/static/projects/${project.image}`} height="100%" width="100%" />
+                                </Figure>
+                            </Article>
+                        </ElGrid>
+                    </Link>
+                )}
             </Grid>
         </Container>
     </Section>

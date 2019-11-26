@@ -2,7 +2,7 @@
 //! Modules
 // import {useState, useEffect} from 'react'
 // import {useSpring, animated, config} from 'react-spring'
-import {animated} from 'react-spring'
+// import {animated} from 'react-spring'
 import PropTypes from 'prop-types'
 import {FaArrowRight, FaGithub, FaLinkedinIn, FaFilePdf} from 'react-icons/fa'
 

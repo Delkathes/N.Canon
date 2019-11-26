@@ -34,12 +34,12 @@ function getOffset (el) {
 //! Actions
 //! Styles
 const Nav = styled.nav`
-    height: 60px;
+    height: 72px;
     display: flex;
     align-items: center;
     position: absolute;
     top: 0px;
-    right: calc(8.33333vw);
+    right: calc(8vw);
     font-weight: bold;
     ul {
         display: flex;
@@ -52,11 +52,12 @@ const NavLink = styled.li`
     align-items: center;
     position: relative;
     color: ${({match}) => match && 'rgb(26, 160, 203)'};
+    transition-duration: 0.3s;
 `
 const CsLink = styled.a`
     cursor: pointer;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 25px;
+    margin-left: 25px;
 `
 const UnderBar = styled.span`
     position: fixed;

@@ -24,8 +24,8 @@ const Header = styled.header`
 const Logo = styled.div`
     cursor: pointer;
     a {
-        height: 80px;
-        width: 80px;
+        height: 70px;
+        width: 70px;
         display: flex;
         align-items: flex-end;
         position: absolute;
