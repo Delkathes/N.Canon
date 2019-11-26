@@ -134,7 +134,7 @@ const Projects = props => {
             <Grid>
                 {ProjectsData.map((project, i) => 
                     <Link key={i} href={`/projects/project?slug=${project.slug}`} as={`/projects/${project.slug}`}>
-                        <ElGrid top={project.top} bottom={project.bottom} background={project.background} long={i === 2}>
+                        <ElGrid top={project.top} bottom={project.bottom} background={project.background} long={i === 2 || i === 5}>
                             <Article>
                                 <Read className="read" right top={project.top} bottom={project.bottom}>Read More</Read>
                                 <Figure>

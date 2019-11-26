@@ -41,6 +41,7 @@ const Nav = styled.nav`
     top: 0px;
     right: calc(8vw);
     font-weight: bold;
+    z-index: 10;
     ul {
         display: flex;
 
