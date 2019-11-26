@@ -22,6 +22,8 @@ const withPlugins = require('next-compose-plugins')
 
 //! Next.js configuration
 const nextConfig = {
+    //! target
+    target: 'serverless',
     //! Export PathMap
     // exportPathMap: async () => {
     //     return router
