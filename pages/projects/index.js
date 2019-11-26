@@ -73,8 +73,8 @@ const Figure = styled.figure`
     img {
         ${({cover}) => !cover && `
             position: absolute;
-            right: 10px;
-            bottom: 10px;
+            right: 4%;
+            bottom: 8%;
             height: 50%;
             width: auto;
         `}
@@ -149,7 +149,7 @@ const Projects = props => {
                                     <img
                                         alt={image}
                                         src={`/static/projects/${image}`} srcSet={`/static/projects/${image}`}
-                                        height="100%" width="100%"
+                                        height="100%" width="auto"
                                     />
                                 </Figure>
                             </Article>
