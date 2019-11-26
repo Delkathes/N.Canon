@@ -72,6 +72,9 @@ const Figure = styled.figure`
     z-index: 0;
     img {
         ${({cover}) => !cover && `
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
             height: 50%;
             width: auto;
         `}

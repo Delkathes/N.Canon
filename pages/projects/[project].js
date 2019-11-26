@@ -1,11 +1,9 @@
 //? IMPORT
 //! Modules
-import {useState, useEffect, useRef} from 'react'
-import Router from 'next/router'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {useSpring, useChain, config, animated} from 'react-spring'
+
 //! Content
 import ProjectsData from '../../content/projects.json'
 const ProjectsLength = ProjectsData.length - 1
@@ -68,76 +66,35 @@ const Infos = styled.div`
         font-weight: bold;
     }
 `
-const Slider = styled(animated.section)`
-    position: absolute;
-    z-index: 2;
-    height: 100vh;
-    width: 120vw;
-    background-color: ${({background}) => background};
-`
 
 //! Components
 //! High-order-components
-//!  SubPage : Project
-//? EXPORT
-const Project = ({query, target: {title, what, background}}) => {
-    
-    const SliderRef = useRef()
-    const PageRef = useRef()
-    const sliderS = {
-        ref: SliderRef,
-        config: config.molasses,
-        to: {transform: 'translateX(120vw)'},
-        from: {transform: 'translateX(-120vw)'}
-    }
-    const pageS = {
-        ref: PageRef,
-        config: config.default,
-        to: {opacity: 1},
-        from: {opacity: 0}
-    }
-    const springSlider = useSpring(sliderS)
-    const springPage = useSpring(pageS)
-    useChain([SliderRef, PageRef], [0, 0.6] /*1000*/)
-    useEffect(() => {
-        const handleRouteChange = url => {
-            console.log('App is changing to: ', url)
-        }
-
-        Router.events.on('routeChangeStart', handleRouteChange)
-        return () => {
-            Router.events.off('routeChangeStart', handleRouteChange)
-        }
-    }, [])
-
-    
+//! SubPage : Project
+const Project = ({query, target: {title, what, background}}) => {    
     return <>
-        <Slider style={springSlider} background={background} />
-        <animated.main style={springPage}>
-            <Header background={background}>
-                {title}
-                {what}
-            </Header>
-            <section>
-                <BottomNav l={ProjectsLength}>
-                    <ul>
-                        {ProjectsData.map((project, i) => project.slug !== query.project &&
-                            <Link key={i} href={`/projects/[project]`} as={`/projects/${project.slug}`}>
-                                <Tile l={ProjectsLength} background={project.background}>
-                                    <Figure>
-                                        <Infos top={!project.top} bottom={!project.bottom}>
-                                            <h3>{project.title}</h3>
-                                            <h4>{project.what}</h4>
-                                        </Infos>
-                                        <img src={`/static/projects/${project.image}`} srcSet={`/static/projects/${project.image}`} height="100%" width="100%" />
-                                    </Figure>
-                                </Tile>
-                            </Link>
-                        )}
-                    </ul>
-                </BottomNav>
-            </section>
-        </animated.main>
+        <Header background={background}>
+            {title}
+            {what}
+        </Header>
+        <section>
+            <BottomNav l={ProjectsLength}>
+                <ul>
+                    {ProjectsData.map((project, i) => project.slug !== query.project &&
+                        <Link key={i} href={`/projects/[project]`} as={`/projects/${project.slug}`}>
+                            <Tile l={ProjectsLength} background={project.background}>
+                                <Figure>
+                                    <Infos top={!project.top} bottom={!project.bottom}>
+                                        <h3>{project.title}</h3>
+                                        <h4>{project.what}</h4>
+                                    </Infos>
+                                    <img src={`/static/projects/${project.image}`} srcSet={`/static/projects/${project.image}`} height="100%" width="100%" />
+                                </Figure>
+                            </Tile>
+                        </Link>
+                    )}
+                </ul>
+            </BottomNav>
+        </section>
     </>
 }
 
@@ -156,5 +113,5 @@ Project.propTypes = {
     target: PropTypes.object,
 }
 
-
+//? EXPORT
 export default Project
