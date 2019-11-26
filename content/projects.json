@@ -1,0 +1,47 @@
+[
+    {
+        "title": "Simone Duez",
+        "what": "Paint artist",
+        "slug": "simone-duez",
+        "image": "",
+        "background": "#EF5F50",
+        "top": true,
+        "bottom": false
+    },
+    {
+        "title": "Neo Town",
+        "what": "Meeting organizer",
+        "slug": "neo-town",
+        "image": "city.png",
+        "background": "#043144",
+        "top": false,
+        "bottom": true
+    },
+    {
+        "title": "Libertia Et Conscia",
+        "what": "Online static newspaper",
+        "slug": "libertia-et-conscia",
+        "image": "",
+        "background": "#DAEBF1",
+        "top": false,
+        "bottom": true
+    },
+    {
+        "title": "To come (private)",
+        "what": "Building project",
+        "slug": "to-come",
+        "image": "",
+        "background": "#0062af",
+        "top": true,
+        "bottom": false
+    },
+    {
+        "title": "Personal projects",
+        "what": "templates",
+        "slug": "templates",
+        "image": "",
+        "background": "#E1AE2A",
+        "top": false,
+        "bottom": true
+    }
+]
