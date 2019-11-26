@@ -146,7 +146,11 @@ const Projects = props => {
                                         <h3>{title}</h3>
                                         <h4>{what}</h4>
                                     </Infos>
-                                    <img src={`/static/projects/${image}`} srcSet={`/static/projects/${image}`} height="100%" width="100%" />
+                                    <img
+                                        alt={image}
+                                        src={`/static/projects/${image}`} srcSet={`/static/projects/${image}`}
+                                        height="100%" width="100%"
+                                    />
                                 </Figure>
                             </Article>
                         </ElGrid>

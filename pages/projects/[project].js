@@ -87,7 +87,11 @@ const Project = ({query, target: {title, what, background}}) => {
                                         <h3>{project.title}</h3>
                                         <h4>{project.what}</h4>
                                     </Infos>
-                                    <img src={`/static/projects/${project.image}`} srcSet={`/static/projects/${project.image}`} height="100%" width="100%" />
+                                    <img
+                                        src={`/static/projects/${project.image}`} srcSet={`/static/projects/${project.image}`}
+                                        height="100%" width="100%"
+                                        alt={project.image}
+                                    />
                                 </Figure>
                             </Tile>
                         </Link>

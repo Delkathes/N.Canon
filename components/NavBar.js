@@ -105,12 +105,24 @@ const NavBar = () => {
                 </NavLink>
             )}
             <NavLink>
-                <CsLink onMouseOver={(e) => handleHover(e)} href="https://github.com/Delkathes" target="_blank">
+                <CsLink
+                    onMouseOver={(e) => handleHover(e)}
+                    href="https://github.com/Delkathes"
+                    target="_blank"
+                    aria-label="GitHub"
+                    rel="noreferrer"
+                >
                     <Icon icon="GitHub" color="rgb(251, 251, 251)" />
                 </CsLink>
             </NavLink>
             <NavLink>
-                <CsLink onMouseOver={(e) => handleHover(e)} href="https://www.linkedin.com/in/nicolas-canon-613296163/" target="_blank">
+                <CsLink
+                    onMouseOver={(e) => handleHover(e)}
+                    href="https://www.linkedin.com/in/nicolas-canon-613296163/"
+                    target="_blank"
+                    aria-label="LinkedIn"
+                    rel="noreferrer"
+                >
                     <Icon icon="LinkedIn" color="rgb(251, 251, 251)" />
                 </CsLink>
             </NavLink>
