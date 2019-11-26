@@ -1,7 +1,7 @@
 //? IMPORT
 //! Modules
 // import {useState, useEffect} from 'react'
-// import {useRouter} from 'next/router'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -31,8 +31,12 @@ const BottomNav = styled.nav`
 const BottomLink = styled.li`
     position: relative;
     width: 100%;
-    padding-top: 100%;
+    padding-top: 75%;
     background-color: ${({background}) => background};
+    transition-duration: 0.2s;
+    &:hover {
+        transform: translateY(-30px);
+    }
 `
 const Figure = styled.figure`
     position: absolute;
@@ -63,11 +67,11 @@ const Infos = styled.div`
 `
 //! Components
 //! High-order-components
-//!  Page : Project
+//!  SubPage : Project
 //? EXPORT
 const Project = ({query, target}) => {
 
-    console.log('query.project :', query.project)
+    // console.log('query.project :', query.project)
     
     const {title, what, background} = target
     return(
@@ -83,16 +87,19 @@ const Project = ({query, target}) => {
                 <BottomNav l={ProjectsLength}>
                     <ul>
                         {ProjectsData.map((project, i) => project.slug !== query.project &&
-                            <BottomLink l={ProjectsLength} key={i} background={project.background}>
-                                <Figure>
-                                    <Infos top={!project.top} bottom={!project.bottom}>
-                                        <h3>{project.title}</h3>
-                                        <h4>{project.what}</h4>
-                                    </Infos>
-                                    <img src={`/static/projects/${project.image}`} srcSet={`/static/projects/${project.image}`} height="100%" width="100%" />
-                                </Figure>
-                            </BottomLink>
-                        )}
+                            <Link key={i} href={`/projects/project?slug=${project.slug}`} as={`/projects/${project.slug}`}>
+                                <BottomLink l={ProjectsLength} background={project.background}>
+                                    <Figure>
+                                        <Infos top={!project.top} bottom={!project.bottom}>
+                                            <h3>{project.title}</h3>
+                                            <h4>{project.what}</h4>
+                                        </Infos>
+                                        <img src={`/static/projects/${project.image}`} srcSet={`/static/projects/${project.image}`} height="100%" width="100%" />
+                                    </Figure>
+                                </BottomLink>
+                            </Link>
+                            )
+                        }
                     </ul>
                 </BottomNav>
             </section>
@@ -107,10 +114,10 @@ Project.getInitialProps = async ({query}) => {
 }
 //! Default Props
 Project.defaultProps = {
-    Page: 'Project'
+    SubPage: 'Project'
 }
 Project.propTypes = {
-    Page: PropTypes.string,
+    SubPage: PropTypes.string,
     query: PropTypes.object,
     target: PropTypes.object,
 }
