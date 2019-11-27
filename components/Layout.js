@@ -93,8 +93,7 @@ const Layout = ({children}) => {
             </Link>
         </Logo>
         <NavBar />
-        
-        <animated.main>{children}</animated.main>
+        <main>{children}</main>
     </>
 }
 

@@ -71,6 +71,7 @@ const Infos = styled.div`
 //! High-order-components
 //! SubPage : Project
 const Project = ({query, target: {title, what, background}}) => {    
+    
     return <>
         <Header background={background}>
             {title}
