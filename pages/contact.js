@@ -1,6 +1,5 @@
 //? IMPORT
 //! Modules
-// import {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import {animated, useSpring, config} from 'react-spring'
@@ -85,7 +84,7 @@ const Contact = props => {
             opacity: 1
         },
         from: {
-            transform: 'translateY(250px)',
+            transform: 'translateY(200px)',
             opacity: 0
         },
     })

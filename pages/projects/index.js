@@ -47,7 +47,6 @@ const ElGrid = styled.li`
     ${({long}) => long && `
         grid-column: span 2 / auto;
         padding-top: 50%;
-        color: #202020;
     `}
     &:hover {
         img {
@@ -105,6 +104,9 @@ const Infos = styled.div`
     position: absolute;
     top: ${({top}) => top && '0px'};
     bottom: ${({bottom}) => bottom && '0px'};
+    ${({dark}) => dark && `
+        color: #202020;
+    `}
     h3 {
 
     }
@@ -127,7 +129,7 @@ const Projects = props => {
             opacity: 1
         },
         from: {
-            transform: 'translateY(250px)',
+            transform: 'translateY(200px)',
             opacity: 0
         },
     })
@@ -136,19 +138,19 @@ const Projects = props => {
         <Container>
             <PageName>{props.Page}</PageName>
             <Grid>
-                {ProjectsData.map(({slug, top, bottom, background, title, what, image, cover}, i) => 
+                {ProjectsData.map(({slug, top, bottom, background, dark, title, what, image, cover, long}, i) => 
                     <Link key={i} href={`/projects/[project]`} as={`/projects/${slug}`}>
-                        <ElGrid top={top} bottom={bottom} background={background} long={i === 2 || i === 5}>
+                        <ElGrid top={top} bottom={bottom} background={background} long={long}>
                             <Article>
                                 <Read className="read" right top={top} bottom={bottom}>Read More</Read>
                                 <Figure cover={cover}>
-                                    <Infos top={!top} bottom={!bottom}>
+                                    <Infos top={!top} bottom={!bottom} dark={dark}>
                                         <h3>{title}</h3>
                                         <h4>{what}</h4>
                                     </Infos>
                                     <img
                                         alt={image}
-                                        src={`/static/projects/${image}`} srcSet={`/static/projects/${image}`}
+                                        src={image} srcSet={image}
                                         height="100%" width="auto"
                                     />
                                 </Figure>

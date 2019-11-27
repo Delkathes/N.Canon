@@ -52,14 +52,13 @@ const NavLink = styled.li`
     display: flex;
     align-items: center;
     position: relative;
-    color: ${({match}) => match && 'rgb(26, 160, 203)'};
     transition-duration: 0.3s;
 `
 const CsLink = styled.a`
     cursor: pointer;
     margin-right: 25px;
     margin-left: 25px;
-    color: rgb(251, 251, 251);
+    color: ${({match}) => match ? 'rgb(26, 160, 203)' : 'rgb(251, 251, 251)'};
 `
 const UnderBar = styled.span`
     position: fixed;
@@ -96,9 +95,9 @@ const NavBar = () => {
     return <Nav onMouseLeave={() => setPosition(2000)}>
         <ul>
             {NavigationLinks.map((link, i) => 
-                <NavLink key={i} match={router.route === link.href}>
+                <NavLink key={i}>
                     <Link href={`${link.href}`} passHref>
-                        <CsLink onMouseOver={(e) => handleHover(e)}>
+                        <CsLink onMouseOver={(e) => handleHover(e)} match={router.route === link.href}>
                             {link.clean}
                         </CsLink>
                     </Link>

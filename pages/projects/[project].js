@@ -1,6 +1,5 @@
 //? IMPORT
 //! Modules
-import {createElement} from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -18,9 +17,35 @@ const ProjectsLength = ProjectsData.length - 1
 //! Actions
 //! Styles
 const Header = styled.header`
-    height: 340px;
+    position: relative;
+    height: 400px;
     width: 100%;
     background-color: ${({background}) => background};
+    img {
+        filter: blur(2px);
+        position: absolute;
+        bottom: 0;
+        right: 4vw;
+        max-width: 700px;
+    }
+`
+const Title = styled.div`
+    ${({dark}) => dark && `
+        color: #202020;
+    `}
+    position: absolute;
+    bottom: 0;
+    left: 20vw;
+    z-index: 1;
+    h2 {
+        font-size: 0.9em;
+        font-weight: 400;
+        padding-bottom: 20px;
+    }
+    h3 {
+        font-size: 3em;
+        line-height: 0.8;
+    }
 `
 const BottomNav = styled.nav`
     ul {
@@ -33,13 +58,23 @@ const BottomNav = styled.nav`
 const Tile = styled.li`
     cursor: pointer;
     position: relative;
+    overflow: hidden;
     width: 100%;
     padding-top: 60%;
-    background-color: ${({background}) => background};
     transition-duration: 0.2s;
+    z-index: 1;
+    background-color: ${({background}) => background};
     &:hover {
         transform: translateY(-30px);
     }
+`
+const Filter = styled.div`
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: ${({background}) => `${background}60`};
+    z-index: 0;
 `
 const Figure = styled.figure`
     position: absolute;
@@ -50,10 +85,11 @@ const Figure = styled.figure`
     display: flex;
     height: 100%;
     width: 100%;
-    z-index: 0;
     img {
+        z-index: -1;
         transform-origin: bottom;
         transition-duration: 0.4s;
+        filter: blur(2px);
         ${({cover}) => cover ? `
             height: auto;
             width: 100%;
@@ -66,6 +102,10 @@ const Figure = styled.figure`
 const Infos = styled.div`
     padding: 30px;
     position: absolute;
+    z-index: 1;
+    ${({dark}) => dark && `
+        color: #202020;
+    `}
     h3 {
 
     }
@@ -79,32 +119,46 @@ const Infos = styled.div`
 //! Components
 //! High-order-components
 //! SubPage : Project
-const Project = ({query, target: {title, what, background}}) => {    
-    
+const Project = ({query, target: {title, what, slug, image, background, long, dark}}) => {
     return <>
         <Header background={background}>
-            {title}
-            {what}
+            <Title dark={dark}>
+                <h2>{title}</h2>
+                <h3>{what}</h3>
+            </Title>
+            <Filter background={background} />
+            <img
+                src={image} srcSet={image}
+                alt={slug}
+            />
         </Header>
         <section>
-            {createElement('h2', {id: 'lol'}, 'MDR LOL')}
+            <div>Content</div>
+            <div>Content</div>
+            <div>Content</div>
+            <div>Content</div>
+            <div>Content</div>
+            <div>Content</div>
+            <div>Content</div>
+            <div>Content</div>
         </section>
         <section>
             <BottomNav l={ProjectsLength}>
                 <ul>
                     {ProjectsData.map((project, i) => project.slug !== query.project &&
                         <Link key={i} href={`/projects/[project]`} as={`/projects/${project.slug}`}>
-                            <Tile l={ProjectsLength} background={project.background}>
+                        <Tile l={ProjectsLength} background={project.background}>
+                            <Filter background={project.background}/>
                             <Figure cover={project.cover}>
-                                    <Infos top={!project.top} bottom={!project.bottom}>
-                                        <h3>{project.title}</h3>
-                                        <h4>{project.what}</h4>
-                                    </Infos>
-                                    <img
-                                        src={`/static/projects/${project.image}`} srcSet={`/static/projects/${project.image}`}
-                                        alt={project.image}
-                                    />
-                                </Figure>
+                                <Infos top={!project.top} bottom={!project.bottom} dark={project.dark}>
+                                    <h3>{project.title}</h3>
+                                    <h4>{project.what}</h4>
+                                </Infos>
+                                <img
+                                    src={`${project.image}`} srcSet={`${project.image}`}
+                                    alt={project.slug}
+                                />
+                            </Figure>
                             </Tile>
                         </Link>
                     )}

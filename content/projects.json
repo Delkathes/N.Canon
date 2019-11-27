@@ -3,50 +3,60 @@
         "title": "Simone Duez",
         "what": "Paint artist",
         "slug": "simone-duez",
-        "image": "paint.webp",
+        "image": "/static/projects/paint.webp",
         "background": "#EF5F50",
+        "dark": false,
         "top": true,
         "bottom": false,
-        "cover": true
+        "cover": true,
+        "long": false
     },
     {
         "title": "Neo Town",
         "what": "Meeting organizer",
         "slug": "neo-town",
-        "image": "city.png",
+        "image": "/static/projects/city.png",
         "background": "#043144",
+        "dark": false,
         "top": false,
         "bottom": true,
-        "cover": true
+        "cover": true,
+        "long": false
     },
     {
         "title": "Libertia Et Conscia",
         "what": "Online static newspaper",
         "slug": "libertia-et-conscia",
-        "image": "480px-Newspaper.png",
+        "image": "/static/projects/480px-Newspaper.png",
         "background": "#DAEBF1",
+        "dark": true,
         "top": false,
         "bottom": true,
-        "cover": false
+        "cover": false,
+        "long": true
     },
     {
         "title": "To come (private)",
         "what": "Building project",
         "slug": "to-come",
-        "image": "webmain.png",
+        "image": "/static/projects/webmain.png",
         "background": "#0062af",
+        "dark": false,
         "top": true,
         "bottom": false,
-        "cover": false
+        "cover": false,
+        "long": false
     },
     {
         "title": "Personal projects",
         "what": "Templates",
         "slug": "templates",
-        "image": "webdesign.webp",
+        "image": "/static/projects/webdesign.webp",
         "background": "#E1AE2A",
+        "dark": true,
         "top": false,
         "bottom": true,
-        "cover": false
+        "cover": false,
+        "long": false
     }
 ]

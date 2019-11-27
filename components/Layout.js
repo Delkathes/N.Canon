@@ -1,11 +1,12 @@
 //? IMPORT
 //! Modules
-import {useState, useEffect, useRef} from 'react'
-import Router, {useRouter} from 'next/router'
+import {useState, useEffect} from 'react'
+import {useRouter} from 'next/router'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {useSpring, useTransition, useChain, config, animated} from 'react-spring'
+import {useTransition, config, animated} from 'react-spring'
+
 //! Content
 //! Constants
 //! Utils
@@ -35,7 +36,7 @@ const Logo = styled.div`
 const Slider = styled(animated.div)`
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 2;
     height: 100vh;
     width: 100vw;
     background-color: ${({background}) => background};
@@ -57,7 +58,7 @@ const Layout = ({children}) => {
 
 
     const sliderTrans = useTransition(goodTiming, null, {
-        config: {...config.stiff, duration: 1000},
+        config: {...config.stiff, duration: 800},
         from: {
             transform: 'translateX(-120vw)'
         },
