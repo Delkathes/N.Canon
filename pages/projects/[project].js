@@ -1,5 +1,6 @@
 //? IMPORT
 //! Modules
+import {createElement} from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -53,6 +54,13 @@ const Figure = styled.figure`
     img {
         transform-origin: bottom;
         transition-duration: 0.4s;
+        ${({cover}) => cover ? `
+            height: auto;
+            width: 100%;
+        ` : `
+            height: 100%;
+            width: auto;
+        `}
     }
 `
 const Infos = styled.div`
@@ -79,19 +87,21 @@ const Project = ({query, target: {title, what, background}}) => {
             {what}
         </Header>
         <section>
+            {createElement('h2', {id: 'lol'}, 'MDR LOL')}
+        </section>
+        <section>
             <BottomNav l={ProjectsLength}>
                 <ul>
                     {ProjectsData.map((project, i) => project.slug !== query.project &&
                         <Link key={i} href={`/projects/[project]`} as={`/projects/${project.slug}`}>
                             <Tile l={ProjectsLength} background={project.background}>
-                                <Figure>
+                            <Figure cover={project.cover}>
                                     <Infos top={!project.top} bottom={!project.bottom}>
                                         <h3>{project.title}</h3>
                                         <h4>{project.what}</h4>
                                     </Infos>
                                     <img
                                         src={`/static/projects/${project.image}`} srcSet={`/static/projects/${project.image}`}
-                                        height="100%" width="100%"
                                         alt={project.image}
                                     />
                                 </Figure>

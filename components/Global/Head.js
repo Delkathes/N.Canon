@@ -12,21 +12,16 @@ import PropTypes from 'prop-types'
 //! Components
 //! High-order-components
 //! Component : CustomHead
-const CustomHead = ({head}) => {
-    return (
-        <Head>
-            <title>{head}</title>
-            <meta charSet='utf-8' />
+const CustomHead = ({head}) =>
+    <Head>
+        <title>{head}</title>
+        <meta charSet='utf-8' />
 
-            <meta name="author" content="Nicolas 'Delkathes' Canon" />
-            <meta name="description" content="Nicolas canon - Web developer" />
-            <meta name="keywords" content="nicolas, canon, react, next, nextjs, web, web developer" />
-
-
-            {/* <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet" /> */}
-        </Head>
-    )
-}
+        <meta name="author" content="Nicolas 'Delkathes' Canon" />
+        <meta name="description" content="Nicolas canon - Web developer" />
+        <meta name="keywords" content="nicolas, canon, react, next, nextjs, web, web developer" />
+    </Head>
+    
 CustomHead.propTypes = {
     head: PropTypes.string
 }
