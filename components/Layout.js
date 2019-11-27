@@ -1,7 +1,7 @@
 //? IMPORT
 //! Modules
 import {useState, useEffect, useRef} from 'react'
-import Router from 'next/router'
+import Router, {useRouter} from 'next/router'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -33,10 +33,11 @@ const Logo = styled.div`
     }
 `
 const Slider = styled(animated.div)`
-    position: absolute;
-    z-index: 20;
+    position: fixed;
+    top: 0;
+    z-index: 1;
     height: 100vh;
-    width: 120vw;
+    width: 100vw;
     background-color: ${({background}) => background};
 `
 
@@ -48,19 +49,51 @@ import Head from './Global/Head'
 //! Component : Layout
 //? EXPORT
 const Layout = ({children}) => {
-    console.log('children.props :', children.props)
+    const router = useRouter()
+    //* useState : mount
+    const [mounted, setMount] = useState(false)
+    //* useState : goodTiming
+    const [goodTiming, setGood] = useState(false)
 
+
+    const sliderTrans = useTransition(goodTiming, null, {
+        config: {...config.stiff, duration: 1000},
+        from: {
+            transform: 'translateX(-120vw)'
+        },
+        enter: {
+            transform: 'translateX(120vw)'
+        },
+        leave: {
+            transform: 'translateX(120vw)'
+        },
+    })
+
+    // useEffect
+    useEffect(() => {
+        !mounted && setMount(true)
+        if (router.route === '/projects/[project]') {
+            mounted && setGood(true)
+            setTimeout(() => {
+                setGood(false)
+            }, 1200)
+        }
+    }, [router.asPath])
+
+    // return
     return <>
         {children.props.Page && <Head head={children.props.Page + ' | Nicolas Canon'} />}
         {children.props.SubPage && <Head head={children.props.target.title + ' | Projects | Nicolas Canon'} />}
-        {/* <Slider background={children.props.target && children.props.target.background} /> */}
         
+        {sliderTrans.map(({item, key, props}) => item && <Slider key={key} style={props} background={children.props.SubPage && children.props.target.background} />)}
+
         <Logo>
             <Link href="/" as="/">
                 <a>NC</a>
             </Link>
         </Logo>
         <NavBar />
+        
         <animated.main>{children}</animated.main>
     </>
 }
