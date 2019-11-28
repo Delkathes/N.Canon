@@ -34,12 +34,12 @@ function getOffset (el) {
 //! Actions
 //! Styles
 const Nav = styled.nav`
+    position: fixed;
+    top: 0px;
+    right: calc(8vw);
     height: 72px;
     display: flex;
     align-items: center;
-    position: absolute;
-    top: 0px;
-    right: calc(8vw);
     font-weight: bold;
     z-index: 10;
     ul {

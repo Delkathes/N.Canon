@@ -138,7 +138,7 @@ const Projects = props => {
         <Container>
             <PageName>{props.Page}</PageName>
             <Grid>
-                {ProjectsData.map(({slug, top, bottom, background, dark, title, what, image, cover, long}, i) => 
+                {ProjectsData.map(({slug, top, bottom, background, dark, title, subtitle, image, cover, long}, i) => 
                     <Link key={i} href={`/projects/[project]`} as={`/projects/${slug}`}>
                         <ElGrid top={top} bottom={bottom} background={background} long={long}>
                             <Article>
@@ -146,7 +146,7 @@ const Projects = props => {
                                 <Figure cover={cover}>
                                     <Infos top={!top} bottom={!bottom} dark={dark}>
                                         <h3>{title}</h3>
-                                        <h4>{what}</h4>
+                                        <h4>{subtitle}</h4>
                                     </Infos>
                                     <img
                                         alt={image}

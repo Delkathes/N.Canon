@@ -35,18 +35,28 @@ const Title = styled.div`
     `}
     position: absolute;
     bottom: 0;
-    left: 20vw;
+    left: 16vw;
     z-index: 1;
     h2 {
-        font-size: 0.9em;
+        font-size: 1em;
         font-weight: 400;
-        padding-bottom: 20px;
+        padding-bottom: 14px;
     }
     h3 {
-        font-size: 3em;
-        line-height: 0.8;
+        font-size: 4em;
+        line-height: 0.76;
+        text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 1em;
     }
 `
+const Description = styled.p`
+    margin: 120px auto;
+    width: 50%;
+    font-size: 2em;
+    color: rgb(230, 230, 230);
+    line-height: 1.5em;
+`
+
+
 const BottomNav = styled.nav`
     ul {
         width: 100%;
@@ -117,14 +127,17 @@ const Infos = styled.div`
 `
 
 //! Components
+const Datas = [
+    {img: '', position: '', text: ''},
+]
 //! High-order-components
 //! SubPage : Project
-const Project = ({query, target: {title, what, slug, image, background, long, dark}}) => {
+const Project = ({query, target: {slug, title, subtitle, description, image, background, dark, long, datas}}) => {
     return <>
         <Header background={background}>
             <Title dark={dark}>
                 <h2>{title}</h2>
-                <h3>{what}</h3>
+                <h3>{subtitle}</h3>
             </Title>
             <Filter background={background} />
             <img
@@ -133,14 +146,17 @@ const Project = ({query, target: {title, what, slug, image, background, long, da
             />
         </Header>
         <section>
-            <div>Content</div>
-            <div>Content</div>
-            <div>Content</div>
-            <div>Content</div>
-            <div>Content</div>
-            <div>Content</div>
-            <div>Content</div>
-            <div>Content</div>
+            <Description>
+                {description}
+            </Description>
+            <ul>
+                {datas.map((data, i) =>
+                    <li key={i}>
+                        {data.text}
+                    </li>
+                    )
+                }
+            </ul>
         </section>
         <section>
             <BottomNav l={ProjectsLength}>
@@ -152,7 +168,7 @@ const Project = ({query, target: {title, what, slug, image, background, long, da
                             <Figure cover={project.cover}>
                                 <Infos top={!project.top} bottom={!project.bottom} dark={project.dark}>
                                     <h3>{project.title}</h3>
-                                    <h4>{project.what}</h4>
+                                    <h4>{project.subtitle}</h4>
                                 </Infos>
                                 <img
                                     src={`${project.image}`} srcSet={`${project.image}`}

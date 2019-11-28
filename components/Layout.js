@@ -17,10 +17,10 @@ import {useTransition, config, animated} from 'react-spring'
 //! Styles
 const Logo = styled.picture`
     cursor: pointer;
+    position: fixed;
     z-index: 10;
     display: flex;
     align-items: flex-end;
-    position: absolute;
     top: 0px;
     left: calc(8.33333vw);
     background-color: #488dbf;
@@ -83,12 +83,14 @@ const Layout = ({children}) => {
         
         {sliderTrans.map(({item, key, props}) => item && <Slider key={key} style={props} background={children.props.SubPage && children.props.target.background} />)}
 
-        <Link href="/" as="/">
-            <Logo>
-                <img src="/static/logo.webp" srcSet="/static/logo.webp" />
-            </Logo>
-        </Link>
-        <NavBar />
+        <header>
+            <Link href="/" as="/">
+                <Logo>
+                    <img src="/static/logo.webp" srcSet="/static/logo.webp" />
+                </Logo>
+            </Link>
+            <NavBar />
+        </header>
         <main>{children}</main>
     </>
 }
