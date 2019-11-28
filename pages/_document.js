@@ -34,6 +34,10 @@ export default class MyDocument extends Document {
                 <Head>
                     <meta charSet="utf-8" />
                     <meta content="width=device-width,initial-scale=1" name="viewport" />
+
+                    {/* <link rel="shortcut icon" type="image/png" href="/favicon.png" /> */}
+                    <link rel="shortcut icon" type="ico" href="/static/Logo.ico" />
+
                     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=auto" rel="stylesheet" />
 
                     <style>{`

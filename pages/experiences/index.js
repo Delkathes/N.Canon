@@ -40,14 +40,18 @@ const PageInfo = styled(animated.div)`
     p {
         margin: 16px 0px;
     }
+    a {
+        color: rgb(26, 160, 203);
+        font-weight: bold;
+    }
     span {
         cursor: pointer;
         position: absolute;
         display: flex;
         align-items: center;
         margin: 16px 0px;
-        color: rgb(26, 160, 203);
-        font-weight: bold;
+        /* color: rgb(26, 160, 203); */
+        
         svg {
             margin-left: 6px;
         }
@@ -105,12 +109,12 @@ const Experiences = ({Page}) => {
     })
 
     return (
-        <Section >
+        <Section>
             <Container>
                 <PageInfo style={pageSpring}>
                     <h2>{Page}</h2>
-                    <p>Download a copy of my CV below.</p>
-                    <span>Download CV <Icon icon="PDF" color="rgb(26, 160, 203)" /></span>
+                    <p>Check my CV <a href="/static/CV.pdf" target="_blank">here</a> or download a copy of it below.</p>
+                    <a href="/static/CV.pdf" download><span>Download CV <Icon icon="PDF" color="rgb(26, 160, 203)" /></span></a>
                 </PageInfo>
                 <ul>
                     {trail.map((props, i) =>

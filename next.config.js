@@ -37,8 +37,6 @@ const nextConfig = {
         config.node = {
             fs: 'empty' //! Fixes npm packages that depend on `fs` module
         }
-        //* Example using webpack option
-        // config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
         //* Loader
         // config.module.rules.push(
         //     {

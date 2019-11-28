@@ -15,23 +15,18 @@ import {useTransition, config, animated} from 'react-spring'
 //! Hooks
 //! Actions
 //! Styles
-const Logo = styled.div`
+const Logo = styled.picture`
     cursor: pointer;
     z-index: 10;
-    a {
-        z-index: 10;
-        height: 70px;
-        width: 70px;
-        display: flex;
-        align-items: flex-end;
-        position: absolute;
-        top: 0px;
-        left: calc(8.33333vw);
-        background-color: #488dbf;
-        color: rgb(251, 251, 251);
-        font-weight: bold;
-        font-size: 2.6em;
-    }
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: 0px;
+    left: calc(8.33333vw);
+    background-color: #488dbf;
+    color: rgb(251, 251, 251);
+    font-weight: bold;
+    font-size: 2.6em;
 `
 const Slider = styled(animated.div)`
     position: fixed;
@@ -88,11 +83,11 @@ const Layout = ({children}) => {
         
         {sliderTrans.map(({item, key, props}) => item && <Slider key={key} style={props} background={children.props.SubPage && children.props.target.background} />)}
 
-        <Logo>
-            <Link href="/" as="/">
-                <a>NC</a>
-            </Link>
-        </Logo>
+        <Link href="/" as="/">
+            <Logo>
+                <img src="/static/logo.webp" srcSet="/static/logo.webp" />
+            </Logo>
+        </Link>
         <NavBar />
         <main>{children}</main>
     </>
