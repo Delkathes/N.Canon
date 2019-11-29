@@ -13,13 +13,21 @@
         "long": false,
         "datas": [
             {
-                "img": "",
+                "image": "/static/logo.png",
+                "alt": "alt1",
                 "position": "left",
                 "text": "Lol, du texte"
             },
             {
-                "img": "",
+                "image": "/static/logo.png",
+                "alt": "alt2",
                 "position": "right",
+                "text": "Lol, du texte"
+            },
+            {
+                "image": "/static/logo.png",
+                "alt": "alt3",
+                "position": "center",
                 "text": "Lol, du texte"
             }
         ]
@@ -38,9 +46,22 @@
         "long": false,
         "datas": [
             {
-                "img": "",
-                "position": "",
-                "text": ""
+                "image": "/static/img/",
+                "alt": "",
+                "position": "left",
+                "text": "Lol, du texte"
+            },
+            {
+                "image": "/static/img/",
+                "alt": "",
+                "position": "right",
+                "text": "Lol, du texte"
+            },
+            {
+                "image": "/static/img/",
+                "alt": "",
+                "position": "center",
+                "text": "Lol, du texte"
             }
         ]
     },
@@ -58,9 +79,22 @@
         "long": true,
         "datas": [
             {
-                "img": "",
-                "position": "",
-                "text": ""
+                "image": "/static/img/",
+                "alt": "",
+                "position": "left",
+                "text": "Lol, du texte"
+            },
+            {
+                "image": "/static/img/",
+                "alt": "",
+                "position": "right",
+                "text": "Lol, du texte"
+            },
+            {
+                "image": "/static/img/",
+                "alt": "",
+                "position": "center",
+                "text": "Lol, du texte"
             }
         ]
     },
@@ -78,9 +112,22 @@
         "long": false,
         "datas": [
             {
-                "img": "",
-                "position": "",
-                "text": ""
+                "image": "/static/img/",
+                "alt": "",
+                "position": "left",
+                "text": "Lol, du texte"
+            },
+            {
+                "image": "/static/img/",
+                "alt": "",
+                "position": "right",
+                "text": "Lol, du texte"
+            },
+            {
+                "image": "/static/img/",
+                "alt": "",
+                "position": "center",
+                "text": "Lol, du texte"
             }
         ]
     },
@@ -98,9 +145,22 @@
         "long": false,
         "datas": [
             {
-                "img": "",
-                "position": "",
-                "text": ""
+                "image": "/static/img/",
+                "alt": "",
+                "position": "left",
+                "text": "Lol, du texte"
+            },
+            {
+                "image": "/static/img/",
+                "alt": "",
+                "position": "right",
+                "text": "Lol, du texte"
+            },
+            {
+                "image": "/static/img/",
+                "alt": "",
+                "position": "center",
+                "text": "Lol, du texte"
             }
         ]
     }

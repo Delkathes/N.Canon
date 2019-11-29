@@ -7,6 +7,7 @@ import {animated, useSpring, config} from 'react-spring'
 
 //! Content
 import AboutData from '../content/about.json'
+import Link from 'next/link'
 
 //! Constants
 //! Utils
@@ -64,7 +65,9 @@ const About = () => {
                         )}
                         <p>
                             {"If that sounds like someone you’d like to collaborate with then"}
-                            <a href="/contact"><span>get in touch.</span></a>
+                            <Link href="/contact" passHref>
+                                <a><span>get in touch.</span></a>
+                            </Link>
                         </p>
                         
                     </Article>

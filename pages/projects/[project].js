@@ -16,9 +16,9 @@ const ProjectsLength = ProjectsData.length - 1
 //! Hooks
 //! Actions
 //! Styles
-const Header = styled.header`
+const Hero = styled.section`
     position: relative;
-    height: 400px;
+    height: 380px;
     width: 100%;
     background-color: ${({background}) => background};
     img {
@@ -54,6 +54,7 @@ const Description = styled.p`
     font-size: 2em;
     color: rgb(230, 230, 230);
     line-height: 1.5em;
+    font-weight: 300;
 `
 
 
@@ -125,16 +126,38 @@ const Infos = styled.div`
         font-weight: bold;
     }
 `
+const List = styled.ul`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+`
+const Li = styled.li`
+    ${({position}) => position === 'left' ? `align-self: flex-start;` : position === 'right' ? `align-self: flex-end;` : `align-self: center;`}
+    position: relative;
+    margin-bottom: 280px;
+    width: 70%;
+    div {
+        ${({position}) => position === 'left' ? `right: -5vw;` : position === 'right' ? `left: -5vw;` : ``}
+        background-color: ${({background}) => background};
+        padding: 40px 32px;
+        position: absolute;
+        bottom: -35px;
+        width: 28%;
+        box-shadow: 0px 8px 18px 0px #0008;
+        p {
+        }
+    }
+    img {
+        width: 100%;
+    }
+`
 
 //! Components
-const Datas = [
-    {img: '', position: '', text: ''},
-]
 //! High-order-components
 //! SubPage : Project
 const Project = ({query, target: {slug, title, subtitle, description, image, background, dark, long, datas}}) => {
     return <>
-        <Header background={background}>
+        <Hero background={background}>
             <Title dark={dark}>
                 <h2>{title}</h2>
                 <h3>{subtitle}</h3>
@@ -144,19 +167,23 @@ const Project = ({query, target: {slug, title, subtitle, description, image, bac
                 src={image} srcSet={image}
                 alt={slug}
             />
-        </Header>
+        </Hero>
         <section>
             <Description>
                 {description}
             </Description>
-            <ul>
+            <List>
                 {datas.map((data, i) =>
-                    <li key={i}>
-                        {data.text}
-                    </li>
+                    <Li key={i} position={data.position} background={background}>
+                        <img src={data.image} srcSet={data.image} alt={data.alt} />
+                        {data.text && <div>
+                            <h4>{data.alt}</h4>
+                            <p>{data.text}</p>
+                        </div>}
+                    </Li>
                     )
                 }
-            </ul>
+            </List>
         </section>
         <section>
             <BottomNav l={ProjectsLength}>

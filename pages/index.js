@@ -77,10 +77,17 @@ const IconLink = styled.div`
     margin-left: 8px;
 `
 
-const ProfilePic = styled.div`
+const ProfilePic = styled.figure`
+    margin: 0;
+    padding: 0;
     position: absolute;
     bottom: 0px;
-    right: 0px;
+    right: -6vw;
+    display: flex;
+    img {
+        max-height: 30vw;
+        min-height: 230px;
+    }
 `
 //! Components
 import Icon from "../components/Global/Icon"
@@ -122,7 +129,7 @@ const Home = () => {
             </Nav>
         </Container>
         <ProfilePic>
-            <img src="/static/img/hacker.png" srcSet="/static/img/hacker.png" />
+            <img src="/static/img/hacker.png" srcSet="/static/img/hacker.png" alt="profile-pic" />
         </ProfilePic>
     </Section>
 }

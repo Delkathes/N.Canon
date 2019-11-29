@@ -86,7 +86,7 @@ const Layout = ({children}) => {
         <header>
             <Link href="/" as="/">
                 <Logo>
-                    <img src="/static/logo.webp" srcSet="/static/logo.webp" />
+                    <img src="/static/logo.png" srcSet="/static/logo.png" />
                 </Logo>
             </Link>
             <NavBar />

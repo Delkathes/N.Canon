@@ -7,12 +7,7 @@ import {animated, useSpring, useTrail} from 'react-spring'
 
 //! Content
 //! Constants
-const ExpData = [
-    {title: 'Self teaching', from: '01/18', to: 'Now', what: 'Learning web development from online sources. Specializing on React and late NextJS.'},
-    {title: 'Real estate studies', from: '09-14', to: '08-16', what: 'Real estate studies and work in social real estates'},
-    {title: 'Business school', from: '09-13', to: '07-14', what: 'Business bachelor school'},
-    {title: 'Bac S', from: '07-12', to: '07-12', what: 'Sciences Baccalauréat in Lycée Buffon'},
-]
+import ExpData from '../../content/experiences.json'
 const ExpLength = ExpData.length
 
 //! Utils
@@ -113,7 +108,7 @@ const Experiences = ({Page}) => {
             <Container>
                 <PageInfo style={pageSpring}>
                     <h2>{Page}</h2>
-                    <p>Check my CV <a href="/static/CV.pdf" target="_blank">here</a> or download a copy of it below.</p>
+                    <p>Check <a href="/static/CV.pdf" target="_blank">my CV</a> or download a copy of it below.</p>
                     <a href="/static/CV.pdf" download><span>Download CV <Icon icon="PDF" color="rgb(26, 160, 203)" /></span></a>
                 </PageInfo>
                 <ul>

@@ -36,15 +36,15 @@ function getOffset (el) {
 const Nav = styled.nav`
     position: fixed;
     top: 0px;
-    right: calc(8vw);
-    height: 72px;
+    right: calc(7.4vw);
+    height: 70px;
     display: flex;
     align-items: center;
     font-weight: bold;
     z-index: 10;
     ul {
         display: flex;
-
+        height: 100%;
     }
 `
 const NavLink = styled.li`
@@ -53,20 +53,20 @@ const NavLink = styled.li`
     align-items: center;
     position: relative;
     transition-duration: 0.3s;
-`
-const CsLink = styled.a`
-    cursor: pointer;
     margin-right: 25px;
     margin-left: 25px;
-    color: ${({match}) => match ? 'rgb(26, 160, 203)' : 'rgb(251, 251, 251)'};
+    a {
+        cursor: pointer;
+        color: ${({match}) => match ? 'rgb(26, 160, 203)' : 'rgb(251, 251, 251)'};
+    }
 `
+
 const UnderBar = styled.span`
     position: fixed;
     top: 60px;
     left: ${({position}) => position}px;
     background-color: rgb(26, 160, 203);
     height: 2px;
-    /* opacity: ${({hid}) => hid ? 0 : 1}; */
     width: ${({width}) => width}px;
     transform: translateX(0px);
     transition: all 0.666s cubic-bezier(0.06, 0.975, 0.195, 0.985) 0s;
@@ -86,44 +86,42 @@ const NavBar = () => {
 
 
     function handleHover (e) {
-        const target = e.target,
-            elWidth = target.offsetWidth,
-            position = getOffset(target).left
+        const target = e.target, elWidth = target.offsetWidth, position = getOffset(target).left
         setWidth(elWidth)
         setPosition(position)
     }
     return <Nav onMouseLeave={() => setPosition(2000)}>
         <ul>
             {NavigationLinks.map((link, i) => 
-                <NavLink key={i}>
+                <NavLink key={i} onMouseOver={(e) => handleHover(e)} match={router.route === link.href}>
                     <Link href={`${link.href}`} passHref>
-                        <CsLink onMouseOver={(e) => handleHover(e)} match={router.route === link.href}>
+                        <a>
                             {link.clean}
-                        </CsLink>
+                        </a>
                     </Link>
                 </NavLink>
             )}
             <NavLink>
-                <CsLink
+                <a
                     onMouseOver={(e) => handleHover(e)}
                     href="https://github.com/Delkathes"
                     target="_blank"
                     aria-label="GitHub"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                 >
                     <Icon icon="GitHub" color="rgb(251, 251, 251)" />
-                </CsLink>
+                </a>
             </NavLink>
             <NavLink>
-                <CsLink
+                <a
                     onMouseOver={(e) => handleHover(e)}
                     href="https://www.linkedin.com/in/nicolas-canon-613296163/"
                     target="_blank"
                     aria-label="LinkedIn"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                 >
                     <Icon icon="LinkedIn" color="rgb(251, 251, 251)" />
-                </CsLink>
+                </a>
             </NavLink>
         </ul>
         <UnderBar width={hoveredWidth} position={hoveredPosition} hid={hoveredPosition === 2000} />
