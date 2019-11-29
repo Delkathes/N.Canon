@@ -30,8 +30,8 @@ const Hero = styled.section`
     }
 `
 const Title = styled.div`
-    ${({dark}) => dark && `
-        color: #202020;
+    ${({dark, theme: {colors}}) => dark && `
+        color: ${colors.reverse};
     `}
     position: absolute;
     bottom: 0;
@@ -52,11 +52,38 @@ const Description = styled.p`
     margin: 120px auto;
     width: 50%;
     font-size: 2em;
-    color: rgb(230, 230, 230);
+    color: ${({theme: {colors}}) => colors.secondary};
     line-height: 1.5em;
     font-weight: 300;
 `
-
+const List = styled.ul`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+`
+const Li = styled.li`
+    ${({position}) => position === 'left' ? `align-self: flex-start;` : position === 'right' ? `align-self: flex-end;` : `align-self: center;`}
+    position: relative;
+    margin-bottom: 280px;
+    width: 70%;
+    ${({dark, theme: {colors}}) => dark && `
+        color: ${colors.reverse};
+    `}
+    div {
+        position: absolute;
+        bottom: -45px;
+        ${({position}) => position === 'left' ? `right: -4vw;` : position === 'right' ? `left: -4vw;` : ``}
+        width: 28%;
+        padding: 40px 32px;
+        background-color: ${({background}) => background};
+        box-shadow: 0px 8px 18px 0px #0008;
+        p {
+        }
+    }
+    img {
+        width: 100%;
+    }
+`
 
 const BottomNav = styled.nav`
     ul {
@@ -114,8 +141,8 @@ const Infos = styled.div`
     padding: 30px;
     position: absolute;
     z-index: 1;
-    ${({dark}) => dark && `
-        color: #202020;
+    ${({dark, theme: {colors}}) => dark && `
+        color: ${colors.reverse};
     `}
     h3 {
 
@@ -124,31 +151,6 @@ const Infos = styled.div`
         line-height: 1.2em;
         font-size: 2.6em;
         font-weight: bold;
-    }
-`
-const List = styled.ul`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-`
-const Li = styled.li`
-    ${({position}) => position === 'left' ? `align-self: flex-start;` : position === 'right' ? `align-self: flex-end;` : `align-self: center;`}
-    position: relative;
-    margin-bottom: 280px;
-    width: 70%;
-    div {
-        ${({position}) => position === 'left' ? `right: -5vw;` : position === 'right' ? `left: -5vw;` : ``}
-        background-color: ${({background}) => background};
-        padding: 40px 32px;
-        position: absolute;
-        bottom: -35px;
-        width: 28%;
-        box-shadow: 0px 8px 18px 0px #0008;
-        p {
-        }
-    }
-    img {
-        width: 100%;
     }
 `
 
@@ -174,7 +176,7 @@ const Project = ({query, target: {slug, title, subtitle, description, image, bac
             </Description>
             <List>
                 {datas.map((data, i) =>
-                    <Li key={i} position={data.position} background={background}>
+                    <Li key={i} position={data.position} background={background} dark={dark}>
                         <img src={data.image} srcSet={data.image} alt={data.alt} />
                         {data.text && <div>
                             <h4>{data.alt}</h4>

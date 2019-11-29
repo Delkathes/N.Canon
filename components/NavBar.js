@@ -79,7 +79,8 @@ import Icon from './Global/Icon'
 //! Component : NavBar
 //? EXPORT
 const NavBar = () => {
-    const router = useRouter()
+    const {route} = useRouter()
+    let shortRoute = route.slice(0, 3)
     const [hoveredWidth, setWidth] = useState(0)
     const [hoveredPosition, setPosition] = useState(2000)
 
@@ -93,7 +94,7 @@ const NavBar = () => {
     return <Nav onMouseLeave={() => setPosition(2000)}>
         <ul>
             {NavigationLinks.map((link, i) => 
-                <NavLink key={i} onMouseOver={(e) => handleHover(e)} match={router.route === link.href}>
+                <NavLink key={i} onMouseOver={(e) => handleHover(e)} match={shortRoute === link.href.slice(0, 3)}>
                     <Link href={`${link.href}`} passHref>
                         <a>
                             {link.clean}

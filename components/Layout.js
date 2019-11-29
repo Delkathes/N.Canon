@@ -24,7 +24,6 @@ const Logo = styled.picture`
     top: 0px;
     left: calc(8.33333vw);
     background-color: #488dbf;
-    color: rgb(251, 251, 251);
     font-weight: bold;
     font-size: 2.6em;
 `

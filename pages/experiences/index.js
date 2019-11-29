@@ -36,7 +36,7 @@ const PageInfo = styled(animated.div)`
         margin: 16px 0px;
     }
     a {
-        color: rgb(26, 160, 203);
+        color: ${({theme: {colors}}) => colors.highlight};
         font-weight: bold;
     }
     span {
@@ -45,7 +45,6 @@ const PageInfo = styled(animated.div)`
         display: flex;
         align-items: center;
         margin: 16px 0px;
-        /* color: rgb(26, 160, 203); */
         
         svg {
             margin-left: 6px;
@@ -60,7 +59,8 @@ const Article = styled.article`
         
     }
     div {
-        color: #aaa;
+        color: ${({theme: {colors}}) => colors.secondary};
+        font-weight: 300;
     }
     p {
 

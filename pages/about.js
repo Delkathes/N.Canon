@@ -32,6 +32,10 @@ const Article = styled.article`
         line-height: 1.3em;
         margin: 20px 0px;
     }
+    a {
+        color: ${({theme: {colors}}) => colors.highlight};
+        font-weight: bold;
+    }
 `
 const PageName = styled.div`
     font-weight: bold;
@@ -66,7 +70,7 @@ const About = () => {
                         <p>
                             {"If that sounds like someone you’d like to collaborate with then"}
                             <Link href="/contact" passHref>
-                                <a><span>get in touch.</span></a>
+                                <a> get in touch.</a>
                             </Link>
                         </p>
                         

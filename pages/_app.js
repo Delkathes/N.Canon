@@ -9,7 +9,7 @@ import {ThemeProvider} from 'styled-components'
 import Layout from '../components/Layout'
 
 //! Styles
-// import Theme from 'styles/Theme'
+import Theme from '../styles/Theme'
 
 //! Providers
 // import {GlobalProvider} from 'context/store'
@@ -18,7 +18,7 @@ import Layout from '../components/Layout'
 class MyApp extends App {
     render () {
         const {Component, pageProps} = this.props
-        return <ThemeProvider theme={{}}>
+        return <ThemeProvider theme={Theme}>
             <Layout>
                 <Component {...pageProps} />
             </Layout>

@@ -65,7 +65,6 @@ const Figure = styled.figure`
     left: 0px;
     margin: 0px;
     padding: 0px;
-    /* display: flex; */
     height: 100%;
     width: 100%;
     z-index: 0;
@@ -95,7 +94,7 @@ const Read = styled.div`
     left: ${({left}) => left && '60px'};
     padding: 0px 30px;
     background-color: rgb(34, 34, 34);
-    color: rgb(251, 251, 251);
+    color: ${({theme: {colors}}) => colors.primary};
     transition-duration: 0.3s;
 `
 const Infos = styled.div`
@@ -104,8 +103,8 @@ const Infos = styled.div`
     position: absolute;
     top: ${({top}) => top && '0px'};
     bottom: ${({bottom}) => bottom && '0px'};
-    ${({dark}) => dark && `
-        color: #202020;
+    ${({dark, theme: {colors}}) => dark && `
+        color: ${colors.reverse};
     `}
     h3 {
 

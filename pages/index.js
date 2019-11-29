@@ -59,7 +59,7 @@ const NavLink = styled.li`
     cursor: pointer;
     &:hover {
         span {
-            color: rgb(26, 160, 203);
+            color: ${({theme: {colors}}) => colors.highlight};
             transform: translateX(-6px);
         }
         div {
