@@ -56,12 +56,15 @@ const PageInfoExt = styled(PageInfo)`
         color: ${({theme: {colors}}) => colors.highlight};
         font-weight: bold;
     }
+    #CV-download {
+        display: flex;
+        align-items: center;
+        margin: 16px 0px;
+    }
     span {
         cursor: pointer;
         display: flex;
         align-items: center;
-        margin: 16px 0px;
-        
         svg {
             margin-left: 6px;
         }
@@ -124,14 +127,9 @@ const Experiences = ({Page}) => {
             <Container>
                 <PageInfoExt style={pageSpring}>
                     <PageName>{Page}</PageName>
-                    <p>Check my CV <a href="/static/CV.pdf" target="_blank">here</a> or download a copy of it below.</p>
-                    <a href="/static/CV.pdf" download><span>Download CV<Icon icon="PDF" color="rgb(26, 160, 203)" /></span></a>
+                    <p>Check my CV <a aria-label="CV-check" href="/static/CV.pdf" target="_blank" rel="noopener noreferrer">here</a> or download a copy of it below.</p>
+                    <a id="CV-download" aria-label="CV-download" href="/static/CV.pdf" download>Download CV<span><Icon icon="PDF" color="rgb(26, 160, 203)" /></span></a>
                 </PageInfoExt>
-                {/* <PageInfo style={pageSpring}>
-                    <h2>{Page}</h2>
-                    <p>Check <a href="/static/CV.pdf" target="_blank">my CV</a> or download a copy of it below.</p>
-                    <a href="/static/CV.pdf" download>Download CV<Icon icon="PDF" color="rgb(26, 160, 203)" /></a>
-                </PageInfo> */}
                 <ul>
                     {trail.map((props, i) =>
                         <animated.li key={i} style={props}>
