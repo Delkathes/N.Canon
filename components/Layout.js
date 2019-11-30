@@ -5,7 +5,7 @@ import {useRouter} from 'next/router'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {useTransition, config, animated} from 'react-spring'
+import {useSpring, useTransition, config, animated} from 'react-spring'
 
 //! Content
 //! Constants
@@ -15,7 +15,7 @@ import {useTransition, config, animated} from 'react-spring'
 //! Hooks
 //! Actions
 //! Styles
-const Logo = styled.figure`
+const Logo = styled(animated.figure)`
     cursor: pointer;
     margin: 0;
     padding: 0;
@@ -25,6 +25,8 @@ const Logo = styled.figure`
     top: 0px;
     left: calc(8.33333vw);
     background-color: #488dbf;
+    /* transition-duration: 0.8s;
+    transform: translateY(${({open}) => open ? '120vh' : '0vh'}); */
     img {
         @media(${({theme}) => theme.mediaQueries.mobileS}) {
             height: 50px;
@@ -36,6 +38,10 @@ const Logo = styled.figure`
         }
     }
 `
+const Main = styled(animated.main)`
+    /* transition-duration: 0.8s;
+    transform: translateY(${({open}) => open ? '100vh' : '0vh'}); */
+`
 const Slider = styled(animated.div)`
     position: fixed;
     top: 0;
@@ -44,11 +50,32 @@ const Slider = styled(animated.div)`
     width: 100vw;
     background-color: ${({background}) => background};
 `
+const MenuButton = styled.div`
+    z-index: 3;
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    height: 36px;
+    width: 36px;
+    align-items: center;
+    justify-content: center;
+    svg {
+        height: 65%;
+        width: 65%;
+    }
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        display: flex;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        display: none;
+    }
+`
 
 //! Components
 import NavBar from './NavBar'
 import MobileNav from './MobileNav'
 import Head from './Global/Head'
+import Icon from './Global/Icon'
 
 //! High-order-components
 //! Component : Layout
@@ -74,6 +101,17 @@ const Layout = ({children}) => {
             transform: 'translateX(120vw)'
         },
     })
+    
+    const springMain = useSpring({
+        to: {transform: open ? 'translateY(100vh)' : 'translateY(0vh)'},
+        from: {transform: 'translateY(0vh)'}
+    })
+    const springLogo = useSpring({
+        config: config.default,
+        to: {transform: open ? 'translateY(120vh)' : 'translateY(0vh)'},
+        from: {transform: 'translateY(0vh)'}
+    })
+
 
     // useEffect
     useEffect(() => {
@@ -86,7 +124,6 @@ const Layout = ({children}) => {
         }
     }, [router.asPath])
 
-    // return
     return <>
         {children.props.Page && <Head head={children.props.Page + ' | Nicolas Canon'} />}
         {children.props.SubPage && <Head head={children.props.target.title + ' | Projects | Nicolas Canon'} />}
@@ -95,14 +132,23 @@ const Layout = ({children}) => {
 
         <header>
             <Link href="/" as="/">
-                <Logo>
+                <Logo open={open} style={springLogo}>
                     <img src="/static/Logo.webp" srcSet="/static/Logo.webp" alt="Logo" />
                 </Logo>
             </Link>
             <NavBar />
             <MobileNav open={open} setOpen={setOpen} />
+            <MenuButton onClick={() => setOpen(!open)}>
+                <Icon icon={open ? 'Cross' : 'Bars'} color="rgb(251, 251, 251)" />
+            </MenuButton>
         </header>
-        <main>{children}</main>
+        <Main open={open} style={springMain}>{children}</Main>
+        {/* <style global jsx>{`
+            #__next {
+                transition-duration: 0.8s;
+                transform: translateY(${open ? '100vh' : '0vh'});
+            }
+            `}</style> */}
     </>
 }
 

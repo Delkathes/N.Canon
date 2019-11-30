@@ -54,9 +54,6 @@ export default class MyDocument extends Document {
                             margin: 0;
                             padding: 0;
                         }
-                        main {
-                            overflow-x: hidden;
-                        }
                         figure {
                             margin: 0;
                             padding: 0;

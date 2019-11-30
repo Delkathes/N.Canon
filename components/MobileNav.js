@@ -5,10 +5,12 @@ import {useRouter} from 'next/router'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import {useTransition, config, animated} from 'react-spring'
 
 //! Content
 //! Constants
 const NavigationLinks = [
+    {clean: 'Home', href: '/'},
     {clean: 'Projects', href: '/projects'},
     {clean: 'About', href: '/about'},
     {clean: 'Contact', href: '/contact'},
@@ -21,14 +23,22 @@ const NavigationLinks = [
 //! Hooks
 //! Actions
 //! Styles
-const Nav = styled.nav`
+const Nav = styled(animated.nav)`
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
         z-index: 2;
-        position: absolute;
+        position: fixed;
         top: 0px;
+        height: 100%;
+        width: 100%;
         display: block;
+        background-color: ${({theme: {colors}}) => colors.highlight};
+        /* transition-duration: 0.8s;
+        transform: translateY(${({open}) => open ? '0vh' : '-100vh'}); */
         ul {
-            display: ${({open}) => !open && 'none'};
+            position: relative;
+            width: calc(83.3333vw);
+            height: 50%;
+            text-align: right;
         }
     }
     @media(${({theme}) => theme.mediaQueries.tablet}) {
@@ -36,19 +46,11 @@ const Nav = styled.nav`
     }
 `
 const NavLink = styled.li`
-    
-`
-const MenuButton = styled.div`
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    height: 36px;
-    width: 36px;
-    align-items: center;
-    justify-content: center;
-    svg {
-        height: 65%;
-        width: 65%;
+    padding-bottom: 20px;
+    a {
+        font-weight: 700;
+        cursor: pointer;
+        color: ${({match, theme}) => match ? theme.colors.reverse : theme.colors.primary};
     }
 `
 //! Components
@@ -59,13 +61,23 @@ import Icon from './Global/Icon'
 //? EXPORT
 const MobileNav = ({open, setOpen}) => {
     const {route} = useRouter()
-    //* useState : open
     let shortRoute = route.slice(0, 3)
-    return(
-        <Nav open={open}>
-            <MenuButton onClick={()=>setOpen(!open)}>
-                <Icon icon={open ? 'Cross' : 'Bars'} color="rgb(251, 251, 251)" />
-            </MenuButton>
+
+    const menuTrans = useTransition(open, null, {
+        config: config.default,
+        from: {
+            transform: 'translateY(-100vh)'
+        },
+        enter: {
+            transform: 'translateY(0vh)'
+        },
+        leave: {
+            transform: 'translateY(-100vh)'
+        },
+    })
+
+    return menuTrans.map(({item, props, key}) => item && 
+        <Nav open={open} key={key} style={props}>
             <ul>
                 {NavigationLinks.map((link, i) =>
                     <NavLink key={i}  match={shortRoute === link.href.slice(0, 3)}>
@@ -76,6 +88,8 @@ const MobileNav = ({open, setOpen}) => {
                         </Link>
                     </NavLink>
                 )}
+            </ul>
+            <ul>
                 <NavLink>
                     <a
                         href="https://github.com/Delkathes"
@@ -111,3 +125,40 @@ MobileNav.propTypes = {
     setOpen: PropTypes.func
 }
 export default MobileNav
+
+
+// const lol = <Nav open={open} key={key} style={props}>
+//     <ul>
+//         {NavigationLinks.map((link, i) =>
+//             <NavLink key={i} match={shortRoute === link.href.slice(0, 3)}>
+//                 <Link href={`${link.href}`} passHref>
+//                     <a onClick={() => setOpen(false)}>
+//                         {link.clean}
+//                     </a>
+//                 </Link>
+//             </NavLink>
+//         )}
+//     </ul>
+//     <ul>
+//         <NavLink>
+//             <a
+//                 href="https://github.com/Delkathes"
+//                 target="_blank"
+//                 aria-label="GitHub"
+//                 rel="noopener noreferrer"
+//             >
+//                 <Icon icon="GitHub" color="rgb(251, 251, 251)" />
+//             </a>
+//         </NavLink>
+//         <NavLink>
+//             <a
+//                 href="https://www.linkedin.com/in/nicolas-canon-613296163/"
+//                 target="_blank"
+//                 aria-label="LinkedIn"
+//                 rel="noopener noreferrer"
+//             >
+//                 <Icon icon="LinkedIn" color="rgb(251, 251, 251)" />
+//             </a>
+//         </NavLink>
+//     </ul>
+// </Nav>

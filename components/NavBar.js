@@ -62,7 +62,7 @@ const NavLink = styled.li`
     margin-left: 25px;
     a {
         cursor: pointer;
-        color: ${({match}) => match ? 'rgb(26, 160, 203)' : 'rgb(251, 251, 251)'};
+        color: ${({match, theme}) => match ? theme.colors.highlight : theme.colors.primary};
     }
 `
 
@@ -70,7 +70,7 @@ const UnderBar = styled.span`
     position: fixed;
     top: 60px;
     left: ${({position}) => position}px;
-    background-color: rgb(26, 160, 203);
+    background-color: ${({theme: {colors}}) => colors.highlight};
     height: 2px;
     width: ${({width}) => width}px;
     transform: translateX(0px);
