@@ -1,13 +1,14 @@
 //? IMPORT
 //! Modules
 // import {useState, useEffect} from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import {animated, useSpring, config} from 'react-spring'
 
 //! Content
 import AboutData from '../content/about.json'
-import Link from 'next/link'
+const AboutLength = AboutData.length
 
 //! Constants
 //! Utils
@@ -16,6 +17,7 @@ import Link from 'next/link'
 //! Hooks
 //! Actions
 //! Styles
+import {PageInfo, PageName} from '../styles/Theme'
 const Section = styled(animated.section)`
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
         width: 84%;
@@ -41,19 +43,19 @@ const Container = styled.div`
         grid-column-gap: 10px;
     }
 `
+
 const Article = styled.article`
-    p {
-        line-height: 1.3em;
-        margin: 20px 0px;
+    #contact {
+        margin-top: 30px;
     }
     a {
         color: ${({theme: {colors}}) => colors.highlight};
         font-weight: bold;
     }
 `
-const PageName = styled.div`
-    font-weight: bold;
-    font-size: 3em;
+const P = styled.p`
+    line-height: 1.3em;
+    margin: ${({i, l}) => i === 0 ? '0px 0px 20px' : i === l ? '20px 0px 0px' : '20px 0px' };
 `
 
 //! Components
@@ -76,12 +78,14 @@ const About = () => {
         <>
             <Section style={pageSpring}>
                 <Container>
-                    <PageName>About me</PageName>
+                    <PageInfo>
+                        <PageName>About me</PageName>
+                    </PageInfo>
                     <Article>
                         {AboutData.map((data, i) =>
-                            <p key={i}>{data}</p>
+                            <P key={i} i={i} l={AboutLength - 1}>{data}</P>
                         )}
-                        <p>
+                        <p id="contact">
                             {"If that sounds like someone you’d like to collaborate with then"}
                             <Link href="/contact" passHref>
                                 <a> get in touch.</a>

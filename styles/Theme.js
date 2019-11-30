@@ -26,23 +26,11 @@ const Theme = {
         laptop: `min-width: 1024px`,
         laptopL: `min-width: 1440px`,
         desktop: `min-width: 1600px`
-    },
-    rules: {
-        noMarPad: `
-            margin: 0;
-            padding: 0;
-        `,
-        flexCenter: `
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        `,
-        customDim: (height = 'auto', width = 'auto') => ({
-            height: height,
-            width: width
-        })
     }
 }
+
+//? EXPORTS
+//! Devices
 export const device = {
     mobileS: Theme.mediaQueries.mobileS,
     mobileM: Theme.mediaQueries.mobileM,
@@ -53,45 +41,23 @@ export const device = {
     desktop: Theme.mediaQueries.desktop,
     desktopL: Theme.mediaQueries.desktop
 }
-//? EXPORTS
+//! PageName Component
+export const PageInfo = styled(animated.div)`
+    @media(${device.mobileS}) {
+        margin-bottom: 70px;
+    }
+    @media(${device.tablet}) {
+        margin-bottom: 0;
+    }
+`
+export const PageName = styled.div`
+    font-weight: bold;
+    @media(${device.mobileS}) {
+        font-size: 2em;
+    }
+    @media(${device.tablet}) {
+        font-size: 3em;
+    }
+`
 //! Theme
 export default Theme
-
-
-export const Container = styled(animated.div)`
-    display: ${({display}) => display};
-    flex-direction: ${({direction}) => direction};
-    justify-content: ${({justify}) => justify};
-    align-items: ${({alignement}) => alignement};
-    grid-template-columns: ${({columns}) => columns};
-    grid-template-rows: ${({rows}) => rows};
-
-    position: ${({position}) => position};
-    top: ${({top}) => top};
-    bottom: ${({bottom}) => bottom};
-    right: ${({right}) => right};
-    left: ${({left}) => left};
-    z-index: ${({superposition}) => superposition};
-    overflow: ${({overflow}) => overflow};
-
-    height: ${({height}) => height};
-    width: ${({width}) => width};
-
-
-    margin: ${({margin}) => margin};
-    padding: ${({padding}) => padding};
-
-    background: ${({background}) => background};
-    box-shadow: ${({shadow}) => shadow};
-
-    border-radius: ${({radius}) => radius};
-    border-left: ${({borderleft}) => borderleft};
-    border-top: ${({bordertop}) => bordertop};
-    border-right: ${({borderright}) => borderright};
-    border-bottom: ${({borderbottom}) => borderbottom};
-
-    font-family: ${({family}) => family};
-
-    opacity: ${({opacity}) => opacity};
-    transition-duration: ${({duration}) => duration};
-`

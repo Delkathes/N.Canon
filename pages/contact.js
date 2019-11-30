@@ -12,8 +12,8 @@ import {animated, useSpring, config} from 'react-spring'
 //! Hooks
 //! Actions
 //! Styles
+import {PageInfo, PageName} from '../styles/Theme'
 const Section = styled(animated.section)`
-    
     margin: 0px auto;
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
         width: 84%;
@@ -37,10 +37,6 @@ const Container = styled.div`
         grid-template-columns: 50% auto;
         grid-column-gap: 10px;
     }
-`
-const PageName = styled.div`
-    font-weight: bold;
-    font-size: 3em;
 `
 const Form = styled.form`
     display: block;
@@ -109,10 +105,10 @@ const Contact = props => {
     return (
         <Section style={pageSpring}>
             <Container>
-                <div>
+                <PageInfo>
                     <PageName>{props.Page}</PageName>
                     <p>Leave a message and say hello!</p>
-                </div>
+                </PageInfo>
                 <Form id="contact-form">
                     <Input>
                         <legend>

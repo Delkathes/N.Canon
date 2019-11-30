@@ -16,6 +16,7 @@ const ExpLength = ExpData.length
 //! Hooks
 //! Actions
 //! Styles
+import {PageInfo, PageName} from '../../styles/Theme'
 const Section = styled(animated.section)`
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
         width: 84%;
@@ -39,12 +40,14 @@ const Container = styled.div`
         display: grid;
         grid-template-columns: 50% auto;
         grid-column-gap: 10px;
-    }   
+    }
 `
-const PageInfo = styled(animated.div)`
-    h2 {
-        font-weight: bold;
-        font-size: 3em;
+const PageInfoExt = styled(PageInfo)`
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        margin-bottom: 70px;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        margin-bottom: 0;
     }
     p {
         margin: 16px 0px;
@@ -55,7 +58,6 @@ const PageInfo = styled(animated.div)`
     }
     span {
         cursor: pointer;
-        position: absolute;
         display: flex;
         align-items: center;
         margin: 16px 0px;
@@ -120,11 +122,16 @@ const Experiences = ({Page}) => {
     return (
         <Section>
             <Container>
-                <PageInfo style={pageSpring}>
+                <PageInfoExt style={pageSpring}>
+                    <PageName>{Page}</PageName>
+                    <p>Check my CV <a href="/static/CV.pdf" target="_blank">here</a> or download a copy of it below.</p>
+                    <a href="/static/CV.pdf" download><span>Download CV<Icon icon="PDF" color="rgb(26, 160, 203)" /></span></a>
+                </PageInfoExt>
+                {/* <PageInfo style={pageSpring}>
                     <h2>{Page}</h2>
                     <p>Check <a href="/static/CV.pdf" target="_blank">my CV</a> or download a copy of it below.</p>
                     <a href="/static/CV.pdf" download>Download CV<Icon icon="PDF" color="rgb(26, 160, 203)" /></a>
-                </PageInfo>
+                </PageInfo> */}
                 <ul>
                     {trail.map((props, i) =>
                         <animated.li key={i} style={props}>
