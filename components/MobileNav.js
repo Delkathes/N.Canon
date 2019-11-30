@@ -28,9 +28,11 @@ const Nav = styled(animated.nav)`
         z-index: 2;
         position: fixed;
         top: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         height: 100%;
         width: 100%;
-        display: block;
         background-color: ${({theme: {colors}}) => colors.highlight};
         /* transition-duration: 0.8s;
         transform: translateY(${({open}) => open ? '0vh' : '-100vh'}); */

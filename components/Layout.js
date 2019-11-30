@@ -39,6 +39,7 @@ const Logo = styled(animated.figure)`
     }
 `
 const Main = styled(animated.main)`
+    overflow-x: hidden;
     /* transition-duration: 0.8s;
     transform: translateY(${({open}) => open ? '100vh' : '0vh'}); */
 `

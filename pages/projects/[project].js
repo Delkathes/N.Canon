@@ -28,22 +28,33 @@ const Hero = styled.section`
     }
 `
 const Title = styled.div`
+    z-index: 1;
     ${({dark, theme: {colors}}) => dark && `
         color: ${colors.reverse};
         `}
     position: absolute;
     bottom: 0;
-    left: 16vw;
-    z-index: 1;
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        left: 8vw;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        left: 16vw;
+    }
     h2 {
         font-size: 1em;
         font-weight: 400;
         padding-bottom: 14px;
     }
     h3 {
-        font-size: 4em;
+        
         line-height: 0.76;
         text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 1em;
+        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+            font-size: 3em;
+        }
+        @media(${({theme}) => theme.mediaQueries.tablet}) {
+            font-size: 4em;
+        }
     }
 `
 const Filter = styled.div`

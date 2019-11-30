@@ -44,7 +44,12 @@ export const device = {
 //! PageName Component
 export const Container = styled.div`
     width: 100%;
-    margin-top: 190px;
+    @media(${device.mobileS}) {
+        margin-top: 190px;
+    }
+    @media(${device.tablet}) {
+        margin-top: 32vh;
+    }
 `
 export const PageInfo = styled(animated.div)`
     @media(${device.mobileS}) {
