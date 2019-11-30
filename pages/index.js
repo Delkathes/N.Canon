@@ -105,11 +105,14 @@ const ProfilePic = styled.figure`
     position: fixed;
     bottom: 0px;
     display: flex;
+    overflow: hidden;
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
-        right: -16vw;
+        right: -8vw;
+        width: 94%;
     }
     @media(${({theme}) => theme.mediaQueries.tablet}) {
         right: -6vw;
+        width: auto;
     }
     img {
         
