@@ -56,11 +56,8 @@ const Presentation = styled.div`
             /* width: 82%; */
             font-size: 2em;
         }
-        @media(${({theme}) => theme.mediaQueries.tablet}) {
-            width: 78%;
-        }
         @media(${({theme}) => theme.mediaQueries.laptop}) {
-            width: 66%;
+            width: 100%;
             font-size: 3em;
         }
     }
@@ -117,8 +114,8 @@ const ProfilePic = styled.figure`
     img {
         
         @media(${({theme}) => theme.mediaQueries.mobileS}) {
-            max-height: 22vw;
-            min-height: 230px;
+            max-height: 20vw;
+            min-height: 210px;
         }
         @media(${({theme}) => theme.mediaQueries.tablet}) {
             max-height: 30vw;
@@ -147,7 +144,7 @@ const Home = () => {
     return <Section style={pageSpring}>
         <Container>
             <Presentation>
-                <h2>Hey, my name is Nicolas.</h2>
+                <h2>{"Hey, I'm Nicolas."}</h2>
                 <p>{" I'm a self taught web developer based in Paris, FR."}</p>
             </Presentation>
             <Nav>

@@ -42,6 +42,10 @@ export const device = {
     desktopL: Theme.mediaQueries.desktop
 }
 //! PageName Component
+export const Container = styled.div`
+    width: 100%;
+    margin-top: 190px;
+`
 export const PageInfo = styled(animated.div)`
     @media(${device.mobileS}) {
         margin-bottom: 70px;
