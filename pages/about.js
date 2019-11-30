@@ -17,7 +17,7 @@ const AboutLength = AboutData.length
 //! Hooks
 //! Actions
 //! Styles
-import {PageInfo, PageName} from '../styles/Theme'
+import {Container as Div, PageInfo, PageName} from '../styles/Theme'
 const Section = styled(animated.section)`
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
         width: 84%;
@@ -30,9 +30,7 @@ const Section = styled(animated.section)`
     }
     margin: 0px auto;
 `
-const Container = styled.div`
-    width: 100%;
-    margin-top: 30vh;
+const Container = styled(Div)`
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
         display: flex;
         flex-direction: column;
