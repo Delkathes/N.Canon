@@ -70,6 +70,7 @@ const Presentation = styled.div`
     }
 `
 const Nav = styled.nav`
+    z-index: 1;
     position: relative;
     height: 140px;
     ul {
@@ -77,7 +78,6 @@ const Nav = styled.nav`
     }
 `
 const NavLink = styled.li`
-    z-index: 1;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
