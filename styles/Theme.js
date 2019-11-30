@@ -3,7 +3,7 @@ import {animated} from 'react-spring'
 
 const Theme = {
     colors: {
-        primary: 'rgb(261,261, 261)',
+        primary: 'rgb(251,251, 251)',
         secondary: 'rgb(230, 230, 230)',
         reverse: 'rgb(20, 20, 20)',
         highlight: 'rgb(26, 160, 203)',

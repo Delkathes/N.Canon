@@ -42,6 +42,7 @@ const Form = styled.form`
     display: block;
     width: 100%;
     position: relative;
+    margin-bottom: 50px;
 `
 const Input = styled.fieldset`
     padding: 12px 18px;
@@ -74,8 +75,8 @@ const Input = styled.fieldset`
 `
 const Submit = styled.button`
     cursor: pointer;
-    position: absolute;
-    right: 0px;
+    display: block;
+    margin: 0 0 0 auto;
     line-height: 3em;
     padding: 0px 66px;
     color: ${({theme: {colors}}) => colors.primary};

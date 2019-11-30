@@ -1,6 +1,6 @@
 //? IMPORT
 //! Modules
-import {useState, useEffect} from 'react'
+// import {useState, useEffect} from 'react'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
@@ -36,9 +36,16 @@ const Nav = styled(animated.nav)`
         transform: translateY(${({open}) => open ? '0vh' : '-100vh'}); */
         ul {
             position: relative;
-            width: calc(83.3333vw);
+            padding-right: 40px;
             height: 50%;
             text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .bottom {
+            justify-content: flex-start;
+            background-color: rgba(0, 0, 0, 0.2);
         }
     }
     @media(${({theme}) => theme.mediaQueries.tablet}) {
@@ -46,7 +53,7 @@ const Nav = styled(animated.nav)`
     }
 `
 const NavLink = styled.li`
-    padding-bottom: 20px;
+    ${({bottom}) => bottom ? `padding-top: 20px;` : `padding-bottom: 20px;`}
     a {
         font-weight: 700;
         cursor: pointer;
@@ -78,7 +85,7 @@ const MobileNav = ({open, setOpen}) => {
 
     return menuTrans.map(({item, props, key}) => item && 
         <Nav open={open} key={key} style={props}>
-            <ul>
+            <ul className="links">
                 {NavigationLinks.map((link, i) =>
                     <NavLink key={i}  match={shortRoute === link.href.slice(0, 3)}>
                         <Link href={`${link.href}`} passHref>
@@ -89,8 +96,8 @@ const MobileNav = ({open, setOpen}) => {
                     </NavLink>
                 )}
             </ul>
-            <ul>
-                <NavLink>
+            <ul className="links bottom">
+                <NavLink bottom>
                     <a
                         href="https://github.com/Delkathes"
                         target="_blank"
@@ -100,7 +107,7 @@ const MobileNav = ({open, setOpen}) => {
                         <Icon icon="GitHub" color="rgb(251, 251, 251)" />
                     </a>
                 </NavLink>
-                <NavLink>
+                <NavLink bottom>
                     <a
                         href="https://www.linkedin.com/in/nicolas-canon-613296163/"
                         target="_blank"
