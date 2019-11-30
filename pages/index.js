@@ -28,6 +28,21 @@ const Section = styled(animated.section)`
     position: relative;
     display: flex;
     align-items: center;
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        width: 84%;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        width: 78%;
+    }
+    @media(${({theme}) => theme.mediaQueries.laptop}) {
+        width: 66%;
+    }
+    @media(${({theme}) => theme.mediaQueries.laptopL}) {
+    }
+    @media(${({theme}) => theme.mediaQueries.desktop}) {
+    }
+    @media(${({theme}) => theme.mediaQueries.desktopL}) {
+    }
 `
 const Container = styled.div`
     position: relative;
@@ -36,12 +51,22 @@ const Container = styled.div`
 `
 const Presentation = styled.div`
     h2 {
-        font-size: 3em;
         font-weight: 900;
+        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+            /* width: 82%; */
+            font-size: 2em;
+        }
+        @media(${({theme}) => theme.mediaQueries.tablet}) {
+            width: 78%;
+        }
+        @media(${({theme}) => theme.mediaQueries.laptop}) {
+            width: 66%;
+            font-size: 3em;
+        }
     }
     p {
-        margin-top: 10px;
-        margin-bottom: 60px;
+        margin-top: 12px;
+        margin-bottom: 58px;
     }
 `
 const Nav = styled.nav`
@@ -54,7 +79,7 @@ const Nav = styled.nav`
 const NavLink = styled.li`
     display: flex;
     align-items: center;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     font-weight: bold;
     cursor: pointer;
     &:hover {
@@ -80,13 +105,26 @@ const IconLink = styled.div`
 const ProfilePic = styled.figure`
     margin: 0;
     padding: 0;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
-    right: -6vw;
     display: flex;
+    /* right: -6vw; */
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        right: -16vw;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        right: -6vw;
+    }
     img {
-        max-height: 30vw;
-        min-height: 230px;
+        
+        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+            max-height: 22vw;
+            min-height: 230px;
+        }
+        @media(${({theme}) => theme.mediaQueries.tablet}) {
+            max-height: 30vw;
+            min-height: 230px;
+        }
     }
 `
 //! Components

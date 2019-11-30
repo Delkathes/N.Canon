@@ -9,6 +9,7 @@ import {animated, useSpring, config} from 'react-spring'
 //! Content
 //! Constants
 import ProjectsData from '../../content/projects.json'
+const ProjectsLength = ProjectsData.length - 1
 
 //! Utils
 //! Helpers
@@ -18,10 +19,18 @@ import ProjectsData from '../../content/projects.json'
 //! Styles
 const Section = styled(animated.section)`
     height: auto;
-    width: 62%;
     margin: 0px auto;
     padding-top: 220px;
     padding-bottom: 100px;
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        width: 84%;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        width: 78%;
+    }
+    @media(${({theme}) => theme.mediaQueries.laptop}) {
+        width: 62%;
+    }
 `
 const Container = styled.div`
     height: auto;
@@ -33,11 +42,21 @@ const PageName = styled.div`
     font-size: 3em;
 `
 const Grid = styled.ul`
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-gap: 10px;
+    
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        display: flex;
+        flex-direction: column;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        grid-template-columns: 50% 50%;
+        display: grid;
+        grid-gap: 10px;
+    }
+    @media(${({theme}) => theme.mediaQueries.laptop}) {
+        
+    }
 `
-const ElGrid = styled.li`
+const Tile = styled.li`
     cursor: pointer;
     overflow: hidden;
     position: relative;
@@ -56,8 +75,12 @@ const ElGrid = styled.li`
             transform: translateY(${({top, bottom}) => top ? '50px' : bottom ? '-50px' : ''});
         }
     }
-`
-const Article = styled.article`
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        margin: ${({i, l}) => i === 0 ? '0px 0px 5px' : i === l ? '5px 0px 0px' : '5px 0px 5px'};
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        margin: 0;
+    }
 `
 const Figure = styled.figure`
     position: absolute;
@@ -99,20 +122,35 @@ const Read = styled.div`
 `
 const Infos = styled.div`
     z-index: 1;
-    padding: 30px;
     position: absolute;
-    top: ${({top}) => top && '0px'};
-    bottom: ${({bottom}) => bottom && '0px'};
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        padding: 20px;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        padding: 30px;
+        top: ${({top}) => top && '0px'};
+        bottom: ${({bottom}) => bottom && '0px'};
+    }
     ${({dark, theme: {colors}}) => dark && `
         color: ${colors.reverse};
     `}
     h3 {
-
+        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+            font-weight: 300;
+        }
+        @media(${({theme}) => theme.mediaQueries.tablet}) {
+            font-weight: bold;
+        }
     }
     h4 {
-        line-height: 1.2em;
-        font-size: 2.6em;
-        font-weight: bold;
+        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+            font-size: 1.2em;
+        }
+        @media(${({theme}) => theme.mediaQueries.tablet}) {
+            line-height: 1.2em;
+            font-size: 2.6em;
+            font-weight: bold;
+        }
     }
 `
 //! Components
@@ -139,22 +177,20 @@ const Projects = props => {
             <Grid>
                 {ProjectsData.map(({slug, top, bottom, background, dark, title, subtitle, image, cover, long}, i) => 
                     <Link key={i} href={`/projects/[project]`} as={`/projects/${slug}`}>
-                        <ElGrid top={top} bottom={bottom} background={background} long={long}>
-                            <Article>
-                                <Read className="read" right top={top} bottom={bottom}>Read More</Read>
-                                <Figure cover={cover}>
-                                    <Infos top={!top} bottom={!bottom} dark={dark}>
-                                        <h3>{title}</h3>
-                                        <h4>{subtitle}</h4>
-                                    </Infos>
-                                    <img
-                                        alt={image}
-                                        src={image} srcSet={image}
-                                        height="100%" width="auto"
-                                    />
-                                </Figure>
-                            </Article>
-                        </ElGrid>
+                        <Tile i={i} l={ProjectsLength} top={top} bottom={bottom} background={background} long={long}>
+                            <Read className="read" right top={top} bottom={bottom}>Read More</Read>
+                            <Figure cover={cover}>
+                                <Infos top={!top} bottom={!bottom} dark={dark}>
+                                    <h3>{title}</h3>
+                                    <h4>{subtitle}</h4>
+                                </Infos>
+                                <img
+                                    alt={image}
+                                    src={image} srcSet={image}
+                                    height="100%" width="auto"
+                                />
+                            </Figure>
+                        </Tile>
                     </Link>
                 )}
             </Grid>

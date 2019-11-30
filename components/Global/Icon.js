@@ -4,7 +4,7 @@
 // import {useSpring, animated, config} from 'react-spring'
 // import {animated} from 'react-spring'
 import PropTypes from 'prop-types'
-import {FaArrowRight, FaGithub, FaLinkedinIn, FaFilePdf} from 'react-icons/fa'
+import {FaArrowRight, FaGithub, FaLinkedinIn, FaFilePdf, FaBars} from 'react-icons/fa'
 
 //! Content
 //! Constants
@@ -31,6 +31,8 @@ const Icon = ({icon, color}) => {
             return <FaLinkedinIn color={color} style={styleIcon} />
         case 'PDF':
             return <FaFilePdf color={color} style={styleIcon} />
+        case 'Bars':
+            return <FaBars color={color} style={styleIcon} />
         default:
             return ''
     }

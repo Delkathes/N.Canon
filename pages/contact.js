@@ -13,15 +13,30 @@ import {animated, useSpring, config} from 'react-spring'
 //! Actions
 //! Styles
 const Section = styled(animated.section)`
-    width: 66%;
+    
     margin: 0px auto;
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        width: 84%;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        width: 78%;
+    }
+    @media(${({theme}) => theme.mediaQueries.laptop}) {
+        width: 66%;
+    }
 `
 const Container = styled.div`
     width: 100%;
     margin-top: 30vh;
-    display: grid;
-    grid-template-columns: 50% auto;
-    grid-column-gap: 10px;
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        display: flex;
+        flex-direction: column;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        display: grid;
+        grid-template-columns: 50% auto;
+        grid-column-gap: 10px;
+    }
 `
 const PageName = styled.div`
     font-weight: bold;

@@ -38,10 +38,15 @@ const Nav = styled.nav`
     top: 0px;
     right: calc(7.4vw);
     height: 70px;
-    display: flex;
     align-items: center;
     font-weight: bold;
     z-index: 10;
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        display: none;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        display: flex;
+    }
     ul {
         display: flex;
         height: 100%;

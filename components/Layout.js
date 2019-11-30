@@ -15,17 +15,26 @@ import {useTransition, config, animated} from 'react-spring'
 //! Hooks
 //! Actions
 //! Styles
-const Logo = styled.picture`
+const Logo = styled.figure`
     cursor: pointer;
+    margin: 0;
+    padding: 0;
     position: fixed;
     z-index: 10;
     display: flex;
-    align-items: flex-end;
     top: 0px;
     left: calc(8.33333vw);
     background-color: #488dbf;
-    font-weight: bold;
-    font-size: 2.6em;
+    img {
+        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+            height: 50px;
+            width: 50px;
+        }
+        @media(${({theme}) => theme.mediaQueries.tablet}) {
+            height: 100%;
+            width: 100%;
+        }
+    }
 `
 const Slider = styled(animated.div)`
     position: fixed;
@@ -38,6 +47,7 @@ const Slider = styled(animated.div)`
 
 //! Components
 import NavBar from './NavBar'
+import MobileNav from './MobileNav'
 import Head from './Global/Head'
 
 //! High-order-components
@@ -49,7 +59,8 @@ const Layout = ({children}) => {
     const [mounted, setMount] = useState(false)
     //* useState : goodTiming
     const [goodTiming, setGood] = useState(false)
-
+    //* useState : open
+    const [open, setOpen] = useState(false)
 
     const sliderTrans = useTransition(goodTiming, null, {
         config: {...config.stiff, duration: 800},
@@ -89,6 +100,7 @@ const Layout = ({children}) => {
                 </Logo>
             </Link>
             <NavBar />
+            <MobileNav open={open} setOpen={setOpen} />
         </header>
         <main>{children}</main>
     </>

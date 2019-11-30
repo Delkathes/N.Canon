@@ -19,13 +19,13 @@ const Theme = {
         }
     `,
     mediaQueries: {
-        mobileS: '300px',
-        mobileM: '375px',
-        mobileL: '425px',
-        tablet: '730px',
-        laptop: '1024px',
-        laptopL: '1440px',
-        desktop: '1600px'
+        mobileS: `min-width: 300px`,
+        mobileM: `min-width: 375px`,
+        mobileL: `min-width: 425px`,
+        tablet: `min-width: 730px`,
+        laptop: `min-width: 1024px`,
+        laptopL: `min-width: 1440px`,
+        desktop: `min-width: 1600px`
     },
     rules: {
         noMarPad: `
@@ -44,14 +44,14 @@ const Theme = {
     }
 }
 export const device = {
-    mobileS: `min-width: ${Theme.mediaQueries.mobileS}`,
-    mobileM: `min-width: ${Theme.mediaQueries.mobileM}`,
-    mobileL: `min-width: ${Theme.mediaQueries.mobileL}`,
-    tablet: `min-width: ${Theme.mediaQueries.tablet}`,
-    laptop: `min-width: ${Theme.mediaQueries.laptop}`,
-    laptopL: `min-width: ${Theme.mediaQueries.laptopL}`,
-    desktop: `min-width: ${Theme.mediaQueries.desktop}`,
-    desktopL: `min-width: ${Theme.mediaQueries.desktop}`
+    mobileS: Theme.mediaQueries.mobileS,
+    mobileM: Theme.mediaQueries.mobileM,
+    mobileL: Theme.mediaQueries.mobileL,
+    tablet: Theme.mediaQueries.tablet,
+    laptop: Theme.mediaQueries.laptop,
+    laptopL: Theme.mediaQueries.laptopL,
+    desktop: Theme.mediaQueries.desktop,
+    desktopL: Theme.mediaQueries.desktop
 }
 //? EXPORTS
 //! Theme

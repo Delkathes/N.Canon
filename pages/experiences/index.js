@@ -17,15 +17,29 @@ const ExpLength = ExpData.length
 //! Actions
 //! Styles
 const Section = styled(animated.section)`
-    width: 66%;
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        width: 84%;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        width: 78%;
+    }
+    @media(${({theme}) => theme.mediaQueries.laptop}) {
+        width: 66%;
+    }
     margin: 0px auto;
 `
 const Container = styled.div`
     width: 100%;
     margin-top: 30vh;
-    display: grid;
-    grid-template-columns: 50% auto;
-    grid-column-gap: 10px;
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        display: flex;
+        flex-direction: column;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        display: grid;
+        grid-template-columns: 50% auto;
+        grid-column-gap: 10px;
+    }   
 `
 const PageInfo = styled(animated.div)`
     h2 {
@@ -99,7 +113,7 @@ const Experiences = ({Page}) => {
 
     const trail = useTrail(ExpLength, {
         trail: 1000,
-        transform: mounted ? 'translateX(-40px)' : 'translateX(0px)',
+        transform: mounted ? 'translateX(0px)' : 'translateX(40px)',
         opacity: mounted ? 1 : 0,
     })
 
@@ -109,7 +123,7 @@ const Experiences = ({Page}) => {
                 <PageInfo style={pageSpring}>
                     <h2>{Page}</h2>
                     <p>Check <a href="/static/CV.pdf" target="_blank">my CV</a> or download a copy of it below.</p>
-                    <a href="/static/CV.pdf" download><span>Download CV <Icon icon="PDF" color="rgb(26, 160, 203)" /></span></a>
+                    <a href="/static/CV.pdf" download>Download CV<Icon icon="PDF" color="rgb(26, 160, 203)" /></a>
                 </PageInfo>
                 <ul>
                     {trail.map((props, i) =>

@@ -17,15 +17,29 @@ import Link from 'next/link'
 //! Actions
 //! Styles
 const Section = styled(animated.section)`
-    width: 66%;
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        width: 84%;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        width: 78%;
+    }
+    @media(${({theme}) => theme.mediaQueries.laptop}) {
+        width: 66%;
+    }
     margin: 0px auto;
 `
 const Container = styled.div`
     width: 100%;
     margin-top: 30vh;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-column-gap: 10px;
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        display: flex;
+        flex-direction: column;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-column-gap: 10px;
+    }
 `
 const Article = styled.article`
     p {
