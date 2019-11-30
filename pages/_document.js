@@ -54,6 +54,13 @@ export default class MyDocument extends Document {
                             margin: 0;
                             padding: 0;
                         }
+                        main {
+                            overflow-x: no-scroll;
+                        }
+                        figure {
+                            margin: 0;
+                            padding: 0;
+                        }
                         ul {
                             list-style: none;
                             margin: 0;

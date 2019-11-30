@@ -22,16 +22,17 @@ const NavigationLinks = [
 //! Actions
 //! Styles
 const Nav = styled.nav`
-    position: absolute;
-    z-index: 2;
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        z-index: 2;
+        position: absolute;
+        top: 0px;
         display: block;
+        ul {
+            display: ${({open}) => !open && 'none'};
+        }
     }
     @media(${({theme}) => theme.mediaQueries.tablet}) {
         display: none;
-    }
-    ul {
-        display: ${({open}) => !open && 'none'};
     }
 `
 const NavLink = styled.li`
@@ -63,13 +64,13 @@ const MobileNav = ({open, setOpen}) => {
     return(
         <Nav open={open}>
             <MenuButton onClick={()=>setOpen(!open)}>
-                <Icon icon="Bars" color="rgb(251, 251, 251)" />
+                <Icon icon={open ? 'Cross' : 'Bars'} color="rgb(251, 251, 251)" />
             </MenuButton>
             <ul>
                 {NavigationLinks.map((link, i) =>
                     <NavLink key={i}  match={shortRoute === link.href.slice(0, 3)}>
                         <Link href={`${link.href}`} passHref>
-                            <a>
+                            <a onClick={() => setOpen(false)}>
                                 {link.clean}
                             </a>
                         </Link>

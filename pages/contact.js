@@ -115,7 +115,7 @@ const Contact = props => {
                             Your name
                         </legend>
                         <label hidden htmlFor="name">Name</label>
-                        <input required autoFocus type="text" name="name" aria-label="contact-name" form="contact-form"/>
+                        <input required type="text" name="name" aria-label="contact-name" form="contact-form"/>
                     </Input>
                     <Input>
                         <legend>

@@ -13,12 +13,22 @@ import styled from 'styled-components'
 //! Actions
 //! Styles
 const Description = styled.p`
-    margin: 120px auto;
-    width: 50%;
-    font-size: 2em;
-    color: ${({theme: {colors}}) => colors.secondary};
-    line-height: 1.5em;
-    font-weight: 300;
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        margin: 80px auto;
+        width: 88%;
+        font-size: 1.4em;
+        color: ${({theme: {colors}}) => colors.secondary};
+        line-height: 1.5em;
+        font-weight: 300;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        margin: 120px auto;
+        width: 50%;
+        font-size: 2em;
+        color: ${({theme: {colors}}) => colors.secondary};
+        line-height: 1.5em;
+        font-weight: 300;
+    }
 `
 const List = styled.ul`
     width: 100%;

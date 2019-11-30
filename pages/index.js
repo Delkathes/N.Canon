@@ -77,6 +77,7 @@ const Nav = styled.nav`
     }
 `
 const NavLink = styled.li`
+    z-index: 1;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -103,12 +104,10 @@ const IconLink = styled.div`
 `
 
 const ProfilePic = styled.figure`
-    margin: 0;
-    padding: 0;
+    z-index: 0;
     position: fixed;
     bottom: 0px;
     display: flex;
-    /* right: -6vw; */
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
         right: -16vw;
     }

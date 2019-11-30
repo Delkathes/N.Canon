@@ -18,10 +18,17 @@ const ProjectsLength = ProjectsData.length - 1
 //! Styles
 const Nav = styled.nav`
     ul {
-        width: 100%;
-        display: grid;
-        grid-template-columns: ${({l}) => 100 / l}% ${({l}) => 100 / l}% ${({l}) => 100 / l}% ${({l}) => 100 / l}% ${({l}) => 100 / l}%;
-        box-shadow: 0px -12px 20px 0px #0006;
+        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        @media(${({theme}) => theme.mediaQueries.tablet}) {
+            width: 100%;
+            display: grid;
+            grid-template-columns: ${({l}) => 100 / l}% ${({l}) => 100 / l}% ${({l}) => 100 / l}% ${({l}) => 100 / l}% ${({l}) => 100 / l}%;
+            box-shadow: 0px -12px 20px 0px #0006;
+        }
     }
 `
 const Tile = styled.li`
@@ -29,12 +36,17 @@ const Tile = styled.li`
     position: relative;
     overflow: hidden;
     width: 100%;
-    padding-top: 60%;
-    transition-duration: 0.2s;
     z-index: 1;
     background-color: ${({background}) => background};
-    &:hover {
-        transform: translateY(-30px);
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        padding-top: 25%;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        padding-top: 60%;
+        transition-duration: 0.2s;
+        &:hover {
+            transform: translateY(-30px);
+        }
     }
 `
 const Filter = styled.div`
@@ -69,19 +81,32 @@ const Figure = styled.figure`
     }
 `
 const Infos = styled.div`
-    padding: 30px;
     position: absolute;
     z-index: 1;
     ${({dark, theme: {colors}}) => dark && `
         color: ${colors.reverse};
     `}
     h3 {
-
+        font-weight: 400;
+        font-size: 1em;
     }
     h4 {
-        line-height: 1.2em;
-        font-size: 2.6em;
+        
         font-weight: bold;
+        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+            font-size: 1.1em;
+            line-height: 1.3em;
+        }
+        @media(${({theme}) => theme.mediaQueries.tablet}) {
+            font-size: 2.6em;
+            line-height: 1.2em;
+        }
+    }
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        padding: 20px 15px;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        padding: 30px;
     }
 `
 
