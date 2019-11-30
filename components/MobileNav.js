@@ -37,15 +37,18 @@ const Nav = styled(animated.nav)`
         /* transition-duration: 0.8s;
         transform: translateY(${({open}) => open ? '0vh' : '-100vh'}); */
         ul {
-            position: relative;
-            padding-right: 40px;
+            position: fixed;
             height: 50%;
+            width: 100%;
             text-align: right;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+            bottom: 50%;
         }
         .bottom {
+            top: 50%;
+            bottom: 0%;
             justify-content: flex-start;
             background-color: rgba(0, 0, 0, 0.2);
         }
@@ -55,6 +58,7 @@ const Nav = styled(animated.nav)`
     }
 `
 const NavLink = styled.li`
+    padding-right: 40px;
     ${({bottom}) => bottom ? `padding-top: 20px;` : `padding-bottom: 20px;`}
     a {
         font-weight: 700;
