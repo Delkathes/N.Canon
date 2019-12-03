@@ -143,12 +143,6 @@ const Layout = ({children}) => {
             </MenuButton>
         </header>
         <Main open={open} style={springMain}>{children}</Main>
-        {/* <style global jsx>{`
-            #__next {
-                transition-duration: 0.8s;
-                transform: translateY(${open ? '100vh' : '0vh'});
-            }
-            `}</style> */}
     </>
 }
 

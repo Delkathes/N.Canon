@@ -37,12 +37,6 @@ const Section = styled(animated.section)`
     @media(${({theme}) => theme.mediaQueries.laptop}) {
         width: 66%;
     }
-    @media(${({theme}) => theme.mediaQueries.laptopL}) {
-    }
-    @media(${({theme}) => theme.mediaQueries.desktop}) {
-    }
-    @media(${({theme}) => theme.mediaQueries.desktopL}) {
-    }
 `
 const Container = styled.div`
     position: relative;
@@ -53,7 +47,6 @@ const Presentation = styled.div`
     h2 {
         font-weight: 900;
         @media(${({theme}) => theme.mediaQueries.mobileS}) {
-            /* width: 82%; */
             font-size: 2em;
         }
         @media(${({theme}) => theme.mediaQueries.laptop}) {
@@ -75,11 +68,20 @@ const Nav = styled.nav`
     }
 `
 const NavLink = styled.li`
+    cursor: pointer;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     font-weight: bold;
-    cursor: pointer;
+    span {
+        transition-duration: 0.3s;
+    }
+    div {
+        transition-duration: 0.3s;
+        display: flex;
+        align-self: flex-end;
+        margin-left: 8px;
+    }
     &:hover {
         span {
             color: ${({theme: {colors}}) => colors.highlight};
@@ -90,22 +92,13 @@ const NavLink = styled.li`
         }
     }
 `
-const TextLink = styled.span`
-    transition-duration: 0.3s;
-`
-const IconLink = styled.div`
-    transition-duration: 0.3s;
-    display: flex;
-    align-self: flex-end;
-    margin-left: 8px;
-`
 
 const ProfilePic = styled.figure`
+    overflow: hidden;
     z-index: 0;
     position: fixed;
     bottom: 0px;
     display: flex;
-    overflow: hidden;
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
         right: -8vw;
         width: 94%;
@@ -115,7 +108,6 @@ const ProfilePic = styled.figure`
         width: auto;
     }
     img {
-        
         @media(${({theme}) => theme.mediaQueries.mobileS}) {
             max-height: 20vw;
             min-height: 210px;
@@ -155,10 +147,10 @@ const Home = () => {
                     {NavigationLinks.map((link, i) => 
                         <Link key={i} href={link.href}>
                             <NavLink>
-                                <TextLink>{link.clean}</TextLink>
-                                <IconLink>
+                                <span>{link.clean}</span>
+                                <div>
                                     <Icon icon="ArrowRight" color="rgb(26, 160, 203)" />
-                                </IconLink>
+                                </div>
                             </NavLink>
                         </Link>
                     )}

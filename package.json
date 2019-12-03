@@ -1,6 +1,7 @@
 {
   "name": "nicolas-canon",
   "version": "1.0.0",
+  "author": "Nicolas 'Delkathes' Canon - canon.nicolas@protonmail.com",
   "description": "N.Canon personal website",
   "repository": {
     "type": "git",
@@ -21,7 +22,7 @@
     "react-icons": "3.6.0",
     "react-intersection-observer": "^8.25.2",
     "react-spring": "^8.0.27",
-    "styled-components": "^4.4.1"
+    "styled-components": "^5.0.0-rc.1"
   },
   "devDependencies": {
     "eslint": "^6.7.2",
@@ -29,6 +30,5 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0"
   },
-  "author": "Nicolas 'Delkathes' Canon - canon.nicolas@protonmail.com",
   "license": "ISC"
 }

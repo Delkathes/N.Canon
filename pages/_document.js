@@ -35,12 +35,16 @@ export default class MyDocument extends Document {
                     <meta charSet="utf-8" />
                     <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-                    {/* <link rel="shortcut icon" type="image/png" href="/favicon.png" /> */}
                     <link rel="shortcut icon" type="ico" href="/static/Logo.ico" />
 
-                    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=auto" rel="stylesheet" />
+                    {/* <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=auto" rel="stylesheet" /> */}
 
                     <style>{`
+                        @font-face {
+                            font-family: 'Source Sans Pro';
+                            font-display: auto;
+                            src: url('/public/static/fonts/SourceSansPro-Regular.ttf') format("truetype");
+                        }
                         ::-webkit-scrollbar {
                             display: none;
                         }

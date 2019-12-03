@@ -9,13 +9,12 @@ const Theme = {
         highlight: 'rgb(26, 160, 203)',
     },
     fontFamilies: {
-        primary: "'Nunito', sans-serif",
-        second: "'Roboto', sans-serif"
+        primary: "'Source Sans Pro', sans-serif"
     },
     fontSource: `
         @font-face {
-            font-family: 'Nunito';
-            src: url('/static/fonts/Nunito-Regular.ttf');
+            font-family: 'Source Sans Pro';
+            src: url('/public/static/fonts/SourceSansPro-Regular.ttf');
         }
     `,
     mediaQueries: {
