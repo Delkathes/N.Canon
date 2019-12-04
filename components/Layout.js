@@ -1,11 +1,13 @@
 //? IMPORT
 //! Modules
-import {useState, useEffect} from 'react'
-import {useRouter} from 'next/router'
+import {useState} from 'react'
+// import {useState, useEffect} from 'react'
+// import {useRouter} from 'next/router'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {useSpring, useTransition, config, animated} from 'react-spring'
+// import {useSpring, useTransition, config, animated} from 'react-spring'
+import {useSpring, config, animated} from 'react-spring'
 
 //! Content
 //! Constants
@@ -42,14 +44,14 @@ const Main = styled(animated.main)`
     /* transition-duration: 0.8s;
     transform: translateY(${({open}) => open ? '100vh' : '0vh'}); */
 `
-const Slider = styled(animated.div)`
-    position: fixed;
-    top: 0;
-    z-index: 2;
-    height: 100vh;
-    width: 100vw;
-    background-color: ${({background}) => background};
-`
+// const Slider = styled(animated.div)`
+//     position: fixed;
+//     top: 0;
+//     z-index: 2;
+//     height: 100vh;
+//     width: 100vw;
+//     background-color: ${({background}) => background};
+// `
 const MenuButton = styled.div`
     z-index: 3;
     position: fixed;
@@ -81,26 +83,26 @@ import Icon from './Global/Icon'
 //! Component : Layout
 //? EXPORT
 const Layout = ({children}) => {
-    const router = useRouter()
+    // const router = useRouter()
     //* useState : mount
-    const [mounted, setMount] = useState(false)
+    // const [mounted, setMount] = useState(false)
     //* useState : goodTiming
-    const [goodTiming, setGood] = useState(false)
+    // const [goodTiming, setGood] = useState(false)
     //* useState : open
     const [open, setOpen] = useState(false)
 
-    const sliderTrans = useTransition(goodTiming, null, {
-        config: {...config.stiff, duration: 800},
-        from: {
-            transform: 'translateX(-120vw)'
-        },
-        enter: {
-            transform: 'translateX(120vw)'
-        },
-        leave: {
-            transform: 'translateX(120vw)'
-        },
-    })
+    // const sliderTrans = useTransition(goodTiming, null, {
+    //     config: {...config.stiff, duration: 800},
+    //     from: {
+    //         transform: 'translateX(-120vw)'
+    //     },
+    //     enter: {
+    //         transform: 'translateX(120vw)'
+    //     },
+    //     leave: {
+    //         transform: 'translateX(120vw)'
+    //     },
+    // })
     
     const springMain = useSpring({
         to: {transform: open ? 'translateY(100vh)' : 'translateY(0vh)'},
@@ -114,21 +116,22 @@ const Layout = ({children}) => {
 
 
     // useEffect
-    useEffect(() => {
-        !mounted && setMount(true)
-        if (router.route === '/projects/[project]') {
-            mounted && setGood(true)
-            setTimeout(() => {
-                setGood(false)
-            }, 1200)
-        }
-    }, [router.asPath])
-
+    // useEffect(() => {
+    //     !mounted && setMount(true)
+    //     if (router.route === '/projects/[project]') {
+    //         mounted && setGood(true)
+    //         setTimeout(() => {
+    //             setGood(false)
+    //         }, 1200)
+    //     }
+    // }, [router.asPath])
     return <>
         {children.props.Page && <Head head={children.props.Page + ' | Nicolas Canon'} />}
         {children.props.SubPage && <Head head={children.props.target.title + ' | Projects | Nicolas Canon'} />}
         
-        {sliderTrans.map(({item, key, props}) => item && <Slider key={key} style={props} background={children.props.SubPage && children.props.target.background} />)}
+        {/* {sliderTrans.map(({item, key, props}) => item &&
+            <Slider key={key} style={props} background={children.props.SubPage && children.props.target.background} />
+        )} */}
 
         <header>
             <Link href="/" as="/">
