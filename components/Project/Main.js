@@ -74,13 +74,6 @@ import Content from './Content'
 //! Component : Main
 //? EXPORT
 const Main = ({background, dark, title, subtitle, image, slug, target, query, style}) => {
-    // const pageSpring = useSpring({
-    //     delay: 1000,
-    //     config: config.default,
-    //     to: {opacity: 1},
-    //     from: {opacity: 0},
-    //     reset: true
-    // })
     return(
         <animated.section style={style}>
             <Hero background={background}>

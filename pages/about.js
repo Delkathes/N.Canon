@@ -45,6 +45,7 @@ const Container = styled(Div)`
 const Article = styled.article`
     #contact {
         margin-top: 30px;
+        margin-bottom: 30px;
     }
     a {
         color: ${({theme: {colors}}) => colors.highlight};

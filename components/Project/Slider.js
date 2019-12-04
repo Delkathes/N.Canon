@@ -19,9 +19,9 @@ const SliderSC = styled(animated.div)`
     top: 0;
     z-index: 2;
     height: 100vh;
-    width: 140vw;
+    width: 100vw;
     background-color: ${({background}) => background};
-    transform: translateX(-140vw);
+    transform: translateX(-102vw);
 `
 
 //! Components
