@@ -16,7 +16,12 @@ import {animated} from 'react-spring'
 //! Styles
 const Hero = styled(animated.section)`
     position: relative;
-    height: 380px;
+    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        height: 280px;
+    }
+    @media(${({theme}) => theme.mediaQueries.tablet}) {
+        height: 380px;
+    }
     width: 100%;
     background-color: ${({background}) => background};
     img {
@@ -46,14 +51,14 @@ const Title = styled.div`
         padding-bottom: 14px;
     }
     h3 {
-        
-        line-height: 0.76;
+        font-weight: bold;
+        line-height: 0.74;
         text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 1em;
         @media(${({theme}) => theme.mediaQueries.mobileS}) {
             font-size: 3em;
         }
         @media(${({theme}) => theme.mediaQueries.tablet}) {
-            font-size: 4em;
+            font-size: 4.2em;
         }
     }
 `

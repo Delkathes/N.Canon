@@ -23,8 +23,8 @@ const Project = ({query}) => {
     
     const trans = useTransition(query.project, p => p, {
         config: {...config.default},
-        from: {opacity: 0},
-        enter: {opacity: 1},
+        from: {transform: 'translateX(-100vw)'},
+        enter: {transform: 'translateX(0)'},
         leave: {display: 'none'}
     })
     const {title} = ProjectsData.find(el => el.slug === query.project)

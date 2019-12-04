@@ -20,12 +20,14 @@ const ProjectsLength = ProjectsData.length - 1
 const Section = styled(animated.section)`
     height: auto;
     margin: 0px auto;
-    padding-top: 220px;
+    
     padding-bottom: 100px;
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        padding-top: 200px;
         width: 84%;
     }
     @media(${({theme}) => theme.mediaQueries.tablet}) {
+        padding-top: 220px;
         width: 78%;
     }
     @media(${({theme}) => theme.mediaQueries.laptop}) {

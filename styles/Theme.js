@@ -44,7 +44,7 @@ export const device = {
 export const Container = styled.div`
     width: 100%;
     @media(${device.mobileS}) {
-        margin-top: 190px;
+        margin-top: 174px;
     }
     @media(${device.tablet}) {
         margin-top: 32vh;

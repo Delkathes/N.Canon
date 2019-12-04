@@ -45,7 +45,7 @@ const Container = styled(Div)`
 const Article = styled.article`
     #contact {
         margin-top: 30px;
-        margin-bottom: 30px;
+        margin-bottom: 60px;
     }
     a {
         color: ${({theme: {colors}}) => colors.highlight};
@@ -53,6 +53,7 @@ const Article = styled.article`
     }
 `
 const P = styled.p`
+    font-size: 1.02em;
     line-height: 1.3em;
     margin: ${({i, l}) => i === 0 ? '0px 0px 20px' : i === l ? '20px 0px 0px' : '20px 0px' };
 `
