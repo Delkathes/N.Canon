@@ -16,10 +16,11 @@ const Description = styled.p`
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
         margin: 80px auto;
         width: 88%;
-        font-size: 1.4em;
+        font-size: 1.2em;
         color: ${({theme: {colors}}) => colors.secondary};
         line-height: 1.5em;
         font-weight: 300;
+        text-align: justify;
     }
     @media(${({theme}) => theme.mediaQueries.tablet}) {
         margin: 120px auto;

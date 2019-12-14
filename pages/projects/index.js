@@ -94,14 +94,26 @@ const Figure = styled.figure`
     width: 100%;
     z-index: 0;
     img {
-        ${({cover, top}) => !cover && `
-            position: absolute;
-            right: 4%;
-            bottom: ${top ? 'initial' : '8%'};
-            top: ${top ? '8%' : 'initial'};
-            height: auto;
-            max-width: 80%;
-        `}
+        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+            ${({cover}) => !cover && `
+                position: absolute;
+                right: 4%;
+                bottom: 8%;
+                height: auto;
+                max-width: 80%;
+            `}
+        }
+        @media(${({theme}) => theme.mediaQueries.tablet}) {
+            ${({cover, top}) => !cover && `
+                position: absolute;
+                right: 4%;
+                bottom: ${top ? 'initial' : '8%'};
+                top: ${top ? '8%' : 'initial'};
+                height: auto;
+                max-width: 80%;
+            `}
+        }
+        
         z-index: 0;
         transform-origin: bottom;
         transition-duration: 0.4s;
