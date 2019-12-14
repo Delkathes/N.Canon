@@ -77,7 +77,7 @@ const MobileNav = ({open, setOpen}) => {
     let shortRoute = route.slice(0, 3)
 
     const menuTrans = useTransition(open, null, {
-        config: config.default,
+        config: config.slow,
         from: {
             transform: 'translateY(-100vh)'
         },
