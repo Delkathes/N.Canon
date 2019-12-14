@@ -39,6 +39,8 @@ export default class MyDocument extends Document {
 
                     {/* <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=auto" rel="stylesheet" /> */}
 
+                    <link rel="canonical" href="https://nicolas-canon.fr" />
+
                     <style>{`
                         @font-face {
                             font-family: 'Source Sans Pro';
