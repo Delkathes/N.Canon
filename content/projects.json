@@ -4,7 +4,7 @@
         "title": "Simone Duez",
         "subtitle": "Paint artist",
         "description": "IDD regulations introduced in 2018 meant consumers had to understand every item in their insurance product. I worked on the agile prototyping team that designed and user tested the successful solution for the RAC. My role within the team focused primarily on UI design and interface animation. Our deliverable for this project was a fully interactive code prototype.",
-        "image": "/static/img/paint.webp",
+        "image": "/static/img/projects/paint.webp",
         "background": "#EF5F50",
         "dark": false,
         "top": true,
@@ -37,7 +37,7 @@
         "title": "Neo Town",
         "subtitle": "Meeting organizer",
         "description": "IDD regulations introduced in 2018 meant consumers had to understand every item in their insurance product. I worked on the agile prototyping team that designed and user tested the successful solution for the RAC. My role within the team focused primarily on UI design and interface animation. Our deliverable for this project was a fully interactive code prototype.",
-        "image": "/static/img/city.png",
+        "image": "/static/img/projects/city.webp",
         "background": "#043144",
         "dark": false,
         "top": false,
@@ -46,19 +46,19 @@
         "long": false,
         "datas": [
             {
-                "image": "/static/img/",
+                "image": "/static/img/projects/",
                 "alt": "",
                 "position": "left",
                 "text": "Lol, du texte"
             },
             {
-                "image": "/static/img/",
+                "image": "/static/img/projects/",
                 "alt": "",
                 "position": "right",
                 "text": "Lol, du texte"
             },
             {
-                "image": "/static/img/",
+                "image": "/static/img/projects/",
                 "alt": "",
                 "position": "center",
                 "text": "Lol, du texte"
@@ -70,7 +70,7 @@
         "title": "Libertia Et Conscia",
         "subtitle": "Online static newspaper",
         "description": "IDD regulations introduced in 2018 meant consumers had to understand every item in their insurance product. I worked on the agile prototyping team that designed and user tested the successful solution for the RAC. My role within the team focused primarily on UI design and interface animation. Our deliverable for this project was a fully interactive code prototype.",
-        "image": "/static/img/Newspaper.png",
+        "image": "/static/img/projects/Newspaper.webp",
         "background": "#DAEBF1",
         "dark": true,
         "top": false,
@@ -79,19 +79,19 @@
         "long": true,
         "datas": [
             {
-                "image": "/static/img/",
+                "image": "/static/img/projects/",
                 "alt": "",
                 "position": "left",
                 "text": "Lol, du texte"
             },
             {
-                "image": "/static/img/",
+                "image": "/static/img/projects/",
                 "alt": "",
                 "position": "right",
                 "text": "Lol, du texte"
             },
             {
-                "image": "/static/img/",
+                "image": "/static/img/projects/",
                 "alt": "",
                 "position": "center",
                 "text": "Lol, du texte"
@@ -103,7 +103,7 @@
         "title": "To come (private)",
         "subtitle": "Building project",
         "description": "IDD regulations introduced in 2018 meant consumers had to understand every item in their insurance product. I worked on the agile prototyping team that designed and user tested the successful solution for the RAC. My role within the team focused primarily on UI design and interface animation. Our deliverable for this project was a fully interactive code prototype.",
-        "image": "/static/img/webmain.png",
+        "image": "/static/img/projects/webmain.png",
         "background": "#0062af",
         "dark": false,
         "top": true,
@@ -112,19 +112,19 @@
         "long": false,
         "datas": [
             {
-                "image": "/static/img/",
+                "image": "/static/img/projects/",
                 "alt": "",
                 "position": "left",
                 "text": "Lol, du texte"
             },
             {
-                "image": "/static/img/",
+                "image": "/static/img/projects/",
                 "alt": "",
                 "position": "right",
                 "text": "Lol, du texte"
             },
             {
-                "image": "/static/img/",
+                "image": "/static/img/projects/",
                 "alt": "",
                 "position": "center",
                 "text": "Lol, du texte"
@@ -136,7 +136,7 @@
         "title": "Personal projects",
         "subtitle": "Templates",
         "description": "IDD regulations introduced in 2018 meant consumers had to understand every item in their insurance product. I worked on the agile prototyping team that designed and user tested the successful solution for the RAC. My role within the team focused primarily on UI design and interface animation. Our deliverable for this project was a fully interactive code prototype.",
-        "image": "/static/img/webdesign.webp",
+        "image": "/static/img/projects/webdesign.webp",
         "background": "#E1AE2A",
         "dark": true,
         "top": false,
@@ -145,19 +145,19 @@
         "long": false,
         "datas": [
             {
-                "image": "/static/img/",
+                "image": "/static/img/projects/",
                 "alt": "",
                 "position": "left",
                 "text": "Lol, du texte"
             },
             {
-                "image": "/static/img/",
+                "image": "/static/img/projects/",
                 "alt": "",
                 "position": "right",
                 "text": "Lol, du texte"
             },
             {
-                "image": "/static/img/",
+                "image": "/static/img/projects/",
                 "alt": "",
                 "position": "center",
                 "text": "Lol, du texte"

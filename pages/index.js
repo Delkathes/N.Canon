@@ -158,7 +158,7 @@ const Home = () => {
             </Nav>
         </Container>
         <ProfilePic>
-            <img src="/static/img/hacker.png" srcSet="/static/img/hacker.png" alt="profile-pic" />
+            <img src="/static/img/hacker.webp" srcSet="/static/img/hacker.webp" alt="profile-pic" />
         </ProfilePic>
     </Section>
 }
