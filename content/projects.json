@@ -9,7 +9,7 @@
         "dark": false,
         "top": true,
         "bottom": false,
-        "cover": true,
+        "cover": false,
         "long": false,
         "datas": [
             {

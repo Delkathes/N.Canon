@@ -92,11 +92,11 @@ const MobileNav = ({open, setOpen}) => {
     return menuTrans.map(({item, props, key}) => item && 
         <Nav open={open} key={key} style={props}>
             <ul className="links">
-                {NavigationLinks.map((link, i) =>
-                    <NavLink key={i}  match={shortRoute === link.href.slice(0, 3)}>
-                        <Link href={`${link.href}`} passHref>
+                {NavigationLinks.map(({href, clean}, i) =>
+                    <NavLink key={i}  match={shortRoute === href.slice(0, 3)}>
+                        <Link href={`${href}`} passHref>
                             <a onClick={() => setOpen(false)}>
-                                {link.clean}
+                                {clean}
                             </a>
                         </Link>
                     </NavLink>

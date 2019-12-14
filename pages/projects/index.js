@@ -94,12 +94,13 @@ const Figure = styled.figure`
     width: 100%;
     z-index: 0;
     img {
-        ${({cover}) => !cover && `
+        ${({cover, top}) => !cover && `
             position: absolute;
             right: 4%;
-            bottom: 8%;
-            height: 50%;
-            width: auto;
+            bottom: ${top ? 'initial' : '8%'};
+            top: ${top ? '8%' : 'initial'};
+            height: auto;
+            max-width: 80%;
         `}
         z-index: 0;
         transform-origin: bottom;
@@ -181,7 +182,7 @@ const Projects = props => {
                     <Link key={i} href={`/projects/[project]`} as={`/projects/${slug}`}>
                         <Tile i={i} l={ProjectsLength} top={top} bottom={bottom} background={background} long={long}>
                             <Read className="read" right top={top} bottom={bottom}>Read More</Read>
-                            <Figure cover={cover}>
+                            <Figure cover={cover} top={top} bottom={bottom}>
                                 <Infos top={!top} bottom={!bottom} dark={dark}>
                                     <h3>{title}</h3>
                                     <h4>{subtitle}</h4>
