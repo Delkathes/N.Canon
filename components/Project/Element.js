@@ -17,12 +17,19 @@ const Li = styled.li`
     ${({position}) => position === 'left' ? `align-self: flex-start;` : position === 'right' ? `align-self: flex-end;` : `align-self: center;`}
     position: relative;
     margin-bottom: 280px;
-    width: 70%;
+    
     ${({dark, theme: {colors}}) => dark && `
         color: ${colors.reverse};
     `}
     opacity: ${({view}) => view ? 1 : 0};
     transition-duration: 0.8s;
+    @media(${({ theme }) => theme.mediaQueries.mobileS}) {
+        width: 100%;
+    }
+    @media(${({ theme }) => theme.mediaQueries.tablet}) {
+        width: 70%;
+    }
+
     img {
         width: 100%;
     }
@@ -31,16 +38,29 @@ const Li = styled.li`
 //! Components
 const TileSC = styled.div`
     position: absolute;
-    bottom: -45px;
-    ${({position}) => position === 'left' ? `right: -4vw;` : position === 'right' ? `left: -4vw;` : ``}
+    
+    
     width: 28%;
     min-width: 220px;
-    padding: 40px 32px;
+    
+    @media(${({ theme }) => theme.mediaQueries.mobileS}) {
+        bottom: -55px;
+        padding: 14px 22px;
+        ${({ position }) => position === 'left' ? `right: 0vw;` : position === 'right' ? `left: 0vw;` : position === 'center' ? 'left: 15vw;' : ''}
+    }
+    @media(${({ theme }) => theme.mediaQueries.tablet}) {
+        bottom: -45px;
+        padding: 40px 32px;
+        ${({ position }) => position === 'left' ?
+        `right: -4vw;` : position === 'right' ? 
+        `left: -4vw;` : position === 'center' ? 'left: 25vw;' : ''}
+    }
     background-color: ${({background}) => background};
     box-shadow: 0px 8px 18px 0px #0008;
     opacity: ${({view}) => view ? 1 : 0};
     transition-duration: 0.8s;
     p {
+        font-size: 0.95em;
     }
 `
 const Tile = ({alt, text, background, position}) => {
