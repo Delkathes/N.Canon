@@ -6,7 +6,7 @@
         "link": "simone-duez.fr",
         "subtitle": "Paint artist",
         "description": "Website for Simone Duez, paint artist in Thise, France. Built with Next.js and hosted on Netlify, the artist also has access to a CMS to publish/administrate her work and handle incoming comments. Next.js comes with a static site generator option that I use here with the CMS to publish/commit content on the github repository that then triggers a redeployment on Netlify host with the new/deleted content.",
-        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580690810/Personal%20Site/projects/simone-duez.webp",
+        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_90:420/v1580690810/Personal%20Site/projects/simone-duez.png",
         "background": "#EF5F50",
         "dark": false,
         "top": true,
@@ -15,19 +15,19 @@
         "long": false,
         "datas": [
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580722320/Personal%20Site/projects/Simone%20Duez/desktop_simone.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580722320/Personal%20Site/projects/Simone%20Duez/desktop_simone.png",
                 "alt": "SSR pages",
                 "position": "left",
                 "text": "React server side rendered pages with fast prefetch navigation. The news widget is client side rendered as it needs the client's current datetime to display the matching content."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580722320/Personal%20Site/projects/Simone%20Duez/mobile_simone.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_90:420/v1580722320/Personal%20Site/projects/Simone%20Duez/mobile_simone.png",
                 "alt": "Responsive support",
                 "position": "right",
                 "text": "Mobile and tablet media queries to adapt to the right screen sizes. Network optimization with images lazy loading."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580722320/Personal%20Site/projects/Simone%20Duez/cms_simone.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580722320/Personal%20Site/projects/Simone%20Duez/cms_simone.png",
                 "alt": "Netlify CMS",
                 "position": "center",
                 "text": "Content management system injected in a static html page from netlify's CDN for the website owner to publish and edit the website's content."
@@ -41,7 +41,7 @@
         "link": "",
         "subtitle": "Meeting organizer",
         "description": "Private unfinished/unpublished project in collaboration with a go/rust developer that aims to help meeting organizers in their ticketery and event registration by securing reservations payement with Bitcoin's Lightning Network.",
-        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580690810/Personal%20Site/projects/neotown.webp",
+        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_90:420/v1580690810/Personal%20Site/projects/neotown.png",
         "background": "#043144",
         "dark": false,
         "top": false,
@@ -76,7 +76,7 @@
         "link": "",
         "subtitle": "Online newspaper",
         "description": "Personal attempt of creating a serverless newspaper website with authentication and comment section, profile handling and private messaging. Built with Next.js using its serverless mode and hosted on Zeit/now. Each route is a serverless lambda. Admins and team have access to Contentful headless CMS to publish content that the serverless functions query on client request.",
-        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580690810/Personal%20Site/projects/newspaper.webp",
+        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_90:420/v1580690810/Personal%20Site/projects/newspaper.png",
         "background": "#DAEBF1",
         "dark": true,
         "top": false,
@@ -85,19 +85,19 @@
         "long": true,
         "datas": [
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580731297/Personal%20Site/projects/NewsCoders/accueil.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580731297/Personal%20Site/projects/NewsCoders/accueil.png",
                 "alt": "Landing page",
                 "position": "left",
                 "text": "Serverless page built with Next.js that is served with prefetched content from a headless CMS."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580731297/Personal%20Site/projects/NewsCoders/menu.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580731297/Personal%20Site/projects/NewsCoders/menu.png",
                 "alt": "Polished design",
                 "position": "right",
                 "text": "White and clear design without ads or overwhelming content."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580731297/Personal%20Site/projects/NewsCoders/jwt-auth.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580731297/Personal%20Site/projects/NewsCoders/jwt-auth.png",
                 "alt": "JWT Authentication",
                 "position": "center",
                 "text": "Serverless jwt based authentication. The token is stored in its own cookie with an expiration date. "
@@ -111,7 +111,7 @@
         "link": "",
         "subtitle": "Desktop notifier",
         "description": "Chrome react extension for a french streamer. It has a background service that opens a SSE connection to a serverless API endpoint that I host on Zeit/now. The backend logic works with Twitch webhooks to subscribe to stream events and receive POST notification callbacks on stream states changes. These POST incoming requests change the transferred datas to the SSE connection with the Chrome extension clients background service that then notifies the client about the new stream state.",
-        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580723481/Personal%20Site/projects/Extension%20LFB/LFB-round.png",
+        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580723481/Personal%20Site/projects/Extension%20LFB/LFB-round.png",
         "background": "#252940",
         "dark": false,
         "top": true,
@@ -120,19 +120,19 @@
         "long": false,
         "datas": [
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580725330/Personal%20Site/projects/Extension%20LFB/player.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580725330/Personal%20Site/projects/Extension%20LFB/player.png",
                 "alt": "React player",
                 "position": "left",
                 "text": "Gets the stream from twitch and puts it in a video html tag. Uses react-player npm package."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580725330/Personal%20Site/projects/Extension%20LFB/controls.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580725330/Personal%20Site/projects/Extension%20LFB/controls.png",
                 "alt": "Custom controls",
                 "position": "right",
                 "text": "React-spring based controls for smooth animation on mouse hover."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580725917/Personal%20Site/projects/Extension%20LFB/notification.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580725917/Personal%20Site/projects/Extension%20LFB/notification.png",
                 "alt": "Desktop notification",
                 "position": "center",
                 "text": "Background service that pushes a desktop notification when the streamer goes live with current stream informations and opens twitch.tv on click."
@@ -145,8 +145,8 @@
         "href": "",
         "link": "https://github.com/Delkathes?tab=repositories",
         "subtitle": "Templates",
-        "description": "Empty reusable templates optimized for specific needs. Blank and empty enough to have the from scratch feeling but still with personal preferences. From webpack configs boilerplates to websocket or jwt auth, I have access to a couple of starters that fit my current needs.",
-        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580690810/Personal%20Site/projects/templates.webp",
+        "description": "Empty reusable templates optimized for specific needs. Blank and empty enough to have the from scratch feeling but still with personal preferences. From pngack configs boilerplates to websocket or jwt auth, I have access to a couple of starters that fit my current needs.",
+        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580690810/Personal%20Site/projects/templates.png",
         "background": "#E1AE2A",
         "dark": true,
         "top": false,
