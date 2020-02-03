@@ -59,8 +59,11 @@ const Nav = styled(animated.nav)`
 `
 const NavLink = styled.li`
     padding-right: 40px;
-    ${({bottom}) => bottom ? `padding-top: 20px;` : `padding-bottom: 20px;`}
+    ${({bottom}) => bottom ? `padding-top: 15px;` : `padding-bottom: 15px;`}
     a {
+        height: 30px;
+        display: inline-flex;
+        align-items: center;
         font-weight: 700;
         cursor: pointer;
         color: ${({match, theme}) => match ? theme.colors.reverse : theme.colors.primary};

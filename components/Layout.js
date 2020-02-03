@@ -47,6 +47,7 @@ const MenuButton = styled.div`
     align-items: center;
     justify-content: center;
     svg {
+        cursor: pointer;
         height: 65%;
         width: 65%;
     }

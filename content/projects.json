@@ -5,7 +5,7 @@
         "href": "https://simone-duez.fr",
         "link": "simone-duez.fr",
         "subtitle": "Paint artist",
-        "description": "Website for Simone Duez, paint artist in Thise, France. Built with NextJS and hosted on Netlify, the artist also has access to a CMS to publish/administrate her work and handle incoming comments. NextJS comes with a static site generator option that I use here with the CMS to publish/commit content on the github repository that then triggers a redeployment on Netlify host with the new/deleted content.",
+        "description": "Website for Simone Duez, paint artist in Thise, France. Built with Next.js and hosted on Netlify, the artist also has access to a CMS to publish/administrate her work and handle incoming comments. Next.js comes with a static site generator option that I use here with the CMS to publish/commit content on the github repository that then triggers a redeployment on Netlify host with the new/deleted content.",
         "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580690810/Personal%20Site/projects/simone-duez.webp",
         "background": "#EF5F50",
         "dark": false,
@@ -75,7 +75,7 @@
         "href": "",
         "link": "",
         "subtitle": "Online newspaper",
-        "description": "Personal attempt of creating a serverless newspaper website with authentication and comment section, profile handling and private messaging. Built with NextJS using its serverless mode and hosted on Zeit/now. Each route is a serverless lambda. Admins and team have access to Contentful headless CMS to publish content that the serverless functions query on client request.",
+        "description": "Personal attempt of creating a serverless newspaper website with authentication and comment section, profile handling and private messaging. Built with Next.js using its serverless mode and hosted on Zeit/now. Each route is a serverless lambda. Admins and team have access to Contentful headless CMS to publish content that the serverless functions query on client request.",
         "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580690810/Personal%20Site/projects/newspaper.webp",
         "background": "#DAEBF1",
         "dark": true,
@@ -85,22 +85,22 @@
         "long": true,
         "datas": [
             {
-                "image": "/static/img/projects/",
-                "alt": "",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580731297/Personal%20Site/projects/NewsCoders/accueil.png",
+                "alt": "Landing page",
                 "position": "left",
-                "text": "Lol, du texte"
+                "text": "Serverless page built with Next.js that is served with prefetched content from a headless CMS."
             },
             {
-                "image": "/static/img/projects/",
-                "alt": "",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580731297/Personal%20Site/projects/NewsCoders/menu.png",
+                "alt": "Polished design",
                 "position": "right",
-                "text": "Lol, du texte"
+                "text": "White and clear design without ads or overwhelming content."
             },
             {
-                "image": "/static/img/projects/",
-                "alt": "",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580731297/Personal%20Site/projects/NewsCoders/jwt-auth.png",
+                "alt": "JWT Authentication",
                 "position": "center",
-                "text": "Lol, du texte"
+                "text": "Serverless jwt based authentication. The token is stored in its own cookie with an expiration date. "
             }
         ]
     },
@@ -110,7 +110,7 @@
         "href": "",
         "link": "",
         "subtitle": "Desktop notifier",
-        "description": "Chrome react extension for a french streamer. It has a background service that opens a SSE connection to a serverless API endpoint that I host on Zeit/now. The rest of the backend logic works with Twitch webhooks to subscribe to stream events and receive POST notification callbacks about/on stream states changes. These POST incoming requests changes the transferred datas to the SSE connection with the Chrome extension clients background services that then notify the clien about the new stream state.",
+        "description": "Chrome react extension for a french streamer. It has a background service that opens a SSE connection to a serverless API endpoint that I host on Zeit/now. The backend logic works with Twitch webhooks to subscribe to stream events and receive POST notification callbacks on stream states changes. These POST incoming requests change the transferred datas to the SSE connection with the Chrome extension clients background service that then notifies the client about the new stream state.",
         "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580723481/Personal%20Site/projects/Extension%20LFB/LFB-round.png",
         "background": "#252940",
         "dark": false,
@@ -135,7 +135,7 @@
                 "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580725917/Personal%20Site/projects/Extension%20LFB/notification.png",
                 "alt": "Desktop notification",
                 "position": "center",
-                "text": "Background service that pushes desktop a notification when the streamer goes live with current stream informations and opens twitch.tv on notification click."
+                "text": "Background service that pushes a desktop notification when the streamer goes live with current stream informations and opens twitch.tv on click."
             }
         ]
     },

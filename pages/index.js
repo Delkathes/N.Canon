@@ -68,18 +68,26 @@ const Nav = styled.nav`
     }
 `
 const NavLink = styled.li`
-    cursor: pointer;
+        cursor: pointer;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
     font-weight: bold;
+    @media(${({ theme }) => theme.mediaQueries.mobileS}) {
+        height: 36px;
+        margin-bottom: 4px;
+    }
+    @media(${({ theme }) => theme.mediaQueries.laptop}) {
+        height: auto;
+        margin-bottom: 20px;
+    }
     span {
         transition-duration: 0.3s;
     }
     div {
         transition-duration: 0.3s;
         display: flex;
-        align-self: flex-end;
+        /* align-self: flex-end; */
+        margin-top: 3px;
         margin-left: 8px;
     }
     &:hover {
