@@ -126,7 +126,7 @@ const Experiences = ({Page}) => {
                 <PageInfoExt style={pageSpring}>
                     <PageName>{Page}</PageName>
                     <p>Check my CV <a aria-label="CV-check" href="/static/CV.pdf" target="_blank" rel="noopener noreferrer">here</a> or download a copy of it below.</p>
-                    <a id="CV-download" aria-label="CV-download" href="/static/CV.pdf" download>Download CV<span><Icon icon="PDF" color="rgb(26, 160, 203)" /></span></a>
+                    <a id="CV-download" aria-label="CV-download" href="https://res.cloudinary.com/nicolas-canon/image/upload/v1580690686/Personal%20Site/docs/CV.pdf" download>Download CV<span><Icon icon="PDF" color="rgb(26, 160, 203)" /></span></a>
                 </PageInfoExt>
                 <ul>
                     {trail.map((props, i) =>

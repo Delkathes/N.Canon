@@ -158,7 +158,7 @@ const Home = () => {
             </Nav>
         </Container>
         <ProfilePic>
-            <img src="https://res.cloudinary.com/dkgucotla/image/upload/v1580691256/Personal%20Site/hacker.webp" srcSet="https://res.cloudinary.com/dkgucotla/image/upload/v1580691256/Personal%20Site/hacker.webp" alt="profile-pic" />
+            <img src="https://res.cloudinary.com/nicolas-canon/image/upload/v1580691256/Personal%20Site/hacker.webp" srcSet="https://res.cloudinary.com/nicolas-canon/image/upload/v1580691256/Personal%20Site/hacker.webp" alt="profile-pic" />
         </ProfilePic>
     </Section>
 }

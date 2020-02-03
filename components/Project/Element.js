@@ -34,6 +34,7 @@ const TileSC = styled.div`
     bottom: -45px;
     ${({position}) => position === 'left' ? `right: -4vw;` : position === 'right' ? `left: -4vw;` : ``}
     width: 28%;
+    min-width: 220px;
     padding: 40px 32px;
     background-color: ${({background}) => background};
     box-shadow: 0px 8px 18px 0px #0008;
@@ -43,7 +44,7 @@ const TileSC = styled.div`
     }
 `
 const Tile = ({alt, text, background, position}) => {
-    const [ref, inView, entry] = useInView({
+    const [ref, inView] = useInView({
         threshold: 0,
     })
     return <TileSC ref={ref} view={inView} background={background} position={position}>
@@ -62,7 +63,7 @@ Tile.propTypes = {
 //! Component : Element
 //? EXPORT
 const Element = ({data, background, dark, i}) => {
-    const [ref, inView, entry] = useInView({
+    const [ref, inView] = useInView({
         threshold: 0,
     })
     return <Li key={i} ref={ref} position={data.position} background={background} dark={dark} view={inView}>
