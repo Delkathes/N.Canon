@@ -8,13 +8,13 @@
     "url": "git://github.com/Delkathes/N.Canon"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "now dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.1.5",
+    "next": "^9.2.1",
     "next-compose-plugins": "^2.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -22,12 +22,12 @@
     "react-icons": "3.6.0",
     "react-intersection-observer": "^8.25.2",
     "react-spring": "^8.0.27",
-    "styled-components": "^5.0.0-rc.1"
+    "styled-components": "^5.0.0"
   },
   "devDependencies": {
-    "eslint": "^6.7.2",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react": "^7.18.2",
     "eslint-plugin-react-hooks": "^2.3.0"
   },
   "license": "ISC"

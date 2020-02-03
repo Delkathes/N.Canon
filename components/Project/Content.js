@@ -24,9 +24,17 @@ const Description = styled.p`
     }
     @media(${({theme}) => theme.mediaQueries.tablet}) {
         margin: 120px auto;
-        width: 50%;
-        font-size: 2em;
+        width: 70%;
+        font-size: 1.6em;
         color: ${({theme: {colors}}) => colors.secondary};
+        line-height: 1.5em;
+        font-weight: 300;
+    }
+    @media(${({ theme }) => theme.mediaQueries.laptop}) {
+        margin: 120px auto;
+        width: 60%;
+        font-size: 1.9em;
+        color: ${({ theme: { colors } }) => colors.secondary};
         line-height: 1.5em;
         font-weight: 300;
     }

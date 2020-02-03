@@ -25,7 +25,7 @@ const Hero = styled(animated.section)`
     width: 100%;
     background-color: ${({background}) => background};
     img {
-        filter: blur(2px);
+        filter: blur(1px);
         position: absolute;
         bottom: 0;
         right: 4vw;
