@@ -89,7 +89,7 @@ const Layout = ({children}) => {
         <header>
             <Link href="/" as="/">
                 <Logo open={open} style={logoSpring}>
-                    <img src="https://res.cloudinary.com/dkgucotla/image/upload/v1580690659/Personal%20Site/logo.png" srcSet="https://res.cloudinary.com/dkgucotla/image/upload/v1580690659/Personal%20Site/logo.png" alt="Logo" />
+                    <img src="https://res.cloudinary.com/nicolas-canon/image/upload/v1580690659/Personal%20Site/logo.png" srcSet="https://res.cloudinary.com/nicolas-canon/image/upload/v1580690659/Personal%20Site/logo.png" alt="Logo" />
                 </Logo>
             </Link>
             <NavBar />

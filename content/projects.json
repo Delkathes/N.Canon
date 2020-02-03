@@ -16,7 +16,7 @@
         "datas": [
             {
                 "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580722320/Personal%20Site/projects/Simone%20Duez/desktop_simone.png",
-                "alt": "Desktop pages",
+                "alt": "SSR pages",
                 "position": "left",
                 "text": "React server side rendered pages with fast prefetch navigation. The news widget is client side rendered as it needs the client's current datetime to display the matching content."
             },
@@ -120,22 +120,22 @@
         "long": false,
         "datas": [
             {
-                "image": "/static/img/projects/",
-                "alt": "",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580725330/Personal%20Site/projects/Extension%20LFB/player.png",
+                "alt": "React player",
                 "position": "left",
-                "text": "Lol, du texte"
+                "text": "Gets the stream from twitch and puts it in a video html tag. Uses react-player npm package."
             },
             {
-                "image": "/static/img/projects/",
-                "alt": "",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580725330/Personal%20Site/projects/Extension%20LFB/controls.png",
+                "alt": "Custom controls",
                 "position": "right",
-                "text": "Lol, du texte"
+                "text": "React-spring based controls for smooth animation on mouse hover."
             },
             {
-                "image": "/static/img/projects/",
-                "alt": "",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/v1580725917/Personal%20Site/projects/Extension%20LFB/notification.png",
+                "alt": "Desktop notification",
                 "position": "center",
-                "text": "Lol, du texte"
+                "text": "Background service that pushes desktop a notification when the streamer goes live with current stream informations and opens twitch.tv on notification click."
             }
         ]
     },
