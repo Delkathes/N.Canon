@@ -87,7 +87,7 @@ const NavBar = () => {
     const {route} = useRouter()
     let shortRoute = route.slice(0, 3)
     const [hoveredWidth, setWidth] = useState(0)
-    const [hoveredPosition, setPosition] = useState(2000)
+    const [hoveredPosition, setPosition] = useState(1920)
 
 
 
@@ -96,7 +96,7 @@ const NavBar = () => {
         setWidth(elWidth)
         setPosition(position)
     }
-    return <Nav onMouseLeave={() => setPosition(2000)}>
+    return <Nav onMouseLeave={ () => setPosition(document.body.clientWidth + 30)}>
         <ul>
             {NavigationLinks.map((link, i) => 
                 <NavLink key={i} onMouseOver={(e) => handleHover(e)} match={shortRoute === link.href.slice(0, 3)}>
@@ -130,7 +130,7 @@ const NavBar = () => {
                 </a>
             </NavLink>
         </ul>
-        <UnderBar width={hoveredWidth} position={hoveredPosition} hid={hoveredPosition === 2000} />
+        <UnderBar width={hoveredWidth} position={hoveredPosition} hid={hoveredPosition === 1920} />
     </Nav>
 }
 
