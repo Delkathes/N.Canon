@@ -35,7 +35,7 @@ export default class MyDocument extends Document {
                     <meta charSet="utf-8" />
                     <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-                    <link rel="shortcut icon" type="ico" href="/static/Logo.ico" />
+                    <link rel="shortcut icon" type="ico" href="https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580690648/Personal%20Site/ico.ico" />
 
                     {/* <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=auto" rel="stylesheet" /> */}
 

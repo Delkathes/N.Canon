@@ -6,8 +6,6 @@ import { useForm } from '@statickit/react'
 import styled from 'styled-components'
 import {animated, useSpring, useTransition, config} from 'react-spring'
 
-
-
 //! Content
 //! Constants
 //! Utils

@@ -1,6 +1,5 @@
 //? IMPORT
 //! Modules
-// import {useState, useEffect} from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
@@ -91,9 +90,7 @@ const About = () => {
                                 <a> get in touch.</a>
                             </Link>
                         </p>
-                        
                     </Article>
-
                 </Container>
             </Section>
         </>

@@ -124,6 +124,10 @@ const ProfilePic = styled.figure`
             max-height: 30vw;
             min-height: 230px;
         }
+        @media(${({ theme }) => theme.mediaQueries.laptop}) {
+            max-height: 40vw;
+            min-height: 350px;
+        }
     }
 `
 //! Components
@@ -166,7 +170,7 @@ const Home = () => {
             </Nav>
         </Container>
         <ProfilePic>
-            <img src="https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420,fl_immutable_cache/v1580691256/Personal%20Site/hacker.png" srcSet="https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420,fl_immutable_cache/v1580691256/Personal%20Site/hacker.png" alt="profile-pic" />
+            <img src="https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache/v1580691256/Personal%20Site/hacker.webp" srcSet="https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache/v1580691256/Personal%20Site/hacker.webp" alt="profile-pic" />
         </ProfilePic>
     </Section>
 }
