@@ -1,0 +1,26 @@
+{
+    "forms": {
+        "contactForm": {
+            "name": "Contact Form",
+            "fields": {
+                "name": {
+                    "type": "text",
+                    "required": true
+                },
+                "email": {
+                    "type": "email",
+                    "required": true
+                },
+                "textarea": {
+                    "type": "text",
+                    "required": true
+                }
+            },
+            "actions": [{
+                "type": "email",
+                "to": "canon.nicolas@protonmail.com"
+            }],
+            "allowExtraFields": false
+        }
+    }
+}

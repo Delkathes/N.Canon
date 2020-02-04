@@ -70,7 +70,7 @@ const Figure = styled.figure`
         z-index: -1;
         transform-origin: bottom;
         transition-duration: 0.4s;
-        filter: blur(2px);
+        filter: blur(1.5px);
         ${({cover}) => cover ? `
             height: auto;
             width: 100%;
@@ -98,7 +98,11 @@ const Infos = styled.div`
             line-height: 1.3em;
         }
         @media(${({theme}) => theme.mediaQueries.tablet}) {
-            font-size: 2.6em;
+            font-size: 2.2em;
+            line-height: 1.2em;
+        }
+        @media(${({ theme }) => theme.mediaQueries.laptop}) {
+            font-size: 2.4em;
             line-height: 1.2em;
         }
     }

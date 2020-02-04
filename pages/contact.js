@@ -1,8 +1,12 @@
 //? IMPORT
 //! Modules
-import styled from 'styled-components'
+import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import {animated, useSpring, config} from 'react-spring'
+import { useForm } from '@statickit/react'
+import styled from 'styled-components'
+import {animated, useSpring, useTransition, config} from 'react-spring'
+
+
 
 //! Content
 //! Constants
@@ -36,13 +40,16 @@ const Container = styled(Div)`
         grid-column-gap: 10px;
     }
 `
-const Form = styled.form`
+const FormContainer = styled.div`
+    position: relative;
+`
+const Form = styled(animated.form)`
     display: block;
     width: 100%;
     position: relative;
     margin-bottom: 50px;
 `
-const Input = styled.fieldset`
+const Fieldset = styled.fieldset`
     padding: 12px 18px;
     margin: 0px 0px 40px;
     color: ${({theme: {colors}}) => colors.primary};
@@ -85,11 +92,20 @@ const Submit = styled.button`
         background-color: rgb(36, 170, 213);
     }
 `
+const FromResponse = styled(animated.div)`
+    text-align: justify;
+    font-weight: 1.2em;
+    line-height: 2em;
+
+`
+
 //! Components
 //! High-order-components
 //!  Page : Contact
 //? EXPORT
 const Contact = props => {
+    const [state, handleSubmit] = useForm('contactForm')
+    
     const pageSpring = useSpring({
         config: config.default,
         to: {
@@ -101,6 +117,28 @@ const Contact = props => {
             opacity: 0
         },
     })
+
+
+    //* useState : sendingState
+    const [sendingState, setSending] = useState(false)
+    useEffect(() => {
+        if (state.succeeded && !sendingState && state.submitting) {
+            setSending(true)
+        }
+        if (state.succeeded && !state.submitting) {
+            setTimeout(() => {
+                setSending(false)
+            }, 5000)
+        }
+    }, [state])
+
+    //* useTransition : sendTransition
+    const sendTransition = useTransition(sendingState, item => item, {
+        from: { transform: 'translateX(0%)', opacity: 0},
+        enter: { transform: 'translateX(0%)', opacity: 1},
+        leave: { transform: 'translateX(50%)', opacity: 0, position: 'absolute'},
+    })
+
     return (
         <Section style={pageSpring}>
             <Container>
@@ -108,30 +146,95 @@ const Contact = props => {
                     <PageName>{props.Page}</PageName>
                     <p>Leave a message and say hello!</p>
                 </PageInfo>
-                <Form id="contact-form">
-                    <Input>
+                <FormContainer>
+                    { sendTransition.map(({ item, props, key }) => item ?
+                        <FromResponse style={ props } key={ key } >{ "Thanks for reaching me ! I'll try my best to reply as soon as possible. " }</FromResponse>
+                        :
+                        <Form id="contactForm" style={ props } key={ key } onSubmit={ handleSubmit }>
+                            <Fieldset>
+                                <legend>
+                                    Your name
+                        </legend>
+                                <label hidden htmlFor="name">Name</label>
+                                <input required
+                                    form="contactForm"
+                                    id="name"
+                                    name="name"
+                                    type="text"
+                                    aria-label="contact-name"
+                                />
+                            </Fieldset>
+                            <Fieldset>
+                                <legend>
+                                    Your email
+                        </legend>
+                                <label hidden htmlFor="email">Email</label>
+                                <input required
+                                    form="contactForm"
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    aria-label="contact-email"
+                                />
+                            </Fieldset>
+                            <Fieldset >
+                                <legend>
+                                    Message
+                        </legend>
+                                <label hidden htmlFor="textarea">Textarea</label>
+                                <textarea required
+                                    form="contactForm"
+                                    id="textarea"
+                                    name="textarea"
+                                    aria-label="contact-textarea"
+                                />
+                            </Fieldset>
+                            <Submit type="submit" disabled={ state.submitting }>Send</Submit>
+                        </Form>
+                        ) }
+                </FormContainer>
+                {/* <Form id="contactForm" style={ props } key={ key } onSubmit={ handleSubmit }>
+                    <Fieldset>
                         <legend>
                             Your name
                         </legend>
                         <label hidden htmlFor="name">Name</label>
-                        <input required type="text" name="name" aria-label="contact-name" form="contact-form"/>
-                    </Input>
-                    <Input>
+                        <input required
+                            form="contactForm"
+                            id="name"
+                            name="name"
+                            type="text"
+                            aria-label="contact-name"
+                        />
+                    </Fieldset>
+                    <Fieldset>
                         <legend>
                             Your email
                         </legend>
                         <label hidden htmlFor="email">Email</label>
-                        <input required type="email" name="email" aria-label="contact-email" form="contact-form"/>
-                    </Input>
-                    <Input >
+                        <input required
+                            form="contactForm"
+                            id="email"
+                            name="email"
+                            type="email"
+                            aria-label="contact-email"
+                        />
+                    </Fieldset>
+                    <Fieldset >
                         <legend>
                             Message
                         </legend>
                         <label hidden htmlFor="textarea">Textarea</label>
-                        <textarea required name="textarea" aria-label="contact-textarea" form="contact-form"/>
-                    </Input>
-                    <Submit name="Send" value="Send">Send</Submit>
-                </Form>
+                        <textarea required
+                            form="contactForm"
+                            id="textarea"
+                            name="textarea"
+                            aria-label="contact-textarea"
+                        />
+                    </Fieldset>
+                    <Submit type="submit" disabled={ state.submitting }>Send</Submit>
+                </Form> */}
+                
             </Container>
         </Section>
     )
