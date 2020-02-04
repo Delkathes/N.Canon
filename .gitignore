@@ -22,10 +22,10 @@ package-lock.json
 # dotenv environment variables file
 .env
 .env.test
+.env.build
 
 # Next.js build output
 .next
 
 # Serverless directories
 .serverless/
-

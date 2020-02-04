@@ -4,7 +4,9 @@
         "src": "package.json",
         "use": "@now/next"
     }],
-    "env": {
-        "STATICKIT_NICOLAS": "@statickit_nicolas"
+    "build": {
+        "env": {
+            "STATICKIT_NICOLAS": "@statickit_nicolas"
+        }
     }
 }
