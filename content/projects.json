@@ -6,7 +6,7 @@
         "link": "simone-duez.fr",
         "subtitle": "Paint artist",
         "description": "Website for Simone Duez, paint artist in Thise, France. Built with Next.js and hosted on Netlify, the artist also has access to a CMS to publish/administrate her work and handle incoming comments. Next.js comes with a static site generator option that I use here with the CMS to publish/commit content on the github repository that then triggers a redeployment on Netlify host with the new/deleted content.",
-        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_90:420,fl_immutable_cache/v1580690810/Personal%20Site/projects/simone-duez.png",
+        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420,fl_immutable_cache/v1580690810/Personal%20Site/projects/simone-duez.png",
         "background": "#EF5F50",
         "dark": false,
         "top": true,
@@ -15,7 +15,7 @@
         "long": false,
         "datas": [
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.8,q_80:420/v1580722320/Personal%20Site/projects/Simone%20Duez/desktop_simone.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.7,q_80:420/v1580722320/Personal%20Site/projects/Simone%20Duez/desktop_simone.png",
                 "alt": "SSR pages",
                 "position": "left",
                 "text": "React server side rendered pages with fast prefetch navigation. The news widget is client side rendered as it needs the client's current datetime to display the matching content."
@@ -27,7 +27,7 @@
                 "text": "Mobile and tablet media queries to adapt to the right screen sizes. Network optimization with images lazy loading."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.8,q_80:420/v1580722320/Personal%20Site/projects/Simone%20Duez/cms_simone.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.7,q_80:420/v1580722320/Personal%20Site/projects/Simone%20Duez/cms_simone.png",
                 "alt": "Netlify CMS",
                 "position": "center",
                 "text": "Content management system injected in a static html page from netlify's CDN for the website owner to publish and edit the website's content."
@@ -64,7 +64,7 @@
         "link": "",
         "subtitle": "Online newspaper",
         "description": "Personal attempt of creating a serverless newspaper website with authentication and comment section, profile handling and private messaging. Built with Next.js using its serverless mode and hosted on Zeit/now. Each route is a serverless lambda. Admins and team have access to Contentful headless CMS to publish content that the serverless functions query on client request.",
-        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_90:420,fl_immutable_cache/v1580690810/Personal%20Site/projects/newspaper.png",
+        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420,fl_immutable_cache/v1580690810/Personal%20Site/projects/newspaper.png",
         "background": "#DAEBF1",
         "dark": true,
         "top": false,
@@ -85,7 +85,7 @@
                 "text": "White and clear design without ads or overwhelming content."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.8,q_80:420/v1580731297/Personal%20Site/projects/NewsCoders/jwt-auth.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.7,q_80:420/v1580731297/Personal%20Site/projects/NewsCoders/jwt-auth.png",
                 "alt": "JWT Authentication",
                 "position": "center",
                 "text": "Serverless jwt based authentication. The token is stored in its own cookie with an expiration date. "
@@ -108,13 +108,13 @@
         "long": false,
         "datas": [
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580725330/Personal%20Site/projects/Extension%20LFB/player.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580725330/Personal%20Site/projects/Extension%20LFB/player.png",
                 "alt": "React player",
                 "position": "left",
                 "text": "Gets the stream from twitch and puts it in a video html tag. Uses react-player npm package."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580725330/Personal%20Site/projects/Extension%20LFB/controls.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580725330/Personal%20Site/projects/Extension%20LFB/controls.png",
                 "alt": "Custom controls",
                 "position": "right",
                 "text": "React-spring based controls for smooth animation on mouse hover."
@@ -143,7 +143,7 @@
         "long": false,
         "datas": [
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580815486/Personal%20Site/projects/Templates/Github.png",
+                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580815486/Personal%20Site/projects/Templates/Github.png",
                 "alt": "Github ready",
                 "position": "left",
                 "text": "Reusable public template repositories ready to clone with basic configurations for targeted needs."
