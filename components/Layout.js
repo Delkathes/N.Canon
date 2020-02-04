@@ -86,9 +86,9 @@ const Layout = ({children}) => {
     })
 
     return <>
-        {children.props.Page && <Head head={children.props.Page + ' | Nicolas Canon'} />}
+        { children.props.Page && <Head head={ children.props.Page + ' | Nicolas Canon' } description={ children.props.pageDescription } />}
         <header>
-            <Link href="/" as="/">
+            <Link href="/" as="/" passHref>
                 <Logo open={open} style={logoSpring}>
                     <img src="https://res.cloudinary.com/nicolas-canon/image/upload/v1580690659/Personal%20Site/logo.png" srcSet="https://res.cloudinary.com/nicolas-canon/image/upload/v1580690659/Personal%20Site/logo.png" alt="Logo" />
                 </Logo>

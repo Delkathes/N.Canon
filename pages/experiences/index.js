@@ -146,10 +146,12 @@ const Experiences = ({Page}) => {
 
 //! Default Props
 Experiences.defaultProps = {
-    Page: 'Experiences'
+    Page: 'Experiences',
+    pageDescription: "Learn more about my experiences and/or download a copy of my CV in pdf format. I'm currently open to any project suggestion."
 }
 Experiences.propTypes = {
-    Page: PropTypes.string
+    Page: PropTypes.string,
+    pageDescription: PropTypes.string
 }
 
 export default Experiences

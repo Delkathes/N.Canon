@@ -153,7 +153,7 @@ const Home = () => {
             <Nav>
                 <ul>
                     {NavigationLinks.map((link, i) => 
-                        <Link key={i} href={link.href}>
+                        <Link key={i} href={link.href} passHref>
                             <NavLink>
                                 <span>{link.clean}</span>
                                 <div>

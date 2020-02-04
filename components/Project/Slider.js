@@ -29,12 +29,6 @@ const SliderSC = styled(animated.div)`
 //! Component : Slider
 //? EXPORT
 const Slider = ({background, style}) => {
-    // const spring = useSpring({
-    //     config: {...config.default, duration: 1000},
-    //     transform: 'translateX(140vw)',
-    //     from: {transform: 'translateX(-140vw)'},
-    //     reset: true
-    // })
     return <SliderSC background={background} style={style} />
 }
 

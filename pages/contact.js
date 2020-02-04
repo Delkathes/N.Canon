@@ -193,48 +193,6 @@ const Contact = props => {
                         </Form>
                         ) }
                 </FormContainer>
-                {/* <Form id="contactForm" style={ props } key={ key } onSubmit={ handleSubmit }>
-                    <Fieldset>
-                        <legend>
-                            Your name
-                        </legend>
-                        <label hidden htmlFor="name">Name</label>
-                        <input required
-                            form="contactForm"
-                            id="name"
-                            name="name"
-                            type="text"
-                            aria-label="contact-name"
-                        />
-                    </Fieldset>
-                    <Fieldset>
-                        <legend>
-                            Your email
-                        </legend>
-                        <label hidden htmlFor="email">Email</label>
-                        <input required
-                            form="contactForm"
-                            id="email"
-                            name="email"
-                            type="email"
-                            aria-label="contact-email"
-                        />
-                    </Fieldset>
-                    <Fieldset >
-                        <legend>
-                            Message
-                        </legend>
-                        <label hidden htmlFor="textarea">Textarea</label>
-                        <textarea required
-                            form="contactForm"
-                            id="textarea"
-                            name="textarea"
-                            aria-label="contact-textarea"
-                        />
-                    </Fieldset>
-                    <Submit type="submit" disabled={ state.submitting }>Send</Submit>
-                </Form> */}
-                
             </Container>
         </Section>
     )
@@ -242,10 +200,12 @@ const Contact = props => {
 
 //! Default Props
 Contact.defaultProps = {
-    Page: 'Contact'
+    Page: 'Contact',
+    pageDescription: "Hi. Send me a message here ! I will try to respond as soon as possible."
 }
 Contact.propTypes = {
-    Page: PropTypes.string
+    Page: PropTypes.string,
+    pageDescription: PropTypes.string
 }
 
 export default Contact

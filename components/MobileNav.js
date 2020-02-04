@@ -34,8 +34,6 @@ const Nav = styled(animated.nav)`
         height: 100%;
         width: 100%;
         background-color: ${({theme: {colors}}) => colors.highlight};
-        /* transition-duration: 0.8s;
-        transform: translateY(${({open}) => open ? '0vh' : '-100vh'}); */
         ul {
             position: fixed;
             height: 50%;
@@ -141,40 +139,3 @@ MobileNav.propTypes = {
     setOpen: PropTypes.func
 }
 export default MobileNav
-
-
-// const lol = <Nav open={open} key={key} style={props}>
-//     <ul>
-//         {NavigationLinks.map((link, i) =>
-//             <NavLink key={i} match={shortRoute === link.href.slice(0, 3)}>
-//                 <Link href={`${link.href}`} passHref>
-//                     <a onClick={() => setOpen(false)}>
-//                         {link.clean}
-//                     </a>
-//                 </Link>
-//             </NavLink>
-//         )}
-//     </ul>
-//     <ul>
-//         <NavLink>
-//             <a
-//                 href="https://github.com/Delkathes"
-//                 target="_blank"
-//                 aria-label="GitHub"
-//                 rel="noopener noreferrer"
-//             >
-//                 <Icon icon="GitHub" color="rgb(251, 251, 251)" />
-//             </a>
-//         </NavLink>
-//         <NavLink>
-//             <a
-//                 href="https://www.linkedin.com/in/nicolas-canon-613296163/"
-//                 target="_blank"
-//                 aria-label="LinkedIn"
-//                 rel="noopener noreferrer"
-//             >
-//                 <Icon icon="LinkedIn" color="rgb(251, 251, 251)" />
-//             </a>
-//         </NavLink>
-//     </ul>
-// </Nav>

@@ -123,7 +123,7 @@ const BottomNav = ({query}) => {
         <Nav l={ProjectsLength}>
             <ul>
                 {ProjectsData.map((project, i) => project.slug !== query.project &&
-                    <Link key={i} href={`/projects/[project]?anim=true`} as={`/projects/${project.slug}`}>
+                    <Link key={ i } href={ `/projects/[project]?anim=true` } as={ `/projects/${project.slug}` } passHref>
                         <Tile l={ProjectsLength} background={project.background}>
                             <Filter background={project.background} />
                             <Figure cover={project.cover}>

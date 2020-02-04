@@ -191,7 +191,7 @@ const Projects = props => {
             <PageName>{props.Page}</PageName>
             <Grid>
                 {ProjectsData.map(({slug, top, bottom, background, dark, title, subtitle, image, cover, long}, i) => 
-                    <Link key={i} href={`/projects/[project]`} as={`/projects/${slug}`}>
+                    <Link key={ i } href={ `/projects/[project]` } as={ `/projects/${slug}` } passHref>
                         <Tile i={i} l={ProjectsLength} top={top} bottom={bottom} background={background} long={long}>
                             <Read className="read" right top={top} bottom={bottom}>Read More</Read>
                             <Figure cover={cover} top={top} bottom={bottom}>

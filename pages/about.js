@@ -87,7 +87,7 @@ const About = () => {
                         )}
                         <p id="contact">
                             {"If that sounds like someone you’d like to collaborate with then"}
-                            <Link href="/contact" passHref>
+                            <Link href="/contact" as="/contact" passHref>
                                 <a> get in touch.</a>
                             </Link>
                         </p>
@@ -102,10 +102,12 @@ const About = () => {
 
 //! Default Props
 About.defaultProps = {
-    Page: 'About'
+    Page: 'About',
+    pageDescription: "Learn more about me and how I started my journey in web development. I'm currently open to any project suggestion."
 }
 About.propTypes = {
-    Page: PropTypes.string
+    Page: PropTypes.string,
+    pageDescription: PropTypes.string,
 }
 
 export default About
