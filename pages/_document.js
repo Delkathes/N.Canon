@@ -38,9 +38,6 @@ export default class MyDocument extends Document {
                     <link rel="shortcut icon" type="ico" href="https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580690648/Personal%20Site/ico.ico" />
 
                     {/* <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=auto" rel="stylesheet" /> */}
-
-                    <link rel="canonical" href="https://nicolas-canon.fr" />
-
                     <style>{`
                         @font-face {
                             font-family: 'Source Sans Pro';
@@ -56,22 +53,14 @@ export default class MyDocument extends Document {
                             -ms-overflow-style: none;
                             scrollbar-width: none;
                         }
-                        body {
-                            margin: 0;
-                            padding: 0;
-                        }
-                        figure {
+                        body, figure, ul, p, h1, h2, h3, h4 {
                             margin: 0;
                             padding: 0;
                         }
                         ul {
                             list-style: none;
-                            margin: 0;
-                            padding: 0;
                         }
                         p, h1, h2, h3, h4 {
-                            margin: 0;
-                            padding: 0;
                             line-height: 1;
                         }
                         a {
