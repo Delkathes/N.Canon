@@ -16,7 +16,7 @@ const AboutLength = AboutData.length
 //! Hooks
 //! Actions
 //! Styles
-import {Container as Div, PageInfo, PageName} from '../styles/Theme'
+import { Container as Div, PageInfo } from '../styles/Theme'
 const Section = styled(animated.section)`
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
         width: 84%;
@@ -78,7 +78,7 @@ const About = () => {
             <Section style={pageSpring}>
                 <Container>
                     <PageInfo>
-                        <PageName>About me</PageName>
+                        <h1 className="page-name">About me</h1>
                     </PageInfo>
                     <Article>
                         {AboutData.map((data, i) =>

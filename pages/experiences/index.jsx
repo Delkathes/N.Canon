@@ -16,7 +16,7 @@ const ExpLength = ExpData.length
 //! Hooks
 //! Actions
 //! Styles
-import {Container as Div, PageInfo, PageName} from '../../styles/Theme'
+import {Container as Div, PageInfo} from '../../styles/Theme'
 const Section = styled(animated.section)`
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
         width: 84%;
@@ -124,7 +124,7 @@ const Experiences = ({Page}) => {
         <Section>
             <Container>
                 <PageInfoExt style={pageSpring}>
-                    <PageName>{Page}</PageName>
+                    <h1 className="page-name">{ Page }</h1>
                     <p>Check my CV <a aria-label="CV-check" href="https://res.cloudinary.com/nicolas-canon/image/upload/v1580690686/Personal%20Site/docs/CV.pdf" target="_blank" rel="noopener noreferrer">here</a> or download a copy of it below.</p>
                     <a id="CV-download" aria-label="CV-download" href="https://res.cloudinary.com/nicolas-canon/image/upload/v1580690686/Personal%20Site/docs/CV.pdf" download>Download CV<span><Icon icon="PDF" color="rgb(26, 160, 203)" /></span></a>
                 </PageInfoExt>

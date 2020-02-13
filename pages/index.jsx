@@ -62,7 +62,7 @@ const Presentation = styled.div`
 const Nav = styled.nav`
     z-index: 1;
     position: relative;
-    height: 140px;
+    height: 150px;
     ul {
         position: absolute;
     }
@@ -151,6 +151,7 @@ const Home = () => {
     return <Section style={pageSpring}>
         <Container>
             <Presentation>
+                <h1 hidden>Nicolas Canon - Web developer</h1>
                 <h2>{"Hey, I'm Nicolas."}</h2>
                 <p>{" I'm a self taught web developer based in Paris, FR."}</p>
             </Presentation>

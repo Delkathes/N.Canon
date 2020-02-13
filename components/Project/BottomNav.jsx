@@ -98,7 +98,7 @@ const Infos = styled.div`
             line-height: 1.3em;
         }
         @media(${({theme}) => theme.mediaQueries.tablet}) {
-            font-size: 2.2em;
+            font-size: 2em;
             line-height: 1.2em;
         }
         @media(${({ theme }) => theme.mediaQueries.laptop}) {

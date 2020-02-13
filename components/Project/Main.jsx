@@ -1,10 +1,7 @@
 //? IMPORT
 //! Modules
-// import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {animated} from 'react-spring'
-// import {useSpring, useTransition, useChain, config, animated} from 'react-spring'
 
 //! Content
 //! Constants
@@ -14,7 +11,7 @@ import {animated} from 'react-spring'
 //! Hooks
 //! Actions
 //! Styles
-const Hero = styled(animated.section)`
+const Hero = styled.section`
     position: relative;
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
         height: 280px;
@@ -45,12 +42,12 @@ const Title = styled.div`
     @media(${({theme}) => theme.mediaQueries.tablet}) {
         left: 16vw;
     }
-    h2 {
+    h1 {
         font-size: 1em;
         font-weight: 400;
         padding-bottom: 14px;
     }
-    h3 {
+    h2 {
         font-weight: bold;
         line-height: 0.74;
         text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 1em;
@@ -78,29 +75,30 @@ import Content from './Content'
 //! High-order-components
 //! Component : Main
 //? EXPORT
-const Main = ({background, dark, title, subtitle, image, slug, target, query, style}) => {
-    return(
-        <animated.section style={style}>
-            <Hero background={background}>
-                <Title dark={dark}>
-                    <h2>{title}</h2>
-                    <h3>{subtitle}</h3>
-                </Title>
-                <Filter background={background} />
-                <img
-                    src={image} srcSet={image}
-                    alt={slug}
-                />
-            </Hero>
-            <section>
-                <Content {...target} />
-            </section>
-            <section>
-                <BottomNav query={query} />
-            </section>
-        </animated.section>
-    )
-}
+const Main = ({ background, dark, title, subtitle, image, slug, target, query }) => (
+    <section className="page-fade" key={ title }>
+        <Hero background={ background }>
+
+            <Title dark={ dark }>
+                <h1>
+                    { title }
+                </h1>
+                <h2>{ subtitle }</h2>
+            </Title>
+            <Filter background={ background } />
+            <img
+                src={ image } srcSet={ image }
+                alt={ slug }
+            />
+        </Hero>
+        <section>
+            <Content { ...target } />
+        </section>
+        <section>
+            <BottomNav query={ query } />
+        </section>
+    </section>
+)
 
 //! PropTypes
 Main.propTypes = {

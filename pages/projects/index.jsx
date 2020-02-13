@@ -39,10 +39,10 @@ const Container = styled.div`
     width: 100%;
     margin: auto;
 `
-const PageName = styled.div`
-    font-weight: bold;
-    font-size: 3em;
-`
+// const PageName = styled.div`
+//     font-weight: bold;
+//     font-size: 3em;
+// `
 const Grid = styled.ul`
     
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
@@ -149,7 +149,7 @@ const Infos = styled.div`
     ${({dark, theme: {colors}}) => dark && `
         color: ${colors.reverse};
     `}
-    h3 {
+    h2 {
         @media(${({theme}) => theme.mediaQueries.mobileS}) {
             font-weight: 300;
         }
@@ -157,7 +157,7 @@ const Infos = styled.div`
             font-weight: bold;
         }
     }
-    h4 {
+    h3 {
         @media(${({theme}) => theme.mediaQueries.mobileS}) {
             font-size: 1.2em;
         }
@@ -188,7 +188,7 @@ const Projects = props => {
 
     return <Section style={pageSpring}>
         <Container>
-            <PageName>{props.Page}</PageName>
+            <h1 className="page-name">{ props.Page }</h1>
             <Grid>
                 {ProjectsData.map(({slug, top, bottom, background, dark, title, subtitle, image, cover, long}, i) => 
                     <Link key={ i } href={ `/projects/[project]` } as={ `/projects/${slug}` } passHref>
@@ -196,8 +196,8 @@ const Projects = props => {
                             <Read className="read" right top={top} bottom={bottom}>Read More</Read>
                             <Figure cover={cover} top={top} bottom={bottom}>
                                 <Infos top={!top} bottom={!bottom} dark={dark}>
-                                    <h3>{title}</h3>
-                                    <h4>{subtitle}</h4>
+                                    <h2>{title}</h2>
+                                    <h3>{subtitle}</h3>
                                 </Infos>
                                 <img
                                     alt={image}

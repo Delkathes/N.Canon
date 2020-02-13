@@ -14,7 +14,7 @@ import {animated, useSpring, useTransition, config} from 'react-spring'
 //! Hooks
 //! Actions
 //! Styles
-import {Container as Div, PageInfo, PageName} from '../styles/Theme'
+import {Container as Div, PageInfo} from '../styles/Theme'
 const Section = styled(animated.section)`
     margin: 0px auto;
     @media(${({theme}) => theme.mediaQueries.mobileS}) {
@@ -141,7 +141,7 @@ const Contact = props => {
         <Section style={pageSpring}>
             <Container>
                 <PageInfo>
-                    <PageName>{props.Page}</PageName>
+                    <h1 className="page-name">{props.Page}</h1>
                     <p>Leave a message and say hello!</p>
                 </PageInfo>
                 <FormContainer>

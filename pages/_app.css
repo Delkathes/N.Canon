@@ -1,0 +1,47 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+html {
+    background-color: rgb(34, 34, 34);
+    color: rgb(251, 251, 251);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+body, figure, ul, p, h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none;
+}
+p, h1, h2, h3, h4 {
+    line-height: 1;
+}
+a {
+    text-decoration: none;
+}
+
+
+
+/* ? Global Theme */
+.page-name {
+    font-weight: bold;
+    font-size: 3em;
+    line-height: initial;
+}
+
+
+.page-fade {
+    animation: fade 0.5s forwards linear;
+}

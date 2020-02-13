@@ -8,6 +8,10 @@ const nextConfig = {
     //! target
     target: 'serverless',
 
+    //! Page extensions
+    pageExtensions: ['js', 'jsx'],
+
+    //! Env
     env: {
         STATICKIT_NICOLAS: process.env.STATICKIT_NICOLAS
     },

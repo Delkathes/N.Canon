@@ -8,6 +8,7 @@ import 'isomorphic-unfetch'
 import Layout from '../components/Layout'
 
 //! Styles
+import './_app.css'
 import Theme from '../styles/Theme'
 
 //! Providers

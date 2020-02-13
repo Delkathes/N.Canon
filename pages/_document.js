@@ -44,28 +44,6 @@ export default class MyDocument extends Document {
                             font-display: auto;
                             src: url('/public/static/fonts/SourceSansPro-Regular.ttf') format("truetype");
                         }
-                        ::-webkit-scrollbar {
-                            display: none;
-                        }
-                        html {
-                            background-color: rgb(34, 34, 34);
-                            color: rgb(251, 251, 251);
-                            -ms-overflow-style: none;
-                            scrollbar-width: none;
-                        }
-                        body, figure, ul, p, h1, h2, h3, h4 {
-                            margin: 0;
-                            padding: 0;
-                        }
-                        ul {
-                            list-style: none;
-                        }
-                        p, h1, h2, h3, h4 {
-                            line-height: 1;
-                        }
-                        a {
-                            text-decoration: none;
-                        }
                     `}
                     </style>
                 </Head>
