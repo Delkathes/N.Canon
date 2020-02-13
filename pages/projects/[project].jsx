@@ -14,7 +14,7 @@ import ProjectsData from '../../content/projects.json'
 //! Styles
 //! Components
 import Head from '../../components/Global/Head'
-import Main from '../../components/Project/Main.js'
+import Main from '../../components/Project/Main'
 
 //! High-order-components
 //! SubPage : Project
