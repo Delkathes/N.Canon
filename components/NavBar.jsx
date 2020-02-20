@@ -1,6 +1,6 @@
 //? IMPORT
 //! Modules
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from "next/link"
 import PropTypes from "prop-types"
@@ -10,10 +10,10 @@ import styled from "styled-components"
 //! Content
 //! Constants
 const NavigationLinks = [
-    { prefetch: true, clean: 'Projects', href: '/projects' },
-    { prefetch: true, clean: 'About', href: '/about' },
-    { prefetch: false, clean: 'Contact', href: '/contact' },
-    { prefetch: true, clean: 'Experiences', href: '/experiences' },
+    { clean: 'Projects', href: '/projects' },
+    { clean: 'About', href: '/about' },
+    { clean: 'Contact', href: '/contact', prefetch: false },
+    { clean: 'Experiences', href: '/experiences' },
 ]
 
 //! Utils
@@ -31,6 +31,8 @@ function getOffset (el) {
 
 //! Context
 //! Hooks
+import useOnWindowResize from '../hooks/useOnWindowResize'
+
 //! Actions
 //! Styles
 const Nav = styled.nav`
@@ -85,14 +87,22 @@ import Icon from './Global/Icon'
 //? EXPORT
 const NavBar = () => {
     const {route} = useRouter()
-    let shortRoute = route.slice(0, 3)
+    const [screenWidth] = useOnWindowResize()
+
     const [hoveredWidth, setWidth] = useState(0)
-    const [hoveredPosition, setPosition] = useState(1920)
+    const [hoveredPosition, setPosition] = useState(screenWidth)
+    
+    let shortRoute = route.slice(0, 3)
 
-
+    useEffect(() => {
+        setPosition(screenWidth + 30)
+    }, [screenWidth])
+    
 
     function handleHover (e) {
-        const target = e.target, elWidth = target.offsetWidth, position = getOffset(target).left
+        const target = e.target,
+            elWidth = target.offsetWidth,
+            position = getOffset(target).left
         setWidth(elWidth)
         setPosition(position)
     }

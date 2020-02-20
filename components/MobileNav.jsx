@@ -10,11 +10,11 @@ import {useTransition, config, animated} from 'react-spring'
 //! Content
 //! Constants
 const NavigationLinks = [
-    { prefetch: true, clean: 'Home', href: '/'},
-    { prefetch: true, clean: 'Projects', href: '/projects' },
-    { prefetch: true, clean: 'About', href: '/about' },
-    { prefetch: false, clean: 'Contact', href: '/contact' },
-    { prefetch: true, clean: 'Experiences', href: '/experiences' },
+    { clean: 'Home', href: '/'},
+    { clean: 'Projects', href: '/projects' },
+    { clean: 'About', href: '/about' },
+    { clean: 'Contact', href: '/contact', prefetch: false },
+    { clean: 'Experiences', href: '/experiences' }
 ]
 
 //! Utils
