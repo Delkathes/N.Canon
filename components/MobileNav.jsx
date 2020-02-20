@@ -10,11 +10,11 @@ import {useTransition, config, animated} from 'react-spring'
 //! Content
 //! Constants
 const NavigationLinks = [
-    {clean: 'Home', href: '/'},
-    {clean: 'Projects', href: '/projects'},
-    {clean: 'About', href: '/about'},
-    {clean: 'Contact', href: '/contact'},
-    {clean: 'Experiences', href: '/experiences'},
+    { prefetch: true, clean: 'Home', href: '/'},
+    { prefetch: true, clean: 'Projects', href: '/projects' },
+    { prefetch: true, clean: 'About', href: '/about' },
+    { prefetch: false, clean: 'Contact', href: '/contact' },
+    { prefetch: true, clean: 'Experiences', href: '/experiences' },
 ]
 
 //! Utils
@@ -93,9 +93,9 @@ const MobileNav = ({open, setOpen}) => {
     return menuTrans.map(({item, props, key}) => item && 
         <Nav open={open} key={key} style={props}>
             <ul className="links">
-                {NavigationLinks.map(({href, clean}, i) =>
+            { NavigationLinks.map(({ href, clean, prefetch}, i) =>
                     <NavLink key={i}  match={shortRoute === href.slice(0, 3)}>
-                        <Link href={`${href}`} passHref>
+                        <Link href={ `${href}` } prefetch={ prefetch } passHref>
                             <a onClick={() => setOpen(false)}>
                                 {clean}
                             </a>

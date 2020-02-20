@@ -10,10 +10,10 @@ import styled from "styled-components"
 //! Content
 //! Constants
 const NavigationLinks = [
-    {clean: 'Projects', href: '/projects'},
-    {clean: 'About', href: '/about'},
-    {clean: 'Contact', href: '/contact'},
-    {clean: 'Experiences', href: '/experiences'},
+    { prefetch: true, clean: 'Projects', href: '/projects' },
+    { prefetch: true, clean: 'About', href: '/about' },
+    { prefetch: false, clean: 'Contact', href: '/contact' },
+    { prefetch: true, clean: 'Experiences', href: '/experiences' },
 ]
 
 //! Utils
@@ -100,7 +100,7 @@ const NavBar = () => {
         <ul>
             {NavigationLinks.map((link, i) => 
                 <NavLink key={i} onMouseOver={(e) => handleHover(e)} match={shortRoute === link.href.slice(0, 3)}>
-                    <Link href={`${link.href}`} passHref>
+                    <Link href={ `${link.href}` } prefetch={ link.prefetch } passHref>
                         <a>
                             {link.clean}
                         </a>
