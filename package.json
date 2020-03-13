@@ -14,23 +14,23 @@
   },
   "dependencies": {
     "@statickit/functions": "github:unstacked/statickit-functions#08c4a9d1-5fe0-4193-ae3b-52df1ea068a2",
-    "@statickit/react": "^2.0.1",
+    "@statickit/react": "^2.1.0",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.2.2",
+    "next": "^9.3.0",
     "next-compose-plugins": "^2.2.0",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-icons": "3.9.0",
-    "react-intersection-observer": "^8.25.3",
+    "react-intersection-observer": "^8.26.1",
     "react-spring": "^8.0.27",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-react-hooks": "^2.3.0"
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0"
   },
   "license": "ISC"
 }
