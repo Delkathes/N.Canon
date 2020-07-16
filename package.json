@@ -1,6 +1,6 @@
 {
   "name": "nicolas-canon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Nicolas 'Delkathes' Canon - canon.nicolas@protonmail.com",
   "description": "N.Canon personal website",
   "repository": {
@@ -15,22 +15,21 @@
   "dependencies": {
     "@statickit/functions": "github:unstacked/statickit-functions#08c4a9d1-5fe0-4193-ae3b-52df1ea068a2",
     "@statickit/react": "^2.1.0",
-    "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.3.0",
+    "next": "^9.4.4",
     "next-compose-plugins": "^2.2.0",
     "prop-types": "^15.7.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-icons": "3.9.0",
-    "react-intersection-observer": "^8.26.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "3.10.0",
+    "react-intersection-observer": "^8.26.2",
     "react-spring": "^8.0.27",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.0"
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8"
   },
   "license": "ISC"
 }
