@@ -1,12 +1,12 @@
 //? IMPORTS
 //! Modules
-import Document, {Html, Head, Main, NextScript} from 'next/document'
-import {ServerStyleSheet} from 'styled-components'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 //? EXPORT
 //! Component : MyDocument
 export default class MyDocument extends Document {
-    static async getInitialProps (ctx) {
+    static async getInitialProps(ctx) {
         const sheet = new ServerStyleSheet()
         const originalRenderPage = ctx.renderPage
         try {
@@ -28,17 +28,23 @@ export default class MyDocument extends Document {
             sheet.seal()
         }
     }
-    render () {
+    render() {
         return (
             <Html lang="en">
                 <Head>
                     <meta charSet="utf-8" />
                     <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-                    <link rel="shortcut icon" type="ico" href="https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580690648/Personal%20Site/ico.ico" />
+                    <link
+                        rel="shortcut icon"
+                        type="ico"
+                        href="https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580690648/Personal%20Site/ico.ico"
+                    />
+                    <link rel="preconnect" href="https://res.cloudinary.com" />
+                    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
 
-                    {/* <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=auto" rel="stylesheet" /> */}
-                    <style>{`
+                    <style>
+                        {`
                         @font-face {
                             font-family: 'Source Sans Pro';
                             font-display: auto;
