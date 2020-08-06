@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            //? Const and JSON
+            "env": ["constants/env"],
+
+            //? Styles
+            "css/*": ["styles/css/*"],
+            "@animations": ["styles/animations.js"],
+
+            //? Custom
+            "@Links": ["components/Links/index.jsx"]
+            // "@design-system/*": ["design-system/*"]
+        }
+    }
+}

@@ -8,13 +8,14 @@
         "url": "git://github.com/Delkathes/N.Canon"
     },
     "scripts": {
-        "dev": "now dev",
+        "dev": "next",
         "build": "next build",
         "start": "next start"
     },
     "dependencies": {
         "@statickit/functions": "github:unstacked/statickit-functions#08c4a9d1-5fe0-4193-ae3b-52df1ea068a2",
-        "@statickit/react": "^2.1.0",
+        "@statickit/react": "^2.1.1",
+        "cloudinary-react": "^1.6.6",
         "next": "^9.5.1",
         "next-compose-plugins": "^2.2.0",
         "prop-types": "^15.7.2",
