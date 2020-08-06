@@ -32,8 +32,16 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
-                    <link rel="preconnect" href="https://res.cloudinary.com" />
-                    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+                    <link
+                        rel="preconnect"
+                        href="https://res.cloudinary.com"
+                        crossOrigin="anonymous"
+                    />
+                    <link
+                        rel="dns-prefetch"
+                        href="https://res.cloudinary.com"
+                        crossOrigin="anonymous"
+                    />
 
                     <link
                         rel="shortcut icon"

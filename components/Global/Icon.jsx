@@ -1,7 +1,14 @@
 //? IMPORT
 //! Modules
 import PropTypes from 'prop-types'
-import {FaArrowRight, FaGithub, FaLinkedinIn, FaFilePdf, FaBars, FaTimes} from 'react-icons/fa'
+import {
+    FaArrowRight,
+    FaGithub,
+    FaLinkedinIn,
+    FaFilePdf,
+    FaBars,
+    FaTimes
+} from 'react-icons/fa'
 
 //! Content
 //! Constants
@@ -15,10 +22,11 @@ const styleIcon = {
     position: 'relative',
     zIndex: '-1'
 }
+
 //! Components
 //! High-order-components
 //! Component : Icon
-const Icon = ({icon, color}) => {
+const Icon = ({ icon, color }) => {
     switch (icon) {
         case 'ArrowRight':
             return <FaArrowRight color={color} style={styleIcon} />

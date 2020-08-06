@@ -30,3 +30,4 @@ package-lock.json
 # Serverless directories
 .serverless/
 .now
+.vercel

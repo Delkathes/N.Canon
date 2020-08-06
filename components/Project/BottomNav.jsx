@@ -159,7 +159,7 @@ const BottomNav = ({ querySlug }) => {
                                         >
                                             <Transformation
                                                 fetchFormat="auto"
-                                                quality="auto:eco"
+                                                quality="auto:low"
                                             />
                                             <Transformation flags="force_strip" />
                                             <Transformation flags="any_format" />
