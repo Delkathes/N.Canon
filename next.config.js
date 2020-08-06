@@ -1,5 +1,7 @@
 //? IMPORT
 //! Modules
+const { PHASE_PRODUCTION_BUILD, PHASE_DEVELOPMENT_SERVER } = require('next/constants')
+
 //! Official next plugins
 const withPlugins = require('next-compose-plugins')
 
@@ -16,9 +18,19 @@ const nextConfig = {
     },
 
     //! Env
-    env: {
-        STATICKIT_NICOLAS: process.env.STATICKIT_NICOLAS,
-        CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME
+    [PHASE_DEVELOPMENT_SERVER]: {
+        env: {
+            DOMAIN: 'http://localhost:3000',
+            STATICKIT_NICOLAS: process.env.STATICKIT_NICOLAS,
+            CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME
+        }
+    },
+    [PHASE_PRODUCTION_BUILD]: {
+        env: {
+            DOMAIN: 'https://nicolas-canon.fr',
+            STATICKIT_NICOLAS: process.env.STATICKIT_NICOLAS,
+            CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME
+        }
     },
 
     //? Webpack shared config

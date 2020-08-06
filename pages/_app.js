@@ -11,25 +11,22 @@ import Theme from 'styles/Theme'
 
 //! Providers
 import { ThemeProvider } from 'styled-components'
-import { StaticKitProvider } from '@statickit/react'
 import { CloudinaryContext } from 'cloudinary-react'
 
 //! Component : MyApp
 const MyApp = ({ Component, pageProps }) => (
-    <StaticKitProvider site={process.env.STATICKIT_NICOLAS}>
-        <CloudinaryContext secure cloudName={process.env.CLOUDINARY_CLOUD_NAME}>
-            <ThemeProvider theme={Theme}>
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
-                <style jsx global>{`
-                    html {
-                        font-family: 'Source Sans Pro', sans-serif;
-                    }
-                `}</style>
-            </ThemeProvider>
-        </CloudinaryContext>
-    </StaticKitProvider>
+    <CloudinaryContext secure cloudName={process.env.CLOUDINARY_CLOUD_NAME}>
+        <ThemeProvider theme={Theme}>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+            <style jsx global>{`
+                html {
+                    font-family: 'Source Sans Pro', sans-serif;
+                }
+            `}</style>
+        </ThemeProvider>
+    </CloudinaryContext>
 )
 
 MyApp.propTypes = {

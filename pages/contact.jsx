@@ -2,7 +2,6 @@
 //! Modules
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { useForm } from '@statickit/react'
 import styled from 'styled-components'
 import { animated, useTransition } from 'react-spring'
 
@@ -104,20 +103,31 @@ const FromResponse = styled(animated.div)`
 const Contact = props => {
     const pageSpring = useFadeIn()
 
-    const [state, handleSubmit] = useForm('contactForm')
+    async function handleMessage() {
+        const response = await fetch(`${process.env.DOMAIN}/api/mail`, {
+            method: 'POST',
+            body: JSON.stringify({ from: 'arthur@fart.lol', text: 'Yooooooooo' })
+        })
+        console.log('response.status', response.status)
+        const json = await response.json()
+        console.log('json', json)
+    }
+
+    // const [state, handleSubmit] = useForm('contactForm')
 
     //* useState : sendingState
+    // const [state, handleSubmit] = useState(false)
     const [sendingState, setSending] = useState(false)
-    useEffect(() => {
-        if (state.succeeded && !sendingState && state.submitting) {
-            setSending(true)
-        }
-        if (state.succeeded && !state.submitting) {
-            setTimeout(() => {
-                setSending(false)
-            }, 5000)
-        }
-    }, [state])
+    // useEffect(() => {
+    //     if (state.succeeded && !sendingState && state.submitting) {
+    //         setSending(true)
+    //     }
+    //     if (state.succeeded && !state.submitting) {
+    //         setTimeout(() => {
+    //             setSending(false)
+    //         }, 5000)
+    //     }
+    // }, [state])
 
     //* useTransition : sendTransition
     const sendTransition = useTransition(sendingState, item => item, {
@@ -142,12 +152,7 @@ const Contact = props => {
                                 }
                             </FromResponse>
                         ) : (
-                            <Form
-                                id="contactForm"
-                                style={props}
-                                key={key}
-                                onSubmit={handleSubmit}
-                            >
+                            <Form id="contactForm" style={props} key={key}>
                                 <Fieldset>
                                     <legend>Your name</legend>
                                     <label hidden htmlFor="name">
@@ -189,9 +194,12 @@ const Contact = props => {
                                         aria-label="contact-textarea"
                                     />
                                 </Fieldset>
-                                <Submit type="submit" disabled={state.submitting}>
+                                <Submit type="button" onClick={() => handleMessage()}>
                                     Send
                                 </Submit>
+                                {/* <Submit type="submit" disabled={state.submitting}>
+                                    Send
+                                </Submit> */}
                             </Form>
                         )
                     )}
