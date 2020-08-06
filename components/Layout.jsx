@@ -1,10 +1,11 @@
 //? IMPORT
 //! Modules
-import {useState} from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {useSpring, config, animated} from 'react-spring'
+import { useSpring, config, animated } from 'react-spring'
+import { Image, Transformation } from 'cloudinary-react'
 
 //! Content
 //! Constants
@@ -25,18 +26,17 @@ const Logo = styled(animated.figure)`
     left: calc(8.33333vw);
     background-color: #488dbf;
     img {
-        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        @media (${({ theme }) => theme.mediaQueries.mobileS}) {
             height: 50px;
             width: 50px;
         }
-        @media(${({theme}) => theme.mediaQueries.tablet}) {
+        @media (${({ theme }) => theme.mediaQueries.tablet}) {
             height: 100%;
             width: 100%;
         }
     }
 `
-const Main = styled(animated.main)`
-`
+const Main = styled(animated.main)``
 const MenuButton = styled.div`
     z-index: 3;
     position: fixed;
@@ -51,10 +51,10 @@ const MenuButton = styled.div`
         height: 65%;
         width: 65%;
     }
-    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         display: flex;
     }
-    @media(${({theme}) => theme.mediaQueries.tablet}) {
+    @media (${({ theme }) => theme.mediaQueries.tablet}) {
         display: none;
     }
 `
@@ -64,43 +64,59 @@ import NavBar from './NavBar'
 import MobileNav from './MobileNav'
 import Head from './Global/Head'
 import Icon from './Global/Icon'
-// import Slider from './Project/Slider'
 
 //! High-order-components
 //! Component : Layout
 //? EXPORT
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
     //* useState : open
     const [open, setOpen] = useState(false)
 
-
-    
     const mainSpring = useSpring({
-        to: {transform: open ? 'translateY(100vh)' : 'translateY(0vh)'},
-        from: {transform: 'translateY(0vh)'}
+        to: { transform: open ? 'translateY(100vh)' : 'translateY(0vh)' },
+        from: { transform: 'translateY(0vh)' }
     })
     const logoSpring = useSpring({
         config: config.default,
-        to: {transform: open ? 'translateY(120vh)' : 'translateY(0vh)'},
-        from: {transform: 'translateY(0vh)'}
+        to: { transform: open ? 'translateY(120vh)' : 'translateY(0vh)' },
+        from: { transform: 'translateY(0vh)' }
     })
 
-    return <>
-        { children.props.Page && <Head head={ children.props.Page + ' | Nicolas Canon' } description={ children.props.pageDescription } />}
-        <header>
-            <Link href="/" as="/" passHref>
-                <Logo open={open} style={logoSpring}>
-                    <img src="https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580690659/Personal%20Site/logo.png" srcSet="https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580690659/Personal%20Site/logo.png" alt="Logo" />
-                </Logo>
-            </Link>
-            <NavBar />
-            <MobileNav open={open} setOpen={setOpen} />
-            <MenuButton onClick={() => setOpen(!open)}>
-                <Icon icon={open ? 'Cross' : 'Bars'} color="rgb(251, 251, 251)" />
-            </MenuButton>
-        </header>
-        <Main open={open} style={mainSpring}>{children}</Main>
-    </>
+    return (
+        <>
+            {children.props.Page && (
+                <Head
+                    head={children.props.Page + ' | Nicolas Canon'}
+                    description={children.props.pageDescription}
+                />
+            )}
+            <header>
+                <Link href="/" as="/" passHref>
+                    <Logo open={open} style={logoSpring}>
+                        <Image
+                            alt="Logo of Nicolas Canon"
+                            publicId="v1580690659/Personal%20Site/logo"
+                            dpr="auto"
+                            width="auto"
+                            responsive
+                        >
+                            <Transformation fetchFormat="auto" quality="auto:low" />
+                            <Transformation flags="force_strip" />
+                            <Transformation flags="any_format" />
+                        </Image>
+                    </Logo>
+                </Link>
+                <NavBar />
+                <MobileNav open={open} setOpen={setOpen} />
+                <MenuButton onClick={() => setOpen(!open)}>
+                    <Icon icon={open ? 'Cross' : 'Bars'} color="rgb(251, 251, 251)" />
+                </MenuButton>
+            </header>
+            <Main open={open} style={mainSpring}>
+                {children}
+            </Main>
+        </>
+    )
 }
 
 //! Default Props
@@ -108,8 +124,8 @@ Layout.defaultProps = {
     Component: 'Layout'
 }
 Layout.propTypes = {
-  Component: PropTypes.string,
-  children: PropTypes.object
+    Component: PropTypes.string,
+    children: PropTypes.object
 }
 
 export default Layout

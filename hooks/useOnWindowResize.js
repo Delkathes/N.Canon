@@ -2,13 +2,15 @@
 //! Modules
 import { useState, useEffect } from 'react'
 
-export default () => {
+function useOnWindowResize() {
     //* useState : dimensions
     const [dimensions, setDimensions] = useState([1920, 1080])
+
     useEffect(() => {
-        function updateSize () {
+        function updateSize() {
             setDimensions([window.innerWidth, window.innerHeight])
         }
+
         window.addEventListener('resize', updateSize)
         updateSize()
         return () => window.removeEventListener('resize', updateSize)
@@ -16,3 +18,5 @@ export default () => {
 
     return dimensions
 }
+
+export default useOnWindowResize

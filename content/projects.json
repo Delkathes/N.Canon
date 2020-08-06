@@ -6,28 +6,40 @@
         "link": "simone-duez.fr",
         "subtitle": "Paint artist",
         "description": "Website for Simone Duez, paint artist in Thise, France. Built with Next.js and hosted on Netlify, the artist also has access to a CMS to publish/administrate her work and handle incoming comments. Next.js comes with a static site generator option that I use here with the CMS to publish/commit content on the github repository that then triggers a redeployment on Netlify host with the new/deleted content.",
-        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache/v1580690810/Personal%20Site/projects/simone-duez.webp",
+        "image": {
+            "src": "https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache/v1580690810/Personal%20Site/projects/simone-duez.webp",
+            "publicId": "v1580690810/Personal%20Site/projects/simone-duez"
+        },
         "background": "#EF5F50",
         "dark": false,
         "top": true,
         "bottom": false,
         "cover": false,
         "long": false,
-        "datas": [
+        "data": [
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.7,q_80:420/v1580722320/Personal%20Site/projects/Simone%20Duez/desktop_simone.png",
+                "image": {
+                    "src": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.7,q_80:420/v1580722320/Personal%20Site/projects/Simone%20Duez/desktop_simone.png",
+                    "publicId": "v1580722320/Personal%20Site/projects/Simone%20Duez/desktop_simone"
+                },
                 "alt": "SSR pages",
                 "position": "left",
                 "text": "React server side rendered pages with fast prefetch navigation. The news widget is client side rendered as it needs the client's current datetime to display the matching content."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580722320/Personal%20Site/projects/Simone%20Duez/mobile_simone.png",
+                "image": {
+                    "src": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580722320/Personal%20Site/projects/Simone%20Duez/mobile_simone.png",
+                    "publicId": "v1580722320/Personal%20Site/projects/Simone%20Duez/mobile_simone"
+                },
                 "alt": "Responsive support",
                 "position": "right",
                 "text": "Mobile and tablet media queries to adapt to the right screen sizes. Network optimization with images lazy loading."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.7,q_80:420/v1580722320/Personal%20Site/projects/Simone%20Duez/cms_simone.png",
+                "image": {
+                    "src": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.7,q_80:420/v1580722320/Personal%20Site/projects/Simone%20Duez/cms_simone.png",
+                    "publicId": "v1580722320/Personal%20Site/projects/Simone%20Duez/cms_simone"
+                },
                 "alt": "Netlify CMS",
                 "position": "center",
                 "text": "Content management system injected in a static html page from netlify's CDN for the website owner to publish and edit the website's content."
@@ -41,17 +53,22 @@
         "link": "",
         "subtitle": "Meeting organizer",
         "description": "Private unfinished/unpublished project in collaboration with a go/rust developer that aims to help meeting organizers in their ticketery and event registration by securing reservations payement with Bitcoin's Lightning Network.",
-        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_90:420,fl_immutable_cache/v1580690810/Personal%20Site/projects/neotown.webp",
+        "image": {
+            "src": "https://res.cloudinary.com/nicolas-canon/image/upload/q_90:420,fl_immutable_cache/v1580690810/Personal%20Site/projects/neotown.webp",
+            "publicId": "v1580690810/Personal%20Site/projects/neotown"
+        },
         "background": "#043144",
         "dark": false,
         "top": false,
         "bottom": true,
         "cover": true,
         "long": false,
-        "datas": [
+        "data": [
             {
-                "image": "",
-                "alt": "To come",
+                "image": {
+                    "src": "",
+                    "alt": "To come"
+                },
                 "position": "left",
                 "text": "Project isn't finished yet."
             }
@@ -64,28 +81,40 @@
         "link": "",
         "subtitle": "Online newspaper",
         "description": "Personal attempt of creating a serverless newspaper website with authentication and comment section, profile handling and private messaging. Built with Next.js using its serverless mode and hosted on Zeit/now. Each route is a serverless lambda. Admins and team have access to Contentful headless CMS to publish content that the serverless functions query on client request.",
-        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache/v1580690810/Personal%20Site/projects/newspaper.webp",
+        "image": {
+            "src": "https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache/v1580690810/Personal%20Site/projects/newspaper.webp",
+            "publicId": "v1580690810/Personal%20Site/projects/newspaper"
+        },
         "background": "#DAEBF1",
         "dark": true,
         "top": false,
         "bottom": true,
         "cover": false,
         "long": true,
-        "datas": [
+        "data": [
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580731297/Personal%20Site/projects/NewsCoders/accueil.png",
+                "image": {
+                    "src": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580731297/Personal%20Site/projects/NewsCoders/accueil.png",
+                    "publicId": "v1580731297/Personal%20Site/projects/NewsCoders/accueil"
+                },
                 "alt": "Landing page",
                 "position": "left",
                 "text": "Serverless page built with Next.js that is served with prefetched content from a headless CMS."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580731297/Personal%20Site/projects/NewsCoders/menu.png",
+                "image": {
+                    "src": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580731297/Personal%20Site/projects/NewsCoders/menu.png",
+                    "publicId": "v1580731297/Personal%20Site/projects/NewsCoders/menu"
+                },
                 "alt": "Polished design",
                 "position": "right",
                 "text": "White and clear design without ads or overwhelming content."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.7,q_80:420/v1580731297/Personal%20Site/projects/NewsCoders/jwt-auth.png",
+                "image": {
+                    "src": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.7,q_80:420/v1580731297/Personal%20Site/projects/NewsCoders/jwt-auth.png",
+                    "publicId": "v1580731297/Personal%20Site/projects/NewsCoders/jwt-auth"
+                },
                 "alt": "JWT Authentication",
                 "position": "center",
                 "text": "Serverless jwt based authentication. The token is stored in its own cookie with an expiration date. "
@@ -99,28 +128,40 @@
         "link": "",
         "subtitle": "Desktop notifier",
         "description": "Chrome react extension for a french streamer. It has a background service that opens a SSE connection to a serverless API endpoint that I host on Zeit/now. The backend logic works with Twitch webhooks to subscribe to stream events and receive POST notification callbacks on stream states changes. These POST incoming requests change the transferred datas to the SSE connection with the Chrome extension clients background service that then notifies the client about the new stream state.",
-        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache/v1580723481/Personal%20Site/projects/Extension%20LFB/LFB-round.webp",
+        "image": {
+            "src": "https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache/v1580723481/Personal%20Site/projects/Extension%20LFB/LFB-round.webp",
+            "publicId": "v1580723481/Personal%20Site/projects/Extension%20LFB/LFB-round"
+        },
         "background": "#252940",
         "dark": false,
         "top": true,
         "bottom": false,
         "cover": false,
         "long": false,
-        "datas": [
+        "data": [
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580725330/Personal%20Site/projects/Extension%20LFB/player.png",
+                "image": {
+                    "src": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580725330/Personal%20Site/projects/Extension%20LFB/player.png",
+                    "publicId": "v1580725330/Personal%20Site/projects/Extension%20LFB/player"
+                },
                 "alt": "React player",
                 "position": "left",
                 "text": "Gets the stream from twitch and puts it in a video html tag. Uses react-player npm package."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580725330/Personal%20Site/projects/Extension%20LFB/controls.png",
+                "image": {
+                    "src": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580725330/Personal%20Site/projects/Extension%20LFB/controls.png",
+                    "publicId": "v1580725330/Personal%20Site/projects/Extension%20LFB/controls"
+                },
                 "alt": "Custom controls",
                 "position": "right",
                 "text": "React-spring based controls for smooth animation on mouse hover."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580725917/Personal%20Site/projects/Extension%20LFB/notification.png",
+                "image": {
+                    "src": "https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580725917/Personal%20Site/projects/Extension%20LFB/notification.png",
+                    "publicId": "v1580725917/Personal%20Site/projects/Extension%20LFB/notification"
+                },
                 "alt": "Desktop notification",
                 "position": "center",
                 "text": "Background service that pushes a desktop notification when the streamer goes live with current stream informations and opens twitch.tv on click."
@@ -134,22 +175,31 @@
         "link": "https://github.com/Delkathes?tab=repositories",
         "subtitle": "Templates",
         "description": "Empty reusable templates optimized for specific needs. Blank and empty enough to have the from scratch feeling but still with personal preferences. From configs boilerplates to websocket or jwt auth, I have access to a couple of starters that fit my current needs.",
-        "image": "https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache/v1580690810/Personal%20Site/projects/templates.webp",
+        "image": {
+            "src": "https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache/v1580690810/Personal%20Site/projects/templates.webp",
+            "publicId": "v1580690810/Personal%20Site/projects/templates"
+        },
         "background": "#E1AE2A",
         "dark": true,
         "top": false,
         "bottom": true,
         "cover": false,
         "long": false,
-        "datas": [
+        "data": [
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580815486/Personal%20Site/projects/Templates/Github.png",
+                "image": {
+                    "src": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.9,q_80:420/v1580815486/Personal%20Site/projects/Templates/Github.png",
+                    "publicId": "v1580815486/Personal%20Site/projects/Templates/Github"
+                },
                 "alt": "Github ready",
                 "position": "left",
                 "text": "Reusable public template repositories ready to clone with basic configurations for targeted needs."
             },
             {
-                "image": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.8,q_80:420/v1580815486/Personal%20Site/projects/Templates/Repository.png",
+                "image": {
+                    "src": "https://res.cloudinary.com/nicolas-canon/image/upload/w_0.8,q_80:420/v1580815486/Personal%20Site/projects/Templates/Repository.png",
+                    "publicId": "v1580815486/Personal%20Site/projects/Templates/Repository"
+                },
                 "alt": "App structure",
                 "position": "right",
                 "text": "JWT authentication example. Provides a ready to use application structure with limited dependencies."

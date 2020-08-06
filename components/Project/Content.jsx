@@ -1,6 +1,5 @@
 //? IMPORT
 //! Modules
-// import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -13,24 +12,24 @@ import styled from 'styled-components'
 //! Actions
 //! Styles
 const Description = styled.p`
-    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         margin: 80px auto;
         width: 88%;
         font-size: 1.2em;
-        color: ${({theme: {colors}}) => colors.secondary};
+        color: ${({ theme: { colors } }) => colors.secondary};
         line-height: 1.5em;
         font-weight: 300;
         text-align: justify;
     }
-    @media(${({theme}) => theme.mediaQueries.tablet}) {
+    @media (${({ theme }) => theme.mediaQueries.tablet}) {
         margin: 120px auto;
         width: 70%;
         font-size: 1.6em;
-        color: ${({theme: {colors}}) => colors.secondary};
+        color: ${({ theme: { colors } }) => colors.secondary};
         line-height: 1.5em;
         font-weight: 300;
     }
-    @media(${({ theme }) => theme.mediaQueries.laptop}) {
+    @media (${({ theme }) => theme.mediaQueries.laptop}) {
         margin: 120px auto;
         width: 60%;
         font-size: 1.9em;
@@ -51,18 +50,16 @@ import Element from './Element'
 //! High-order-components
 //! Component : Content
 //? EXPORT
-const Content = ({background, dark, description, datas}) => {
-    return(
-        <>
-            <Description>
-                {description}
-            </Description>
-            <List>
-                {datas.map((data, i) => <Element key={i} data={data} background={background} dark={dark} />)}
-            </List>
-        </>
-    )
-}
+const Content = ({ background, dark, description, data }) => (
+    <>
+        <Description>{description}</Description>
+        <List>
+            {data.map((project, i) => (
+                <Element key={i} {...project} background={background} dark={dark} />
+            ))}
+        </List>
+    </>
+)
 
 //! Default Props
 Content.defaultProps = {
@@ -73,8 +70,7 @@ Content.propTypes = {
     background: PropTypes.string,
     dark: PropTypes.bool,
     description: PropTypes.string,
-    datas: PropTypes.array
-    
+    data: PropTypes.array
 }
 
 export default Content

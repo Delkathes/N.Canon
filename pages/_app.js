@@ -1,39 +1,40 @@
 //? IMPORT
 //! Modules
-import React from 'react'
-import App from 'next/app'
+import PropTypes from 'prop-types'
 
 //! Components
-import Layout from '../components/Layout'
+import Layout from 'components/Layout'
 
 //! Styles
 import './_app.css'
-import Theme from '../styles/Theme'
+import Theme from 'styles/Theme'
 
 //! Providers
 import { ThemeProvider } from 'styled-components'
 import { StaticKitProvider } from '@statickit/react'
-// import {GlobalProvider} from 'context/store'
+import { CloudinaryContext } from 'cloudinary-react'
 
 //! Component : MyApp
-class MyApp extends App {
-    render() {
-        const { Component, pageProps } = this.props
-        return (
-            <StaticKitProvider site={process.env.STATICKIT_NICOLAS}>
-                <ThemeProvider theme={Theme}>
-                    <Layout>
-                        <Component {...pageProps} />
-                    </Layout>
-                    <style jsx global>{`
-                        html {
-                            font-family: 'Source Sans Pro', sans-serif;
-                        }
-                    `}</style>
-                </ThemeProvider>
-            </StaticKitProvider>
-        )
-    }
+const MyApp = ({ Component, pageProps }) => (
+    <StaticKitProvider site={process.env.STATICKIT_NICOLAS}>
+        <CloudinaryContext secure cloudName={process.env.CLOUDINARY_CLOUD_NAME}>
+            <ThemeProvider theme={Theme}>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+                <style jsx global>{`
+                    html {
+                        font-family: 'Source Sans Pro', sans-serif;
+                    }
+                `}</style>
+            </ThemeProvider>
+        </CloudinaryContext>
+    </StaticKitProvider>
+)
+
+MyApp.propTypes = {
+    Component: PropTypes.func,
+    pageProps: PropTypes.object
 }
 
 //? EXPORT

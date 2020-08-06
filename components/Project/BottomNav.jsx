@@ -6,8 +6,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 //! Content
-import ProjectsData from '../../content/projects.json'
-const ProjectsLength = ProjectsData.length - 1
+import projects from 'content/projects.json'
+import { Image, Transformation } from 'cloudinary-react'
+const projectsLength = projects.length - 1
 
 //! Constants
 //! Utils
@@ -18,15 +19,17 @@ const ProjectsLength = ProjectsData.length - 1
 //! Styles
 const Nav = styled.nav`
     ul {
-        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        @media (${({ theme }) => theme.mediaQueries.mobileS}) {
             width: 100%;
             display: flex;
             flex-direction: column;
         }
-        @media(${({theme}) => theme.mediaQueries.tablet}) {
+        @media (${({ theme }) => theme.mediaQueries.tablet}) {
             width: 100%;
             display: grid;
-            grid-template-columns: ${({l}) => 100 / l}% ${({l}) => 100 / l}% ${({l}) => 100 / l}% ${({l}) => 100 / l}% ${({l}) => 100 / l}%;
+            grid-template-columns: ${({ l }) => 100 / l}% ${({ l }) => 100 / l}% ${({
+                    l
+                }) => 100 / l}% ${({ l }) => 100 / l}% ${({ l }) => 100 / l}%;
             box-shadow: 0px -12px 20px 0px #0006;
         }
     }
@@ -37,11 +40,11 @@ const Tile = styled.li`
     overflow: hidden;
     width: 100%;
     z-index: 1;
-    background-color: ${({background}) => background};
-    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+    background-color: ${({ background }) => background};
+    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         padding-top: 25%;
     }
-    @media(${({theme}) => theme.mediaQueries.tablet}) {
+    @media (${({ theme }) => theme.mediaQueries.tablet}) {
         padding-top: 60%;
         transition-duration: 0.2s;
         &:hover {
@@ -54,7 +57,7 @@ const Filter = styled.div`
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: ${({background}) => `${background}60`};
+    background-color: ${({ background }) => `${background}60`};
     z-index: 0;
 `
 const Figure = styled.figure`
@@ -71,10 +74,13 @@ const Figure = styled.figure`
         transform-origin: bottom;
         transition-duration: 0.4s;
         filter: blur(1.5px);
-        ${({cover}) => cover ? `
+        ${({ cover }) =>
+            cover
+                ? `
             height: auto;
             width: 100%;
-        ` : `
+        `
+                : `
             height: 100%;
             width: auto;
         `}
@@ -83,7 +89,9 @@ const Figure = styled.figure`
 const Infos = styled.div`
     position: absolute;
     z-index: 1;
-    ${({dark, theme: {colors}}) => dark && `
+    ${({ dark, theme: { colors } }) =>
+        dark &&
+        `
         color: ${colors.reverse};
     `}
     h3 {
@@ -91,25 +99,24 @@ const Infos = styled.div`
         font-size: 1em;
     }
     h4 {
-        
         font-weight: bold;
-        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        @media (${({ theme }) => theme.mediaQueries.mobileS}) {
             font-size: 1.1em;
             line-height: 1.3em;
         }
-        @media(${({theme}) => theme.mediaQueries.tablet}) {
+        @media (${({ theme }) => theme.mediaQueries.tablet}) {
             font-size: 2em;
             line-height: 1.2em;
         }
-        @media(${({ theme }) => theme.mediaQueries.laptop}) {
+        @media (${({ theme }) => theme.mediaQueries.laptop}) {
             font-size: 2.4em;
             line-height: 1.2em;
         }
     }
-    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         padding: 20px 15px;
     }
-    @media(${({theme}) => theme.mediaQueries.tablet}) {
+    @media (${({ theme }) => theme.mediaQueries.tablet}) {
         padding: 30px;
     }
 `
@@ -118,26 +125,49 @@ const Infos = styled.div`
 //! High-order-components
 //! Component : BottomNav
 //? EXPORT
-const BottomNav = ({query}) => {
-    return(
-        <Nav l={ProjectsLength}>
+const BottomNav = ({ querySlug }) => {
+    return (
+        <Nav l={projectsLength}>
             <ul>
-                {ProjectsData.map((project, i) => project.slug !== query.project &&
-                    <Link key={ i } href={ `/projects/[project]?anim=true` } as={ `/projects/${project.slug}` } passHref>
-                        <Tile l={ProjectsLength} background={project.background}>
-                            <Filter background={project.background} />
-                            <Figure cover={project.cover}>
-                                <Infos top={!project.top} bottom={!project.bottom} dark={project.dark}>
-                                    <h3>{project.title}</h3>
-                                    <h4>{project.subtitle}</h4>
-                                </Infos>
-                                <img
-                                    src={`${project.image}`} srcSet={`${project.image}`}
-                                    alt={project.slug}
-                                />
-                            </Figure>
-                        </Tile>
-                    </Link>
+                {projects.map(
+                    (project, i) =>
+                        project.slug !== querySlug && (
+                            <Link
+                                key={i}
+                                href={`/projects/[slug]?anim=true`}
+                                as={`/projects/${project.slug}`}
+                                passHref
+                            >
+                                <Tile l={projectsLength} background={project.background}>
+                                    <Filter background={project.background} />
+                                    <Figure cover={project.cover}>
+                                        <Infos
+                                            top={!project.top}
+                                            bottom={!project.bottom}
+                                            dark={project.dark}
+                                        >
+                                            <h3>{project.title}</h3>
+                                            <h4>{project.subtitle}</h4>
+                                        </Infos>
+                                        <Image
+                                            alt={project.title}
+                                            publicId={project.image.publicId}
+                                            dpr="auto"
+                                            height="100%"
+                                            width="auto"
+                                            responsive
+                                        >
+                                            <Transformation
+                                                fetchFormat="auto"
+                                                quality="auto:eco"
+                                            />
+                                            <Transformation flags="force_strip" />
+                                            <Transformation flags="any_format" />
+                                        </Image>
+                                    </Figure>
+                                </Tile>
+                            </Link>
+                        )
                 )}
             </ul>
         </Nav>
@@ -150,6 +180,6 @@ BottomNav.defaultProps = {
 }
 BottomNav.propTypes = {
     Component: PropTypes.string,
-    query: PropTypes.object
+    querySlug: PropTypes.string
 }
 export default BottomNav

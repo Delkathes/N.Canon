@@ -32,17 +32,14 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
-                    <meta charSet="utf-8" />
-                    <meta content="width=device-width,initial-scale=1" name="viewport" />
+                    <link rel="preconnect" href="https://res.cloudinary.com" />
+                    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
 
                     <link
                         rel="shortcut icon"
                         type="ico"
                         href="https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580690648/Personal%20Site/ico.ico"
                     />
-                    <link rel="preconnect" href="https://res.cloudinary.com" />
-                    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-
                     <style>
                         {`
                         @font-face {

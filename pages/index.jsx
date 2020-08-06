@@ -1,18 +1,19 @@
 //? IMPORT
 //! Modules
 // import {useState, useEffect} from 'react'
-import Link from "next/link"
+import Link from 'next/link'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import {animated, useSpring, config} from 'react-spring'
+import { animated } from 'react-spring'
+import { Image, Transformation } from 'cloudinary-react'
 
 //! Content
 //! Constants
 const NavigationLinks = [
-    {clean: 'More about me', href: 'about'},
-    {clean: 'My recent projects', href: 'projects'},
-    {clean: 'Get in touch', href: 'contact'},
-    {clean: 'View my experience', href: 'experiences'},
+    { clean: 'More about me', href: 'about' },
+    { clean: 'My recent projects', href: 'projects' },
+    { clean: 'Get in touch', href: 'contact' },
+    { clean: 'View my experience', href: 'experiences' }
 ]
 
 //! Utils
@@ -21,6 +22,7 @@ const NavigationLinks = [
 //! Hooks
 //! Actions
 //! Styles
+import { useFadeIn } from '@animations'
 const Section = styled(animated.section)`
     height: 100vh;
     width: 66%;
@@ -28,13 +30,13 @@ const Section = styled(animated.section)`
     position: relative;
     display: flex;
     align-items: center;
-    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         width: 84%;
     }
-    @media(${({theme}) => theme.mediaQueries.tablet}) {
+    @media (${({ theme }) => theme.mediaQueries.tablet}) {
         width: 78%;
     }
-    @media(${({theme}) => theme.mediaQueries.laptop}) {
+    @media (${({ theme }) => theme.mediaQueries.laptop}) {
         width: 66%;
     }
 `
@@ -46,10 +48,10 @@ const Container = styled.div`
 const Presentation = styled.div`
     h2 {
         font-weight: 900;
-        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        @media (${({ theme }) => theme.mediaQueries.mobileS}) {
             font-size: 2em;
         }
-        @media(${({theme}) => theme.mediaQueries.laptop}) {
+        @media (${({ theme }) => theme.mediaQueries.laptop}) {
             width: 100%;
             font-size: 3em;
         }
@@ -68,15 +70,15 @@ const Nav = styled.nav`
     }
 `
 const NavLink = styled.li`
-        cursor: pointer;
+    cursor: pointer;
     display: flex;
     align-items: center;
     font-weight: bold;
-    @media(${({ theme }) => theme.mediaQueries.mobileS}) {
+    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         height: 36px;
         margin-bottom: 4px;
     }
-    @media(${({ theme }) => theme.mediaQueries.laptop}) {
+    @media (${({ theme }) => theme.mediaQueries.laptop}) {
         height: auto;
         margin-bottom: 20px;
     }
@@ -92,7 +94,7 @@ const NavLink = styled.li`
     }
     &:hover {
         span {
-            color: ${({theme: {colors}}) => colors.highlight};
+            color: ${({ theme: { colors } }) => colors.highlight};
             transform: translateX(-6px);
         }
         div {
@@ -107,81 +109,87 @@ const ProfilePic = styled.figure`
     position: fixed;
     bottom: 0px;
     display: flex;
-    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         right: -8vw;
         width: 94%;
     }
-    @media(${({theme}) => theme.mediaQueries.tablet}) {
+    @media (${({ theme }) => theme.mediaQueries.tablet}) {
         right: -6vw;
         width: auto;
     }
     img {
-        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        @media (${({ theme }) => theme.mediaQueries.mobileS}) {
             max-height: 20vw;
             min-height: 210px;
         }
-        @media(${({theme}) => theme.mediaQueries.tablet}) {
+        @media (${({ theme }) => theme.mediaQueries.tablet}) {
             max-height: 30vw;
             min-height: 230px;
         }
-        @media(${({ theme }) => theme.mediaQueries.laptop}) {
+        @media (${({ theme }) => theme.mediaQueries.laptop}) {
             max-height: 40vw;
             min-height: 350px;
         }
     }
 `
 //! Components
-import Icon from "../components/Global/Icon"
+import Icon from 'components/Global/Icon'
 
 //! High-order-components
 //!  Page : Home
 //? EXPORT
 const Home = () => {
-    const pageSpring = useSpring({
-        config: config.default,
-        to: {
-            transform: 'translateY(0px)',
-            opacity: 1
-        },
-        from: {
-            transform: 'translateY(200px)',
-            opacity: 0
-        },
-    })
-    return <Section style={pageSpring}>
-        <Container>
-            <Presentation>
-                <h1 hidden>Nicolas Canon - Web developer</h1>
-                <h2>{"Hey, I'm Nicolas."}</h2>
-                <p>{" I'm a self taught web developer based in Paris, FR."}</p>
-            </Presentation>
-            <Nav>
-                <ul>
-                    {NavigationLinks.map((link, i) => 
-                        <Link key={i} href={link.href} passHref>
-                            <NavLink>
-                                <span>{link.clean}</span>
-                                <div>
-                                    <Icon icon="ArrowRight" color="rgb(26, 160, 203)" />
-                                </div>
-                            </NavLink>
-                        </Link>
-                    )}
-                </ul>
-            </Nav>
-        </Container>
-        <ProfilePic>
-            <img src="https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache/v1580691256/Personal%20Site/hacker.webp" srcSet="https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache/v1580691256/Personal%20Site/hacker.webp" alt="profile-pic" />
-        </ProfilePic>
-    </Section>
+    const pageSpring = useFadeIn()
+
+    return (
+        <Section style={pageSpring}>
+            <Container>
+                <Presentation>
+                    <h1 hidden>Nicolas Canon - Web developer</h1>
+                    <h2>{"Hey, I'm Nicolas."}</h2>
+                    <p>{" I'm a self taught web developer based in Paris, FR."}</p>
+                </Presentation>
+                <Nav>
+                    <ul>
+                        {NavigationLinks.map((link, i) => (
+                            <Link key={i} href={link.href} passHref>
+                                <NavLink>
+                                    <span>{link.clean}</span>
+                                    <div>
+                                        <Icon
+                                            icon="ArrowRight"
+                                            color="rgb(26, 160, 203)"
+                                        />
+                                    </div>
+                                </NavLink>
+                            </Link>
+                        ))}
+                    </ul>
+                </Nav>
+            </Container>
+            <ProfilePic>
+                <Image
+                    alt="profile pic from Nicolas Canon"
+                    publicId="v1580691256/Personal%20Site/hacker"
+                    dpr="auto"
+                    width="auto"
+                    responsive
+                >
+                    <Transformation fetchFormat="auto" quality="auto:best" />
+                    <Transformation flags="force_strip" />
+                    <Transformation flags="any_format" />
+                </Image>
+            </ProfilePic>
+        </Section>
+    )
 }
 
 //! Default Props
 Home.defaultProps = {
-     Page: 'Home'
+    Page: 'Home'
 }
 Home.propTypes = {
-     Page: PropTypes.string
+    Page: PropTypes.string
 }
 
 export default Home

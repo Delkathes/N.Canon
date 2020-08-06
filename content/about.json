@@ -1,6 +1,6 @@
 [
-    "I'm a self taught Javascript developer. I started learning with free lessons in early 2018 and learned html/css and vanilla JS. After a brief jQuery exploration, I jumped on React as my first Javascript modern framework. And it's been great so far.", 
-    "I mostly use Next.js (React SSR framework) and tend to opt for CSS-in-JS solutions for styling. I started using Redux pretty early on my React self-teaching and discovered the Context API later. I switched to React' s Context API and use a hook empowered state manager 'à la' Redux, all being handled by distinct custom hooks.",
-    "Server Side Rendering with Next got me to learn Node.js basics. That's how I was introduced to backend development. I now build complete fullstack applications and barely started my journey with Serverless deployments.",
+    "I'm a self taught Javascript developer. I started learning with free lessons in early 2018 and learned html/css and vanilla JS. After a brief jQuery exploration, I jumped on React as my first Javascript modern framework. And it's been great so far.",
+    "I mostly use Next.js (React SSR framework) for all my work. It offers enough flexibility and ready-to-use features to handle the majority of projects I've built.",
+    "Server Side Rendering (SSR) with Next got me to learn Node.js basics. That's how I was introduced to backend development. I now build complete fullstack applications and barely started my journey with Serverless deployments.",
     "My spare time goes essentially into music and guitar playing. Rock'n'roll will never die !"
 ]

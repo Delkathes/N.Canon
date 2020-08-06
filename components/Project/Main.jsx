@@ -2,6 +2,7 @@
 //! Modules
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Image, Transformation } from 'cloudinary-react'
 
 //! Content
 //! Constants
@@ -13,14 +14,14 @@ import styled from 'styled-components'
 //! Styles
 const Hero = styled.section`
     position: relative;
-    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         height: 280px;
     }
-    @media(${({theme}) => theme.mediaQueries.tablet}) {
+    @media (${({ theme }) => theme.mediaQueries.tablet}) {
         height: 380px;
     }
     width: 100%;
-    background-color: ${({background}) => background};
+    background-color: ${({ background }) => background};
     img {
         filter: blur(1px);
         position: absolute;
@@ -31,15 +32,17 @@ const Hero = styled.section`
 `
 const Title = styled.div`
     z-index: 1;
-    ${({dark, theme: {colors}}) => dark && `
+    ${({ dark, theme: { colors } }) =>
+        dark &&
+        `
         color: ${colors.reverse};
         `}
     position: absolute;
     bottom: 0;
-    @media(${({theme}) => theme.mediaQueries.mobileS}) {
+    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         left: 8vw;
     }
-    @media(${({theme}) => theme.mediaQueries.tablet}) {
+    @media (${({ theme }) => theme.mediaQueries.tablet}) {
         left: 16vw;
     }
     h1 {
@@ -51,10 +54,10 @@ const Title = styled.div`
         font-weight: bold;
         line-height: 0.74;
         text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 1em;
-        @media(${({theme}) => theme.mediaQueries.mobileS}) {
+        @media (${({ theme }) => theme.mediaQueries.mobileS}) {
             font-size: 3em;
         }
-        @media(${({theme}) => theme.mediaQueries.tablet}) {
+        @media (${({ theme }) => theme.mediaQueries.tablet}) {
             font-size: 4.2em;
         }
     }
@@ -64,7 +67,7 @@ const Filter = styled.div`
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: ${({background}) => `${background}60`};
+    background-color: ${({ background }) => `${background}60`};
     z-index: 0;
 `
 
@@ -75,27 +78,46 @@ import Content from './Content'
 //! High-order-components
 //! Component : Main
 //? EXPORT
-const Main = ({ background, dark, title, subtitle, image, slug, target, query }) => (
-    <section className="page-fade" key={ title }>
-        <Hero background={ background }>
-
-            <Title dark={ dark }>
-                <h1>
-                    { title }
-                </h1>
-                <h2>{ subtitle }</h2>
+const Main = ({
+    description,
+    background,
+    dark,
+    title,
+    subtitle,
+    image,
+    data,
+    querySlug
+}) => (
+    <section className="page-fade" key={title}>
+        <Hero background={background}>
+            <Title dark={dark}>
+                <h1>{title}</h1>
+                <h2>{subtitle}</h2>
             </Title>
-            <Filter background={ background } />
-            <img
-                src={ image } srcSet={ image }
-                alt={ slug }
-            />
+            <Filter background={background} />
+            <Image
+                alt={title}
+                publicId={image.publicId}
+                dpr="auto"
+                height="100%"
+                width="auto"
+                responsive
+            >
+                <Transformation fetchFormat="auto" quality="auto:eco" />
+                <Transformation flags="force_strip" />
+                <Transformation flags="any_format" />
+            </Image>
         </Hero>
         <section>
-            <Content { ...target } />
+            <Content
+                background={background}
+                description={description}
+                dark={dark}
+                data={data}
+            />
         </section>
         <section>
-            <BottomNav query={ query } />
+            <BottomNav querySlug={querySlug} />
         </section>
     </section>
 )
@@ -104,14 +126,16 @@ const Main = ({ background, dark, title, subtitle, image, slug, target, query })
 Main.propTypes = {
     Component: PropTypes.string,
     title: PropTypes.string,
+    description: PropTypes.string,
     subtitle: PropTypes.string,
-    image: PropTypes.string,
+    image: PropTypes.object,
     slug: PropTypes.string,
     background: PropTypes.string,
     dark: PropTypes.bool,
-    query: PropTypes.object,
+    querySlug: PropTypes.string,
+    data: PropTypes.array,
     style: PropTypes.object,
-    target: PropTypes.object,
+    target: PropTypes.object
 }
 //! Default Props
 Main.defaultProps = {
