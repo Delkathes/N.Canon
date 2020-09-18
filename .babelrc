@@ -6,9 +6,7 @@
             {
                 "ssr": true,
                 "displayName": true
-                // "preprocess": false
             }
-        ],
-        ["react-optimized-image/lib/plugin"]
+        ]
     ]
 }
