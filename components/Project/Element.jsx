@@ -84,14 +84,12 @@ const TileSC = styled.div`
         font-size: 0.95em;
     }
 `
-const Tile = ({ alt, text, background, position, inView }) => {
-    return (
-        <TileSC view={inView} background={background} position={position}>
-            <h4>{alt}</h4>
-            <p>{text}</p>
-        </TileSC>
-    )
-}
+const Tile = ({ alt, text, background, position, inView }) => (
+    <TileSC view={inView} background={background} position={position}>
+        <h4>{alt}</h4>
+        <p>{text}</p>
+    </TileSC>
+)
 Tile.propTypes = {
     alt: PropTypes.string,
     inView: PropTypes.bool,

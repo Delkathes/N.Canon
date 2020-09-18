@@ -124,56 +124,54 @@ const Infos = styled.div`
 //! High-order-components
 //! Component : BottomNav
 //? EXPORT
-const BottomNav = ({ querySlug }) => {
-    return (
-        <Nav l={projectsLength}>
-            <ul>
-                {projects.map(
-                    (project, i) =>
-                        project.slug !== querySlug && (
-                            <Link
-                                key={i}
-                                href={`/projects/[slug]?anim=true`}
-                                as={`/projects/${project.slug}`}
-                                passHref
-                            >
-                                <Tile l={projectsLength} background={project.background}>
-                                    <Filter background={project.background} />
-                                    <Figure cover={project.cover}>
-                                        <Infos
-                                            top={!project.top}
-                                            bottom={!project.bottom}
-                                            dark={project.dark}
-                                        >
-                                            <h3>{project.title}</h3>
-                                            <h4>{project.subtitle}</h4>
-                                        </Infos>
-                                        <Image
-                                            alt={project.title}
-                                            publicId={project.image.publicId}
-                                            dpr="auto"
-                                            height="100%"
-                                            width="auto"
-                                            responsive
-                                            loading="lazy"
-                                        >
-                                            <Transformation
-                                                fetchFormat="auto"
-                                                effect="blur:300"
-                                                quality="auto:low"
-                                            />
-                                            <Transformation flags="force_strip" />
-                                            <Transformation flags="any_format" />
-                                        </Image>
-                                    </Figure>
-                                </Tile>
-                            </Link>
-                        )
-                )}
-            </ul>
-        </Nav>
-    )
-}
+const BottomNav = ({ querySlug }) => (
+    <Nav l={projectsLength}>
+        <ul>
+            {projects.map(
+                (project, i) =>
+                    project.slug !== querySlug && (
+                        <Link
+                            key={i}
+                            href={`/projects/[slug]?anim=true`}
+                            as={`/projects/${project.slug}`}
+                            passHref
+                        >
+                            <Tile l={projectsLength} background={project.background}>
+                                <Filter background={project.background} />
+                                <Figure cover={project.cover}>
+                                    <Infos
+                                        top={!project.top}
+                                        bottom={!project.bottom}
+                                        dark={project.dark}
+                                    >
+                                        <h3>{project.title}</h3>
+                                        <h4>{project.subtitle}</h4>
+                                    </Infos>
+                                    <Image
+                                        alt={project.title}
+                                        publicId={project.image.publicId}
+                                        dpr="auto"
+                                        height="100%"
+                                        width="auto"
+                                        responsive
+                                        loading="lazy"
+                                    >
+                                        <Transformation
+                                            fetchFormat="auto"
+                                            effect="blur:300"
+                                            quality="auto:low"
+                                        />
+                                        <Transformation flags="force_strip" />
+                                        <Transformation flags="any_format" />
+                                    </Image>
+                                </Figure>
+                            </Tile>
+                        </Link>
+                    )
+            )}
+        </ul>
+    </Nav>
+)
 
 //! Default Props
 BottomNav.defaultProps = {
