@@ -73,7 +73,6 @@ const Figure = styled.figure`
         z-index: -1;
         transform-origin: bottom;
         transition-duration: 0.4s;
-        filter: blur(1.5px);
         ${({ cover }) =>
             cover
                 ? `
@@ -156,9 +155,11 @@ const BottomNav = ({ querySlug }) => {
                                             height="100%"
                                             width="auto"
                                             responsive
+                                            loading="lazy"
                                         >
                                             <Transformation
                                                 fetchFormat="auto"
+                                                effect="blur:300"
                                                 quality="auto:low"
                                             />
                                             <Transformation flags="force_strip" />
