@@ -31,6 +31,7 @@ const Li = styled.li`
     `}
     opacity: ${({ view }) => (view ? 1 : 0)};
     transition-duration: 0.8s;
+    transition-delay: 0.2s;
     @media(${({ theme }) => theme.mediaQueries.mobileS}) {
         width: 100%;
     }
@@ -78,16 +79,14 @@ const TileSC = styled.div`
     box-shadow: 0px 8px 18px 0px #0008;
     opacity: ${({ view }) => (view ? 1 : 0)};
     transition-duration: 0.8s;
+    transition-delay: 0.3s;
     p {
         font-size: 0.95em;
     }
 `
-const Tile = ({ alt, text, background, position }) => {
-    const [ref, inView] = useInView({
-        threshold: 0
-    })
+const Tile = ({ alt, text, background, position, inView }) => {
     return (
-        <TileSC ref={ref} view={inView} background={background} position={position}>
+        <TileSC view={inView} background={background} position={position}>
             <h4>{alt}</h4>
             <p>{text}</p>
         </TileSC>
@@ -95,6 +94,7 @@ const Tile = ({ alt, text, background, position }) => {
 }
 Tile.propTypes = {
     alt: PropTypes.string,
+    inView: PropTypes.bool,
     text: PropTypes.string,
     background: PropTypes.string,
     position: PropTypes.string
@@ -105,7 +105,9 @@ Tile.propTypes = {
 //? EXPORT
 const Element = ({ image, alt, position, text, background, dark, i }) => {
     const [ref, inView] = useInView({
-        threshold: 0
+        threshold: 0,
+        rootMargin: '50px',
+        triggerOnce: true
     })
     return (
         <Li
@@ -116,7 +118,7 @@ const Element = ({ image, alt, position, text, background, dark, i }) => {
             dark={dark}
             view={inView}
         >
-            {image.publicId && (
+            {image.publicId && inView && (
                 <Image
                     alt={alt}
                     publicId={image.publicId}
@@ -124,7 +126,6 @@ const Element = ({ image, alt, position, text, background, dark, i }) => {
                     height="100%"
                     width="auto"
                     responsive
-                    loading="lazy"
                 >
                     <Transformation fetchFormat="auto" quality="auto:eco" />
                     <Transformation flags="force_strip" />
@@ -132,7 +133,13 @@ const Element = ({ image, alt, position, text, background, dark, i }) => {
                 </Image>
             )}
             {text && (
-                <Tile alt={alt} text={text} background={background} position={position} />
+                <Tile
+                    alt={alt}
+                    text={text}
+                    background={background}
+                    position={position}
+                    inView={inView}
+                />
             )}
         </Li>
     )
