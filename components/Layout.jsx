@@ -5,9 +5,12 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useSpring, config, animated } from 'react-spring'
-import { Image, Transformation } from 'cloudinary-react'
+// import { Image, Transformation } from 'cloudinary-react'
+// import Img from 'react-optimized-image'
 
 //! Content
+import LogoPng from 'public/static/Logo.png'
+
 //! Constants
 //! Utils
 //! Helpers
@@ -93,17 +96,7 @@ const Layout = ({ children }) => {
             <header>
                 <Link href="/" as="/" passHref>
                     <Logo open={open} style={logoSpring}>
-                        <Image
-                            alt="Logo of Nicolas Canon"
-                            publicId="v1580690659/Personal%20Site/logo"
-                            dpr="auto"
-                            width="auto"
-                            responsive
-                        >
-                            <Transformation fetchFormat="auto" quality="auto:low" />
-                            <Transformation flags="force_strip" />
-                            <Transformation flags="any_format" />
-                        </Image>
+                        <img alt="Logo of Nicolas Canon" src={LogoPng} />
                     </Logo>
                 </Link>
                 <NavBar />

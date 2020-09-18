@@ -74,7 +74,7 @@ import Icon from './Global/Icon'
 //! High-order-components
 //! Component : MobileNav
 //? EXPORT
-const MobileNav = memo(({ open, setOpen }) => {
+const MobileNav = ({ open, setOpen }) => {
     const { route } = useRouter()
     let shortRoute = route.slice(0, 3)
 
@@ -129,7 +129,7 @@ const MobileNav = memo(({ open, setOpen }) => {
                 </Nav>
             )
     )
-})
+}
 
 //! Default Props
 MobileNav.defaultProps = {
@@ -140,4 +140,4 @@ MobileNav.propTypes = {
     open: PropTypes.bool,
     setOpen: PropTypes.func
 }
-export default MobileNav
+export default memo(MobileNav)

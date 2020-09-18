@@ -175,7 +175,7 @@ const Home = () => {
                     width="auto"
                     responsive
                 >
-                    <Transformation fetchFormat="auto" quality="auto:best" />
+                    <Transformation fetchFormat="auto" quality="auto:good" />
                     <Transformation flags="force_strip" />
                     <Transformation flags="any_format" />
                 </Image>

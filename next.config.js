@@ -2,6 +2,7 @@
 //! Modules
 //! Official next plugins
 const withPlugins = require('next-compose-plugins')
+const withImages = require('next-images')
 
 //! Next.js configuration
 const nextConfig = {
@@ -30,4 +31,9 @@ const nextConfig = {
     }
 }
 
-module.exports = withPlugins([], nextConfig)
+// prettier-ignore
+module.exports = withPlugins([[withImages, {
+    inlineImageLimit: 16384,
+    fileExtensions: ["jpg", "jpeg", "png", "webp", "ico"],
+
+}]], nextConfig)

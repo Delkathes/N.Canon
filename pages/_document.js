@@ -2,6 +2,7 @@
 //! Modules
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import LogoIcon from 'public/static/Logo.ico'
 
 //? EXPORT
 //! Component : MyDocument
@@ -43,11 +44,7 @@ export default class MyDocument extends Document {
                         crossOrigin="anonymous"
                     />
 
-                    <link
-                        rel="shortcut icon"
-                        type="ico"
-                        href="https://res.cloudinary.com/nicolas-canon/image/upload/q_80:420/v1580690648/Personal%20Site/ico.ico"
-                    />
+                    <link rel="shortcut icon" type="ico" href={LogoIcon} />
                     <style>
                         {`
                         @font-face {

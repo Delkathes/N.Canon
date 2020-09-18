@@ -85,7 +85,7 @@ import Icon from './Global/Icon'
 //! High-order-components
 //! Component : NavBar
 //? EXPORT
-const NavBar = memo(() => {
+const NavBar = () => {
     const { route } = useRouter()
     const [screenWidth] = useOnWindowResize()
 
@@ -150,7 +150,7 @@ const NavBar = memo(() => {
             />
         </Nav>
     )
-})
+}
 
 //! Default Props
 NavBar.defaultProps = {
@@ -160,4 +160,4 @@ NavBar.propTypes = {
     Component: PropTypes.string
 }
 
-export default NavBar
+export default memo(NavBar)
