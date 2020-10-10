@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useInView } from 'react-intersection-observer'
 import { Image, Transformation } from 'cloudinary-react'
-// import {useState, useEffect} from 'react'
 
 //! Content
 //! Constants
@@ -23,7 +22,7 @@ const Li = styled.li`
             : `align-self: center;`}
     position: relative;
     margin-bottom: 280px;
-    
+
     ${({ dark, theme: { colors } }) =>
         dark &&
         `
@@ -32,10 +31,10 @@ const Li = styled.li`
     opacity: ${({ view }) => (view ? 1 : 0)};
     transition-duration: 0.8s;
     transition-delay: 0.2s;
-    @media(${({ theme }) => theme.mediaQueries.mobileS}) {
+    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         width: 100%;
     }
-    @media(${({ theme }) => theme.mediaQueries.tablet}) {
+    @media (${({ theme }) => theme.mediaQueries.tablet}) {
         width: 70%;
     }
 
@@ -120,14 +119,14 @@ const Element = ({ image, alt, position, text, background, dark, i }) => {
                 <Image
                     alt={alt}
                     publicId={image.publicId}
-                    dpr="auto"
                     height="100%"
                     width="auto"
                     responsive
                 >
-                    <Transformation fetchFormat="auto" quality="auto:eco" />
+                    <Transformation dpr="auto" fetchFormat="auto" quality="auto:eco" />
                     <Transformation flags="force_strip" />
-                    <Transformation flags="any_format" />
+                    <Transformation flags="strip_profile" />
+                    <Transformation flags="immutable_cache" />
                 </Image>
             )}
             {text && (
