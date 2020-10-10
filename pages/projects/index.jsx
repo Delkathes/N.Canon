@@ -234,17 +234,18 @@ const Projects = props => {
                                         <Image
                                             alt={title}
                                             publicId={image.publicId}
-                                            dpr="auto"
                                             height="100%"
                                             width="auto"
                                             responsive
                                         >
                                             <Transformation
+                                                dpr="auto"
                                                 fetchFormat="auto"
                                                 quality="auto:eco"
                                             />
                                             <Transformation flags="force_strip" />
-                                            <Transformation flags="any_format" />
+                                            <Transformation flags="strip_profile" />
+                                            <Transformation flags="immutable_cache" />
                                         </Image>
                                     </Figure>
                                 </Tile>

@@ -4,9 +4,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { useSpring, config, animated } from 'react-spring'
-// import { Image, Transformation } from 'cloudinary-react'
-// import Img from 'react-optimized-image'
 
 //! Content
 import LogoPng from 'public/static/Logo.png'
@@ -18,7 +15,7 @@ import LogoPng from 'public/static/Logo.png'
 //! Hooks
 //! Actions
 //! Styles
-const Logo = styled(animated.figure)`
+const Logo = styled.figure`
     cursor: pointer;
     margin: 0;
     padding: 0;
@@ -28,6 +25,9 @@ const Logo = styled(animated.figure)`
     top: 0px;
     left: calc(8.33333vw);
     background-color: #488dbf;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+    transform: ${({ open }) => (open ? 'translateY(120vh)' : 'translateY(0vh)')};
     img {
         @media (${({ theme }) => theme.mediaQueries.mobileS}) {
             height: 50px;
@@ -39,7 +39,11 @@ const Logo = styled(animated.figure)`
         }
     }
 `
-const Main = styled(animated.main)``
+const Main = styled.main`
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+    transform: ${({ open }) => (open ? 'translateY(100vh)' : 'translateY(0vh)')};
+`
 const MenuButton = styled.div`
     z-index: 3;
     position: fixed;
@@ -75,16 +79,6 @@ const Layout = ({ children }) => {
     //* useState : open
     const [open, setOpen] = useState(false)
 
-    const mainSpring = useSpring({
-        to: { transform: open ? 'translateY(100vh)' : 'translateY(0vh)' },
-        from: { transform: 'translateY(0vh)' }
-    })
-    const logoSpring = useSpring({
-        config: config.default,
-        to: { transform: open ? 'translateY(120vh)' : 'translateY(0vh)' },
-        from: { transform: 'translateY(0vh)' }
-    })
-
     return (
         <>
             {children.props.Page && (
@@ -95,8 +89,8 @@ const Layout = ({ children }) => {
             )}
             <header>
                 <Link href="/" as="/" passHref>
-                    <Logo open={open} style={logoSpring}>
-                        <img alt="Logo of Nicolas Canon" src={LogoPng} />
+                    <Logo open={open}>
+                        <img alt="Logo of Nicolas Canon" src={LogoPng} loading="eager" />
                     </Logo>
                 </Link>
                 <NavBar />
@@ -105,9 +99,7 @@ const Layout = ({ children }) => {
                     <Icon icon={open ? 'Cross' : 'Bars'} color="rgb(251, 251, 251)" />
                 </MenuButton>
             </header>
-            <Main open={open} style={mainSpring}>
-                {children}
-            </Main>
+            <Main open={open}>{children}</Main>
         </>
     )
 }

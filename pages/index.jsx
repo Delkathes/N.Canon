@@ -171,13 +171,13 @@ const Home = () => {
                 <Image
                     alt="profile pic from Nicolas Canon"
                     publicId="v1580691256/Personal%20Site/hacker"
-                    dpr="auto"
                     width="auto"
                     responsive
                 >
-                    <Transformation fetchFormat="auto" quality="auto:good" />
+                    <Transformation dpr="auto" fetchFormat="auto" quality="auto:eco" />
                     <Transformation flags="force_strip" />
-                    <Transformation flags="any_format" />
+                    <Transformation flags="strip_profile" />
+                    <Transformation flags="immutable_cache" />
                 </Image>
             </ProfilePic>
         </Section>
