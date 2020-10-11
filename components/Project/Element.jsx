@@ -122,6 +122,7 @@ const Element = ({ image, alt, position, text, background, dark, i }) => {
                     height="100%"
                     width="auto"
                     responsive
+                    loading="eager"
                 >
                     <Transformation dpr="auto" fetchFormat="auto" quality="auto:eco" />
                     <Transformation flags="force_strip" />

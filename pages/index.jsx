@@ -173,6 +173,7 @@ const Home = () => {
                     publicId="v1580691256/Personal%20Site/hacker"
                     width="auto"
                     responsive
+                    loading="eager"
                 >
                     <Transformation dpr="auto" fetchFormat="auto" quality="auto:eco" />
                     <Transformation flags="force_strip" />

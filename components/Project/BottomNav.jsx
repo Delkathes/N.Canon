@@ -154,7 +154,7 @@ const BottomNav = ({ querySlug }) => (
                                         height="100%"
                                         width="auto"
                                         responsive
-                                        loading="lazy"
+                                        loading="eager"
                                     >
                                         <Transformation
                                             fetchFormat="auto"

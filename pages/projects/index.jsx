@@ -237,6 +237,7 @@ const Projects = props => {
                                             height="100%"
                                             width="auto"
                                             responsive
+                                            loading="eager"
                                         >
                                             <Transformation
                                                 dpr="auto"
