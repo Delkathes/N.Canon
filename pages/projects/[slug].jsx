@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 //! Content
 //! Constants
 //! Utils
+import { markedKeysToString } from 'utils/marked'
 import { dirToJson } from 'utils/file-system'
 
 //! Helpers
@@ -31,7 +32,9 @@ const Project = ({ project, projects }) => (
 
 export const getStaticProps = async ({ params }) => {
     const data = await dirToJson('content/projects')
-    const project = data.find(el => el.slug === params.slug)
+    let project = data.find(el => el.slug === params.slug)
+    project = await markedKeysToString(project, ['description'])
+
     return {
         props: {
             project,

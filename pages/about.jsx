@@ -10,6 +10,7 @@ import { animated } from 'react-spring'
 //! Constants
 //! Utils
 import { fileToJson } from 'utils/file-system'
+import { markedKeysToString, Marked } from 'utils/marked'
 
 //! Helpers
 //! Context
@@ -52,9 +53,12 @@ const Article = styled.article`
         font-weight: bold;
     }
 `
-const P = styled.p`
-    font-size: 1.02em;
-    line-height: 1.3em;
+const P = styled.div`
+    p {
+        font-size: 1.02em;
+        line-height: 1.3em;
+        margin-bottom: 14px;
+    }
 `
 
 //! Components
@@ -77,7 +81,9 @@ const About = ({ about }) => {
                         <h1 className="page-name">About me</h1>
                     </PageInfo>
                     <Article>
-                        <P>{about.text}</P>
+                        <P>
+                            <Marked markdown={about.text} />
+                        </P>
                         <p id="contact">
                             {
                                 'If that sounds like someone you’d like to collaborate with then'
@@ -94,7 +100,9 @@ const About = ({ about }) => {
 }
 
 export const getStaticProps = async () => {
-    const about = await fileToJson('content/pages/about.json')
+    let about = await fileToJson('content/pages/about.json')
+    about = await markedKeysToString(about, ['text'])
+
     return {
         props: {
             about
