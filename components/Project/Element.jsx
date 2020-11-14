@@ -115,19 +115,17 @@ const Element = ({ image, alt, position, text, background, dark, i }) => {
             dark={dark}
             view={inView}
         >
-            {image.publicId && inView && (
+            {image && inView && (
                 <Image
                     alt={alt}
-                    publicId={image.publicId}
+                    publicId={image}
                     height="100%"
                     width="auto"
                     responsive
                     loading="eager"
                 >
                     <Transformation dpr="auto" fetchFormat="auto" quality="auto:eco" />
-                    <Transformation flags="force_strip" />
-                    <Transformation flags="strip_profile" />
-                    <Transformation flags="immutable_cache" />
+                    <Transformation flags="force_strip.strip_profile.immutable_cache" />
                 </Image>
             )}
             {text && (
@@ -143,12 +141,8 @@ const Element = ({ image, alt, position, text, background, dark, i }) => {
     )
 }
 
-//! Default Props
-Element.defaultProps = {
-    Component: 'Element'
-}
+//! Prop-types
 Element.propTypes = {
-    Component: PropTypes.string,
     background: PropTypes.string,
     dark: PropTypes.bool,
     i: PropTypes.number,

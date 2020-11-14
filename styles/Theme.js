@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import {animated} from 'react-spring'
+import { animated } from 'react-spring'
 
 const Theme = {
     colors: {
         primary: 'rgb(251,251, 251)',
         secondary: 'rgb(230, 230, 230)',
         reverse: 'rgb(20, 20, 20)',
-        highlight: 'rgb(26, 160, 203)',
+        highlight: 'rgb(26, 160, 203)'
     },
     fontFamilies: {
         primary: "'Source Sans Pro', sans-serif"
@@ -14,7 +14,7 @@ const Theme = {
     fontSource: `
         @font-face {
             font-family: 'Source Sans Pro';
-            src: url('/public/static/fonts/SourceSansPro-Regular.ttf');
+            src: url('/public/fonts/SourceSansPro-Regular.ttf');
         }
     `,
     mediaQueries: {
@@ -43,27 +43,27 @@ export const device = {
 //! PageName Component
 export const Container = styled.div`
     width: 100%;
-    @media(${device.mobileS}) {
+    @media (${device.mobileS}) {
         margin-top: 174px;
     }
-    @media(${device.tablet}) {
+    @media (${device.tablet}) {
         margin-top: 32vh;
     }
 `
 export const PageInfo = styled(animated.div)`
-    @media(${device.mobileS}) {
+    @media (${device.mobileS}) {
         margin-bottom: 70px;
     }
-    @media(${device.tablet}) {
+    @media (${device.tablet}) {
         margin-bottom: 0;
     }
 `
 export const PageName = styled.div`
     font-weight: bold;
-    @media(${device.mobileS}) {
+    @media (${device.mobileS}) {
         font-size: 2em;
     }
-    @media(${device.tablet}) {
+    @media (${device.tablet}) {
         font-size: 3em;
     }
 `

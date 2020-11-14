@@ -2,7 +2,7 @@
 //! Modules
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import LogoIcon from 'public/static/Logo.ico'
+import LogoIcon from 'public/Logo.ico'
 
 //? EXPORT
 //! Component : MyDocument
@@ -50,7 +50,7 @@ export default class MyDocument extends Document {
                         @font-face {
                             font-family: 'Source Sans Pro';
                             font-display: auto;
-                            src: url('/public/static/fonts/SourceSansPro-Regular.ttf') format("truetype");
+                            src: url('/fonts/SourceSansPro-Regular.ttf') format("truetype");
                         }
                     `}
                     </style>

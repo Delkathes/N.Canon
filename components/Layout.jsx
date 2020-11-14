@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 //! Content
-import LogoPng from 'public/static/Logo.png'
+import LogoPng from 'public/Logo.png'
 
 //! Constants
 //! Utils
@@ -69,7 +69,6 @@ const MenuButton = styled.div`
 //! Components
 import NavBar from './NavBar'
 import MobileNav from './MobileNav'
-import Head from './Global/Head'
 import Icon from './Global/Icon'
 
 //! High-order-components
@@ -81,12 +80,6 @@ const Layout = ({ children }) => {
 
     return (
         <>
-            {children.props.Page && (
-                <Head
-                    head={children.props.Page + ' | Nicolas Canon'}
-                    description={children.props.pageDescription}
-                />
-            )}
             <header>
                 <Link href="/" as="/" passHref>
                     <Logo open={open}>

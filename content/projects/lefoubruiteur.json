@@ -1,0 +1,35 @@
+{
+    "slug": "lefoubruiteur",
+    "title": "LeFouBruiteur",
+    "href": "",
+    "link": "",
+    "subtitle": "Desktop notifier",
+    "description": "Chrome react extension for a french streamer. It has a background service that opens a SSE connection to a serverless API endpoint that I host on Zeit/now. The backend logic works with Twitch webhooks to subscribe to stream events and receive POST notification callbacks on stream states changes. These POST incoming requests change the transferred datas to the SSE connection with the Chrome extension clients background service that then notifies the client about the new stream state.",
+    "image": "Personal%20Site/projects/Extension%20LFB/LFB-round.webp",
+    "background": "#252940",
+    "dark": false,
+    "top": true,
+    "bottom": false,
+    "cover": false,
+    "long": false,
+    "data": [
+        {
+            "image": "Personal%20Site/projects/Extension%20LFB/player.png",
+            "alt": "React player",
+            "position": "left",
+            "text": "Gets the stream from twitch and puts it in a video html tag. Uses react-player npm package."
+        },
+        {
+            "image": "Personal%20Site/projects/Extension%20LFB/controls.png",
+            "alt": "Custom controls",
+            "position": "right",
+            "text": "React-spring based controls for smooth animation on mouse hover."
+        },
+        {
+            "image": "Personal%20Site/projects/Extension%20LFB/notification.png",
+            "alt": "Desktop notification",
+            "position": "center",
+            "text": "Background service that pushes a desktop notification when the streamer goes live with current stream informations and opens twitch.tv on click."
+        }
+    ]
+}

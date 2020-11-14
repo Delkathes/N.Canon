@@ -1,6 +1,8 @@
 //? IMPORT
 //! Modules
 import PropTypes from 'prop-types'
+import { DefaultSeo } from 'next-seo'
+import SEO from 'next-seo.config'
 
 //! Components
 import Layout from 'components/Layout'
@@ -17,6 +19,7 @@ import { CloudinaryContext } from 'cloudinary-react'
 //! Component : MyApp
 const MyApp = ({ Component, pageProps }) => (
     <StaticKitProvider site={process.env.STATICKIT_NICOLAS}>
+        <DefaultSeo {...SEO} />
         <CloudinaryContext secure cloudName={process.env.CLOUDINARY_CLOUD_NAME}>
             <ThemeProvider theme={Theme}>
                 <Layout>

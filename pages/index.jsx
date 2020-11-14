@@ -1,7 +1,7 @@
 //? IMPORT
 //! Modules
-// import {useState, useEffect} from 'react'
 import Link from 'next/link'
+import { NextSeo } from 'next-seo'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { animated } from 'react-spring'
@@ -17,6 +17,8 @@ const NavigationLinks = [
 ]
 
 //! Utils
+import { fileToJson } from 'utils/file-system'
+
 //! Helpers
 //! Context
 //! Hooks
@@ -138,59 +140,73 @@ import Icon from 'components/Global/Icon'
 //! High-order-components
 //!  Page : Home
 //? EXPORT
-const Home = () => {
+const Home = ({ home }) => {
     const pageSpring = useFadeIn()
 
     return (
-        <Section style={pageSpring}>
-            <Container>
-                <Presentation>
-                    <h1 hidden>Nicolas Canon - Web developer</h1>
-                    <h2>{"Hey, I'm Nicolas."}</h2>
-                    <p>{" I'm a self taught web developer based in Paris, FR."}</p>
-                </Presentation>
-                <Nav>
-                    <ul>
-                        {NavigationLinks.map((link, i) => (
-                            <Link key={i} href={link.href} passHref>
-                                <NavLink>
-                                    <span>{link.clean}</span>
-                                    <div>
-                                        <Icon
-                                            icon="ArrowRight"
-                                            color="rgb(26, 160, 203)"
-                                        />
-                                    </div>
-                                </NavLink>
-                            </Link>
-                        ))}
-                    </ul>
-                </Nav>
-            </Container>
-            <ProfilePic>
-                <Image
-                    alt="profile pic from Nicolas Canon"
-                    publicId="v1580691256/Personal%20Site/hacker"
-                    width="auto"
-                    responsive
-                    loading="eager"
-                >
-                    <Transformation dpr="auto" fetchFormat="auto" quality="auto:eco" />
-                    <Transformation flags="force_strip" />
-                    <Transformation flags="strip_profile" />
-                    <Transformation flags="immutable_cache" />
-                </Image>
-            </ProfilePic>
-        </Section>
+        <>
+            <NextSeo
+                title="Nicolas Canon - Web developer"
+                description={home.seo.description}
+                canonical={`https://${process.env.DOMAIN}`}
+            />
+            <Section style={pageSpring}>
+                <Container>
+                    <Presentation>
+                        <h1 hidden>Nicolas Canon - Web developer</h1>
+                        <h2>{"Hey, I'm Nicolas."}</h2>
+                        <p>{" I'm a self taught web developer based in Paris, FR."}</p>
+                    </Presentation>
+                    <Nav>
+                        <ul>
+                            {NavigationLinks.map((link, i) => (
+                                <Link key={i} href={link.href} passHref>
+                                    <NavLink>
+                                        <span>{link.clean}</span>
+                                        <div>
+                                            <Icon
+                                                icon="ArrowRight"
+                                                color="rgb(26, 160, 203)"
+                                            />
+                                        </div>
+                                    </NavLink>
+                                </Link>
+                            ))}
+                        </ul>
+                    </Nav>
+                </Container>
+                <ProfilePic>
+                    <Image
+                        alt="profile pic from Nicolas Canon"
+                        publicId="v1580691256/Personal%20Site/hacker"
+                        width="auto"
+                        responsive
+                        loading="eager"
+                    >
+                        <Transformation
+                            dpr="auto"
+                            fetchFormat="auto"
+                            quality="auto:eco"
+                        />
+                        <Transformation flags="force_strip" />
+                        <Transformation flags="strip_profile" />
+                        <Transformation flags="immutable_cache" />
+                    </Image>
+                </ProfilePic>
+            </Section>
+        </>
     )
 }
-
-//! Default Props
-Home.defaultProps = {
-    Page: 'Home'
+export const getStaticProps = async () => {
+    const home = await fileToJson('content/pages/home.json')
+    return {
+        props: {
+            home
+        }
+    }
 }
 Home.propTypes = {
-    Page: PropTypes.string
+    home: PropTypes.object.isRequired
 }
 
 export default Home

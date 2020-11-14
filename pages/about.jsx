@@ -1,16 +1,16 @@
 //? IMPORT
 //! Modules
 import Link from 'next/link'
+import { NextSeo } from 'next-seo'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { animated } from 'react-spring'
 
 //! Content
-import AboutData from 'content/about.json'
-const AboutLength = AboutData.length
-
 //! Constants
 //! Utils
+import { fileToJson } from 'utils/file-system'
+
 //! Helpers
 //! Context
 //! Hooks
@@ -55,52 +55,54 @@ const Article = styled.article`
 const P = styled.p`
     font-size: 1.02em;
     line-height: 1.3em;
-    margin: ${({ i, l }) =>
-        i === 0 ? '0px 0px 20px' : i === l ? '20px 0px 0px' : '20px 0px'};
 `
 
 //! Components
 //! High-order-components
 //!  Page : About
 //? EXPORT
-const About = () => {
+const About = ({ about }) => {
     const pageSpring = useFadeIn()
 
     return (
-        <Section style={pageSpring}>
-            <Container>
-                <PageInfo>
-                    <h1 className="page-name">About me</h1>
-                </PageInfo>
-                <Article>
-                    {AboutData.map((data, i) => (
-                        <P key={i} i={i} l={AboutLength - 1}>
-                            {data}
-                        </P>
-                    ))}
-                    <p id="contact">
-                        {
-                            'If that sounds like someone you’d like to collaborate with then'
-                        }
-                        <Link href="/contact" as="/contact">
-                            <a> get in touch.</a>
-                        </Link>
-                    </p>
-                </Article>
-            </Container>
-        </Section>
+        <>
+            <NextSeo
+                title={`About | Nicolas Canon - Web developer`}
+                description={about.seo.description}
+                canonical={`https://${process.env.DOMAIN}/about`}
+            />
+            <Section style={pageSpring}>
+                <Container>
+                    <PageInfo>
+                        <h1 className="page-name">About me</h1>
+                    </PageInfo>
+                    <Article>
+                        <P>{about.text}</P>
+                        <p id="contact">
+                            {
+                                'If that sounds like someone you’d like to collaborate with then'
+                            }
+                            <Link href="/contact" as="/contact">
+                                <a> get in touch.</a>
+                            </Link>
+                        </p>
+                    </Article>
+                </Container>
+            </Section>
+        </>
     )
 }
 
-//! Default Props
-About.defaultProps = {
-    Page: 'About',
-    pageDescription:
-        "Learn more about me and how I started my journey in web development. I'm currently open to any project suggestion."
+export const getStaticProps = async () => {
+    const about = await fileToJson('content/pages/about.json')
+    return {
+        props: {
+            about
+        }
+    }
 }
 About.propTypes = {
-    Page: PropTypes.string,
-    pageDescription: PropTypes.string
+    about: PropTypes.object.isRequired
 }
 
 export default About

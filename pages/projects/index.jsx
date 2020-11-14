@@ -2,6 +2,7 @@
 //! Modules
 // import {useState, useEffect} from 'react'
 import Link from 'next/link'
+import { NextSeo } from 'next-seo'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { animated } from 'react-spring'
@@ -9,10 +10,9 @@ import { Image, Transformation } from 'cloudinary-react'
 
 //! Content
 //! Constants
-import projects from 'content/projects.json'
-const projectsLength = projects.length - 1
-
 //! Utils
+import { dirToJson } from 'utils/file-system'
+
 //! Helpers
 //! Context
 //! Hooks
@@ -180,97 +180,108 @@ const Infos = styled.div`
 //! High-order-components
 //!  Page : Projects
 //? EXPORT
-const Projects = props => {
+const Projects = ({ data, projects }) => {
     const pageSpring = useFadeIn()
+    const dataLength = data.length - 1
 
     return (
-        <Section style={pageSpring}>
-            <Container>
-                <h1 className="page-name">{props.Page}</h1>
-                <Grid>
-                    {projects.map(
-                        (
-                            {
-                                slug,
-                                top,
-                                bottom,
-                                background,
-                                dark,
-                                title,
-                                subtitle,
-                                image,
-                                cover,
-                                long
-                            },
-                            i
-                        ) => (
-                            <Link
-                                key={i}
-                                href={`/projects/[slug]`}
-                                as={`/projects/${slug}`}
-                                passHref
-                            >
-                                <Tile
-                                    i={i}
-                                    l={projectsLength}
-                                    top={top}
-                                    bottom={bottom}
-                                    background={background}
-                                    long={long}
+        <>
+            <NextSeo
+                title={`Projects | Nicolas Canon - Web developer`}
+                description={projects?.seo.description || 'description seo'}
+                canonical={`https://${process.env.DOMAIN}/projects`}
+            />
+            <Section style={pageSpring}>
+                <Container>
+                    <h1 className="page-name">Projects</h1>
+                    <Grid>
+                        {data.map(
+                            (
+                                {
+                                    slug,
+                                    top,
+                                    bottom,
+                                    background,
+                                    dark,
+                                    title,
+                                    subtitle,
+                                    image,
+                                    cover,
+                                    long
+                                },
+                                i
+                            ) => (
+                                <Link
+                                    key={i}
+                                    href={`/projects/[slug]`}
+                                    as={`/projects/${slug}`}
+                                    passHref
                                 >
-                                    <Read
-                                        className="read"
-                                        right
+                                    <Tile
+                                        i={i}
+                                        l={dataLength}
                                         top={top}
                                         bottom={bottom}
+                                        background={background}
+                                        long={long}
                                     >
-                                        Read More
-                                    </Read>
-                                    <Figure cover={cover} top={top} bottom={bottom}>
-                                        <Infos top={!top} bottom={!bottom} dark={dark}>
-                                            <h2>{title}</h2>
-                                            <h3>{subtitle}</h3>
-                                        </Infos>
-                                        <Image
-                                            alt={title}
-                                            publicId={image.publicId}
-                                            height="100%"
-                                            width="auto"
-                                            responsive
-                                            loading="eager"
+                                        <Read
+                                            className="read"
+                                            right
+                                            top={top}
+                                            bottom={bottom}
                                         >
-                                            <Transformation
-                                                dpr="auto"
-                                                fetchFormat="auto"
-                                                quality="auto:eco"
-                                            />
-                                            <Transformation flags="force_strip" />
-                                            <Transformation flags="strip_profile" />
-                                            <Transformation flags="immutable_cache" />
-                                        </Image>
-                                    </Figure>
-                                </Tile>
-                            </Link>
-                        )
-                    )}
-                </Grid>
-            </Container>
-        </Section>
+                                            Read More
+                                        </Read>
+                                        <Figure cover={cover} top={top} bottom={bottom}>
+                                            <Infos
+                                                top={!top}
+                                                bottom={!bottom}
+                                                dark={dark}
+                                            >
+                                                <h2>{title}</h2>
+                                                <h3>{subtitle}</h3>
+                                            </Infos>
+                                            <Image
+                                                alt={title}
+                                                publicId={image}
+                                                height="100%"
+                                                width="auto"
+                                                responsive
+                                                loading="eager"
+                                            >
+                                                <Transformation
+                                                    dpr="auto"
+                                                    fetchFormat="auto"
+                                                    quality="auto:eco"
+                                                />
+                                                <Transformation flags="force_strip" />
+                                                <Transformation flags="strip_profile" />
+                                                <Transformation flags="immutable_cache" />
+                                            </Image>
+                                        </Figure>
+                                    </Tile>
+                                </Link>
+                            )
+                        )}
+                    </Grid>
+                </Container>
+            </Section>
+        </>
     )
 }
 
-export function getStaticProps() {
+export const getStaticProps = async () => {
+    const data = await dirToJson('content/projects')
+
     return {
-        props: { projects }
+        props: {
+            data
+        }
     }
 }
-
-//! Default Props
-Projects.defaultProps = {
-    Page: 'Projects'
-}
 Projects.propTypes = {
-    Page: PropTypes.string
+    data: PropTypes.array.isRequired
 }
 
 export default Projects

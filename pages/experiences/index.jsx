@@ -7,10 +7,9 @@ import { animated, useTrail } from 'react-spring'
 
 //! Content
 //! Constants
-import ExpData from 'content/experiences.json'
-const ExpLength = ExpData.length
-
 //! Utils
+import { fileToJson } from 'utils/file-system'
+
 //! Helpers
 //! Context
 //! Hooks
@@ -88,18 +87,21 @@ import Icon from 'components/Global/Icon'
 //! High-order-components
 //!  Page : Experiences
 //? EXPORT
-const Experiences = ({ Page }) => {
+const Experiences = ({ experiences }) => {
     //* useState : mounted
     const [mounted, setMount] = useState(false)
     useEffect(() => {
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             setMount(true)
         }, 350)
+        return () => {
+            clearTimeout(timer)
+        }
     }, [])
 
     const pageSpring = useFadeIn()
 
-    const trail = useTrail(ExpLength, {
+    const trail = useTrail(experiences.data.length, {
         trail: 1000,
         transform: mounted ? 'translateX(0px)' : 'translateX(40px)',
         opacity: mounted ? 1 : 0
@@ -109,7 +111,7 @@ const Experiences = ({ Page }) => {
         <Section>
             <Container>
                 <PageInfoExt style={pageSpring}>
-                    <h1 className="page-name">{Page}</h1>
+                    <h1 className="page-name">Experiences</h1>
                     <p>
                         Check my CV{' '}
                         <a
@@ -138,11 +140,11 @@ const Experiences = ({ Page }) => {
                     {trail.map((props, i) => (
                         <animated.li key={i} style={props}>
                             <Article first={i === 0}>
-                                <h3>{ExpData[i].title}</h3>
+                                <h3>{experiences.data[i].title}</h3>
                                 <div>
-                                    {ExpData[i].from} - {ExpData[i].to}
+                                    {experiences.data[i].from} - {experiences.data[i].to}
                                 </div>
-                                <p>{ExpData[i].what}</p>
+                                <p>{experiences.data[i].what}</p>
                             </Article>
                         </animated.li>
                     ))}
@@ -152,15 +154,18 @@ const Experiences = ({ Page }) => {
     )
 }
 
-//! Default Props
-Experiences.defaultProps = {
-    Page: 'Experiences',
-    pageDescription:
-        "Learn more about my experiences and/or download a copy of my CV in pdf format. I'm currently open to any project suggestion."
+export const getStaticProps = async () => {
+    const experiences = await fileToJson('content/pages/experiences.json')
+    return {
+        props: {
+            experiences
+        }
+    }
 }
+
+//! Prop-types
 Experiences.propTypes = {
-    Page: PropTypes.string,
-    pageDescription: PropTypes.string
+    experiences: PropTypes.object.isRequired
 }
 
 export default Experiences

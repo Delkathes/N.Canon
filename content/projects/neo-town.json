@@ -1,0 +1,23 @@
+{
+    "slug": "neo-town",
+    "title": "Neo Town",
+    "href": "",
+    "link": "",
+    "subtitle": "Meeting organizer",
+    "description": "Private unfinished/unpublished project in collaboration with a go/rust developer that aims to help meeting organizers in their ticketery and event registration by securing reservations payement with Bitcoin's Lightning Network.",
+    "image": "Personal%20Site/projects/neotown.webp",
+    "background": "#043144",
+    "dark": false,
+    "top": false,
+    "bottom": true,
+    "cover": true,
+    "long": false,
+    "data": [
+        {
+            "image": "Personal%20Site/projects/NewsCoders/accueil.png",
+            "alt": "To come",
+            "position": "left",
+            "text": "Project isn't finished yet."
+        }
+    ]
+}

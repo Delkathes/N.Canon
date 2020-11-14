@@ -1,0 +1,29 @@
+{
+    "slug": "templates",
+    "title": "Personal projects",
+    "href": "",
+    "link": "https://github.com/Delkathes?tab=repositories",
+    "subtitle": "Templates",
+    "description": "Empty reusable templates optimized for specific needs. Blank and empty enough to have the from scratch feeling but still with personal preferences. From configs boilerplates to websocket or jwt auth, I have access to a couple of starters that fit my current needs.",
+    "image": "Personal%20Site/projects/templates.webp",
+    "background": "#E1AE2A",
+    "dark": true,
+    "top": false,
+    "bottom": true,
+    "cover": false,
+    "long": false,
+    "data": [
+        {
+            "image": "Personal%20Site/projects/Templates/Github.png",
+            "alt": "Github ready",
+            "position": "left",
+            "text": "Reusable public template repositories ready to clone with basic configurations for targeted needs."
+        },
+        {
+            "image": "Personal%20Site/projects/Templates/Repository.png",
+            "alt": "App structure",
+            "position": "right",
+            "text": "JWT authentication example. Provides a ready to use application structure with limited dependencies."
+        }
+    ]
+}

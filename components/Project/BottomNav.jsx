@@ -6,9 +6,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 //! Content
-import projects from 'content/projects.json'
 import { Image, Transformation } from 'cloudinary-react'
-const projectsLength = projects.length - 1
 
 //! Constants
 //! Utils
@@ -124,19 +122,19 @@ const Infos = styled.div`
 //! High-order-components
 //! Component : BottomNav
 //? EXPORT
-const BottomNav = ({ querySlug }) => (
-    <Nav l={projectsLength}>
+const BottomNav = ({ slug, projects }) => (
+    <Nav l={projects.length - 1}>
         <ul>
             {projects.map(
                 (project, i) =>
-                    project.slug !== querySlug && (
+                    project.slug !== slug && (
                         <Link
                             key={i}
                             href={`/projects/[slug]?anim=true`}
                             as={`/projects/${project.slug}`}
                             passHref
                         >
-                            <Tile l={projectsLength} background={project.background}>
+                            <Tile l={projects.length - 1} background={project.background}>
                                 <Filter background={project.background} />
                                 <Figure cover={project.cover}>
                                     <Infos
@@ -149,7 +147,7 @@ const BottomNav = ({ querySlug }) => (
                                     </Infos>
                                     <Image
                                         alt={project.title}
-                                        publicId={project.image.publicId}
+                                        publicId={project.image}
                                         dpr="auto"
                                         height="100%"
                                         width="auto"
@@ -173,12 +171,9 @@ const BottomNav = ({ querySlug }) => (
     </Nav>
 )
 
-//! Default Props
-BottomNav.defaultProps = {
-    Component: 'BottomNav'
-}
+//! Prop-types
 BottomNav.propTypes = {
-    Component: PropTypes.string,
-    querySlug: PropTypes.string
+    slug: PropTypes.string.isRequired,
+    projects: PropTypes.array.isRequired
 }
 export default BottomNav

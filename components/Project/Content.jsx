@@ -61,12 +61,8 @@ const Content = ({ background, dark, description, data }) => (
     </>
 )
 
-//! Default Props
-Content.defaultProps = {
-    Component: 'Content'
-}
+//! Prop-types
 Content.propTypes = {
-    Component: PropTypes.string,
     background: PropTypes.string,
     dark: PropTypes.bool,
     description: PropTypes.string,

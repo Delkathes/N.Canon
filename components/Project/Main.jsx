@@ -82,11 +82,12 @@ const Main = ({
     description,
     background,
     dark,
+    slug,
     title,
     subtitle,
     image,
     data,
-    querySlug
+    projects
 }) => (
     <section className="page-fade" key={title}>
         <Hero background={background}>
@@ -97,7 +98,7 @@ const Main = ({
             <Filter background={background} />
             <Image
                 alt={title}
-                publicId={image.publicId}
+                publicId={image}
                 height="100%"
                 width="auto"
                 responsive
@@ -118,29 +119,24 @@ const Main = ({
             />
         </section>
         <section>
-            <BottomNav querySlug={querySlug} />
+            <BottomNav projects={projects} slug={slug} />
         </section>
     </section>
 )
 
 //! PropTypes
 Main.propTypes = {
-    Component: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
     image: PropTypes.object,
-    slug: PropTypes.string,
+    slug: PropTypes.string.isRequired,
     background: PropTypes.string,
     dark: PropTypes.bool,
-    querySlug: PropTypes.string,
     data: PropTypes.array,
     style: PropTypes.object,
-    target: PropTypes.object
-}
-//! Default Props
-Main.defaultProps = {
-    Component: 'Main'
+    target: PropTypes.object,
+    projects: PropTypes.array.isRequired
 }
 
 export default Main

@@ -3,10 +3,10 @@
 import PropTypes from 'prop-types'
 
 //! Content
-import projects from 'content/projects.json'
-
 //! Constants
 //! Utils
+import { dirToJson } from 'utils/file-system'
+
 //! Helpers
 //! Context
 //! Hooks
@@ -18,38 +18,34 @@ import Main from 'components/Project/Main'
 
 //! High-order-components
 //! SubPage : Project
-const Project = ({ slug, project }) => (
+const Project = ({ project, projects }) => (
     <>
         <Head head={project.title + ' | Projects | Nicolas Canon'} />
-        <Main querySlug={slug} {...project} />
+        <Main projects={projects} {...project} />
     </>
 )
 
-export function getStaticProps({ params }) {
-    const project = projects.find(el => el.slug === params.slug)
+export const getStaticProps = async ({ params }) => {
+    const data = await dirToJson('content/projects')
+    const project = data.find(el => el.slug === params.slug)
     return {
         props: {
-            slug: params.slug,
-            project
+            project,
+            projects: data
         }
     }
 }
-export function getStaticPaths() {
-    const paths = projects.map(({ slug }) => ({ params: { slug } }))
+
+export async function getStaticPaths() {
+    const data = await dirToJson('content/projects')
+    const paths = data.map(({ slug }) => ({ params: { slug } }))
     return { paths, fallback: false }
 }
 
-//! Default Props
-Project.defaultProps = {
-    SubPage: 'Project',
-    route: '/projects/[slug]'
-}
+//! Prop-types
 Project.propTypes = {
-    SubPage: PropTypes.string,
-    route: PropTypes.string,
-
-    slug: PropTypes.string,
-    project: PropTypes.object
+    project: PropTypes.object.isRequired,
+    projects: PropTypes.array.isRequired
 }
 
 //? EXPORT

@@ -1,0 +1,132 @@
+backend:
+    name: github
+    repo: Delkathes/N.Canon
+    branch: main
+    site_domain: nicolas-canon.netlify.app
+    identity_url: 'https://nicolas-canon.netlify.app/.netlify/identity'
+    gateway_url: 'https://nicolas-canon.netlify.app/.netlify/git'
+# locale: 'fr'
+
+publish_mode: editorial_workflow
+
+media_library:
+    name: cloudinary
+    output_filename_only: true
+    config:
+        cloud_name: nicolas-canon
+        api_key: 769183212947699
+
+site_url: https://netlify-cms-blog-starter.vercel.app
+logo_url: https://netlify-cms-blog-starter.vercel.app/favicon.ico
+display_url: https://netlify-cms-blog-starter.vercel.app
+
+slug:
+    encoding: 'ascii'
+    clean_accents: true
+    sanitize_replacement: '-'
+
+collections:
+    - name: projects
+      label: Projects
+      label_singular: 'Project'
+      description: >
+          Publication des projets.
+      folder: content/projects
+      format: json
+      create: true
+      summary: '{{title}}'
+      slug: '{{slug}}'
+      sort: 'date:asc'
+      media_library:
+          config:
+              multiple: true
+      fields:
+          # background
+          # dark
+          # top
+          # bottom
+          # cover
+          # long
+          # data
+          - { label: 'Lien', name: 'slug', widget: 'string' }
+          - { label: 'Titre', name: 'title', widget: 'string' }
+          - { label: 'Lien du projet', name: 'href', widget: 'string' }
+          - { label: 'Domaine du projet', name: 'link', widget: 'string' }
+          - { label: 'Sous-titre', name: 'subtitle', widget: 'string' }
+          - {
+                label: 'Description',
+                name: 'description',
+                widget: 'markdown',
+                required: false,
+            }
+          - { label: 'Image', name: 'image', widget: 'image' }
+          - { label: 'Background', name: 'background', widget: 'string' }
+          - { label: 'Dark', name: 'dark', widget: 'boolean' }
+          - { label: 'Top', name: 'top', widget: 'boolean' }
+          - { label: 'Bottom', name: 'bottom', widget: 'boolean' }
+          - { label: 'Cover', name: 'cover', widget: 'boolean' }
+          - { label: 'Long', name: 'long', widget: 'boolean' }
+
+          - label: 'Data'
+            name: 'data'
+            widget: 'list'
+            summary: '{{fields.alt}}'
+            fields:
+                - { label: Image, name: image, widget: image }
+                - { label: Alt, name: alt, widget: string }
+                - { label: Position, name: position, widget: string, default: 'center' }
+                - { label: Text, name: text, widget: string }
+
+          - label: 'SEO'
+            name: 'seo'
+            widget: 'object'
+            collapsed: false
+            fields:
+                - { label: 'Description', name: 'description', widget: 'text' }
+
+    - name: 'pages'
+      label: 'Pages'
+      files:
+          - label: 'Home'
+            name: 'home'
+            format: json
+            file: 'content/pages/home.json'
+            fields:
+                - label: 'SEO'
+                  name: 'seo'
+                  widget: 'object'
+                  collapsed: false
+                  fields:
+                      - { label: 'Description', name: 'description', widget: 'text' }
+          - label: 'About'
+            name: 'about'
+            format: json
+            file: 'content/pages/about.json'
+            fields:
+                - { label: 'Text', name: 'text', widget: 'markdown' }
+                - label: 'SEO'
+                  name: 'seo'
+                  widget: 'object'
+                  collapsed: false
+                  fields:
+                      - { label: 'Description', name: 'description', widget: 'text' }
+          - label: 'Experiences'
+            name: 'experiences'
+            format: json
+            file: 'content/pages/experiences.json'
+            fields:
+                - label: 'Data'
+                  name: 'data'
+                  widget: 'list'
+                  summary: '{{fields.title}}'
+                  fields:
+                      - { label: Title, name: title, widget: string }
+                      - { label: From, name: from, widget: string }
+                      - { label: To, name: to, widget: string }
+                      - { label: What, name: what, widget: string }
+                - label: 'SEO'
+                  name: 'seo'
+                  widget: 'object'
+                  collapsed: false
+                  fields:
+                      - { label: 'Description', name: 'description', widget: 'text' }

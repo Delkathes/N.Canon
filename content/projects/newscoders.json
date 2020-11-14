@@ -1,0 +1,35 @@
+{
+    "slug": "newscoders",
+    "title": "NewsCoders",
+    "href": "",
+    "link": "",
+    "subtitle": "Online newspaper",
+    "description": "Personal attempt of creating a serverless newspaper website with authentication and comment section, profile handling and private messaging. Built with Next.js using its serverless mode and hosted on Zeit/now. Each route is a serverless lambda. Admins and team have access to Contentful headless CMS to publish content that the serverless functions query on client request.",
+    "image": "Personal%20Site/projects/newspaper.webp",
+    "background": "#DAEBF1",
+    "dark": true,
+    "top": false,
+    "bottom": true,
+    "cover": false,
+    "long": true,
+    "data": [
+        {
+            "image": "Personal%20Site/projects/NewsCoders/accueil.png",
+            "alt": "Landing page",
+            "position": "left",
+            "text": "Serverless page built with Next.js that is served with prefetched content from a headless CMS."
+        },
+        {
+            "image": "Personal%20Site/projects/NewsCoders/menu.png",
+            "alt": "Polished design",
+            "position": "right",
+            "text": "White and clear design without ads or overwhelming content."
+        },
+        {
+            "image": "Personal%20Site/projects/NewsCoders/jwt-auth.png",
+            "alt": "JWT Authentication",
+            "position": "center",
+            "text": "Serverless jwt based authentication. The token is stored in its own cookie with an expiration date. "
+        }
+    ]
+}
