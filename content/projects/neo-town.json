@@ -19,5 +19,8 @@
             "position": "left",
             "text": "Project isn't finished yet."
         }
-    ]
+    ],
+    "seo": {
+        "description": "Private unfinished/unpublished project in collaboration with a go/rust developer."
+    }
 }

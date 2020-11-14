@@ -105,9 +105,7 @@ const Main = ({
                 loading="eager"
             >
                 <Transformation dpr="auto" fetchFormat="auto" quality="auto:eco" />
-                <Transformation flags="force_strip" />
-                <Transformation flags="strip_profile" />
-                <Transformation flags="immutable_cache" />
+                <Transformation flags="force_strip.strip_profile.immutable_cache" />
             </Image>
         </Hero>
         <section>

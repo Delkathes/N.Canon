@@ -103,7 +103,7 @@ Tile.propTypes = {
 const Element = ({ image, alt, position, text, background, dark, i }) => {
     const [ref, inView] = useInView({
         threshold: 0,
-        rootMargin: '50px',
+        rootMargin: '80px',
         triggerOnce: true
     })
     return (

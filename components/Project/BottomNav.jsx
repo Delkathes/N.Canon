@@ -1,13 +1,11 @@
 //? IMPORT
 //! Modules
-// import {useState, useEffect} from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
-//! Content
 import { Image, Transformation } from 'cloudinary-react'
 
+//! Content
 //! Constants
 //! Utils
 //! Helpers
@@ -156,11 +154,10 @@ const BottomNav = ({ slug, projects }) => (
                                     >
                                         <Transformation
                                             fetchFormat="auto"
-                                            effect="blur:300"
-                                            quality="auto:low"
+                                            effect="blur:250"
+                                            quality="auto:low:420"
                                         />
-                                        <Transformation flags="force_strip" />
-                                        <Transformation flags="any_format" />
+                                        <Transformation flags="force_strip.strip_profile.immutable_cache" />
                                     </Image>
                                 </Figure>
                             </Tile>

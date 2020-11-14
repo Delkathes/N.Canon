@@ -31,5 +31,8 @@
             "position": "center",
             "text": "Background service that pushes a desktop notification when the streamer goes live with current stream informations and opens twitch.tv on click."
         }
-    ]
+    ],
+    "seo": {
+        "description": "Chrome react extension for a french streamer."
+    }
 }

@@ -31,5 +31,8 @@
             "position": "center",
             "text": "Serverless jwt based authentication. The token is stored in its own cookie with an expiration date. "
         }
-    ]
+    ],
+    "seo": {
+        "description": "Personal attempt of creating a serverless newspaper website with authentication and comment section."
+    }
 }

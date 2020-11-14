@@ -1,6 +1,7 @@
 //? IMPORT
 //! Modules
 import { useState, useEffect } from 'react'
+import { NextSeo } from 'next-seo'
 import PropTypes from 'prop-types'
 import { useForm } from '@statickit/react'
 import styled from 'styled-components'
@@ -127,77 +128,84 @@ const Contact = props => {
     })
 
     return (
-        <Section style={pageSpring}>
-            <Container>
-                <PageInfo>
-                    <h1 className="page-name">{props.Page}</h1>
-                    <p>Leave a message and say hello!</p>
-                </PageInfo>
-                <FormContainer>
-                    {sendTransition.map(({ item, props, key }) =>
-                        item ? (
-                            <FromResponse style={props} key={key}>
-                                {
-                                    "Thanks for reaching me ! I'll try my best to reply as soon as possible. "
-                                }
-                            </FromResponse>
-                        ) : (
-                            <Form
-                                id="contactForm"
-                                style={props}
-                                key={key}
-                                onSubmit={handleSubmit}
-                            >
-                                <Fieldset>
-                                    <legend>Your name</legend>
-                                    <label hidden htmlFor="name">
-                                        Name
-                                    </label>
-                                    <input
-                                        required
-                                        form="contactForm"
-                                        id="name"
-                                        name="name"
-                                        type="text"
-                                        aria-label="contact-name"
-                                    />
-                                </Fieldset>
-                                <Fieldset>
-                                    <legend>Your email</legend>
-                                    <label hidden htmlFor="email">
-                                        Email
-                                    </label>
-                                    <input
-                                        required
-                                        form="contactForm"
-                                        id="email"
-                                        name="email"
-                                        type="email"
-                                        aria-label="contact-email"
-                                    />
-                                </Fieldset>
-                                <Fieldset>
-                                    <legend>Message</legend>
-                                    <label hidden htmlFor="textarea">
-                                        Textarea
-                                    </label>
-                                    <textarea
-                                        required
-                                        form="contactForm"
-                                        id="textarea"
-                                        name="textarea"
-                                        aria-label="contact-textarea"
-                                    />
-                                </Fieldset>
-                                <Submit type="submit" disabled={state.submitting}>
-                                    Send
-                                </Submit>
-                            </Form>
-                        )
-                    )}
-                </FormContainer>
-            </Container>
-        </Section>
+        <>
+            <NextSeo
+                title="Contact | Nicolas Canon - Web developer"
+                description="You can reach me by completing the form. I'll try my best to reply as soon as possible."
+                canonical={`https://${process.env.DOMAIN}/contact`}
+            />
+            <Section style={pageSpring}>
+                <Container>
+                    <PageInfo>
+                        <h1 className="page-name">{props.Page}</h1>
+                        <p>Leave a message and say hello!</p>
+                    </PageInfo>
+                    <FormContainer>
+                        {sendTransition.map(({ item, props, key }) =>
+                            item ? (
+                                <FromResponse style={props} key={key}>
+                                    {
+                                        "Thanks for reaching me ! I'll try my best to reply as soon as possible. "
+                                    }
+                                </FromResponse>
+                            ) : (
+                                <Form
+                                    id="contactForm"
+                                    style={props}
+                                    key={key}
+                                    onSubmit={handleSubmit}
+                                >
+                                    <Fieldset>
+                                        <legend>Your name</legend>
+                                        <label hidden htmlFor="name">
+                                            Name
+                                        </label>
+                                        <input
+                                            required
+                                            form="contactForm"
+                                            id="name"
+                                            name="name"
+                                            type="text"
+                                            aria-label="contact-name"
+                                        />
+                                    </Fieldset>
+                                    <Fieldset>
+                                        <legend>Your email</legend>
+                                        <label hidden htmlFor="email">
+                                            Email
+                                        </label>
+                                        <input
+                                            required
+                                            form="contactForm"
+                                            id="email"
+                                            name="email"
+                                            type="email"
+                                            aria-label="contact-email"
+                                        />
+                                    </Fieldset>
+                                    <Fieldset>
+                                        <legend>Message</legend>
+                                        <label hidden htmlFor="textarea">
+                                            Textarea
+                                        </label>
+                                        <textarea
+                                            required
+                                            form="contactForm"
+                                            id="textarea"
+                                            name="textarea"
+                                            aria-label="contact-textarea"
+                                        />
+                                    </Fieldset>
+                                    <Submit type="submit" disabled={state.submitting}>
+                                        Send
+                                    </Submit>
+                                </Form>
+                            )
+                        )}
+                    </FormContainer>
+                </Container>
+            </Section>
+        </>
     )
 }
 

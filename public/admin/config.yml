@@ -41,13 +41,6 @@ collections:
           config:
               multiple: true
       fields:
-          # background
-          # dark
-          # top
-          # bottom
-          # cover
-          # long
-          # data
           - { label: 'Lien', name: 'slug', widget: 'string' }
           - { label: 'Titre', name: 'title', widget: 'string' }
           - { label: 'Lien du projet', name: 'href', widget: 'string' }

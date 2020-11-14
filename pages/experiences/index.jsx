@@ -1,5 +1,6 @@
 //? IMPORT
 //! Modules
+import { NextSeo } from 'next-seo'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
@@ -18,6 +19,7 @@ import { fileToJson } from 'utils/file-system'
 import { useFadeIn } from '@animations'
 import { Container as Div, PageInfo } from 'styles/Theme'
 const Section = styled(animated.section)`
+    overflow: hidden;
     @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         width: 84%;
     }
@@ -73,12 +75,18 @@ const Article = styled.article`
     flex-direction: column;
     margin: ${({ first }) => (first ? '00px 0px 65px' : '35px 0px')};
     h3 {
+        letter-spacing: 1.2px;
     }
     div {
         color: ${({ theme: { colors } }) => colors.secondary};
         font-weight: 300;
+        padding-top: 2px;
+        padding-bottom: 2px;
     }
     p {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        line-height: 1.2rem;
     }
 `
 //! Components
@@ -108,49 +116,57 @@ const Experiences = ({ experiences }) => {
     })
 
     return (
-        <Section>
-            <Container>
-                <PageInfoExt style={pageSpring}>
-                    <h1 className="page-name">Experiences</h1>
-                    <p>
-                        Check my CV{' '}
+        <>
+            <NextSeo
+                title={`Experiences | Nicolas Canon - Web developer`}
+                description={experiences.seo.description}
+                canonical={`https://${process.env.DOMAIN}/experiences`}
+            />
+            <Section>
+                <Container>
+                    <PageInfoExt style={pageSpring}>
+                        <h1 className="page-name">Experiences</h1>
+                        <p>
+                            Check my CV{' '}
+                            <a
+                                aria-label="CV-check"
+                                href="https://res.cloudinary.com/nicolas-canon/image/upload/v1580690686/Personal%20Site/docs/CV.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                here
+                            </a>{' '}
+                            or download a copy of it below.
+                        </p>
                         <a
-                            aria-label="CV-check"
+                            id="CV-download"
+                            aria-label="CV-download"
                             href="https://res.cloudinary.com/nicolas-canon/image/upload/v1580690686/Personal%20Site/docs/CV.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            download
                         >
-                            here
-                        </a>{' '}
-                        or download a copy of it below.
-                    </p>
-                    <a
-                        id="CV-download"
-                        aria-label="CV-download"
-                        href="https://res.cloudinary.com/nicolas-canon/image/upload/v1580690686/Personal%20Site/docs/CV.pdf"
-                        download
-                    >
-                        Download CV
-                        <span>
-                            <Icon icon="PDF" color="rgb(26, 160, 203)" />
-                        </span>
-                    </a>
-                </PageInfoExt>
-                <ul>
-                    {trail.map((props, i) => (
-                        <animated.li key={i} style={props}>
-                            <Article first={i === 0}>
-                                <h3>{experiences.data[i].title}</h3>
-                                <div>
-                                    {experiences.data[i].from} - {experiences.data[i].to}
-                                </div>
-                                <p>{experiences.data[i].what}</p>
-                            </Article>
-                        </animated.li>
-                    ))}
-                </ul>
-            </Container>
-        </Section>
+                            Download CV
+                            <span>
+                                <Icon icon="PDF" color="rgb(26, 160, 203)" />
+                            </span>
+                        </a>
+                    </PageInfoExt>
+                    <ul>
+                        {trail.map((props, i) => (
+                            <animated.li key={i} style={props}>
+                                <Article first={i === 0}>
+                                    <h3>{experiences.data[i].title}</h3>
+                                    <div>
+                                        {experiences.data[i].from} -{' '}
+                                        {experiences.data[i].to}
+                                    </div>
+                                    <p>{experiences.data[i].what}</p>
+                                </Article>
+                            </animated.li>
+                        ))}
+                    </ul>
+                </Container>
+            </Section>
+        </>
     )
 }
 

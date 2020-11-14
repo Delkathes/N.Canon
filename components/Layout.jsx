@@ -6,8 +6,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 //! Content
-import LogoPng from 'public/Logo.png'
-
 //! Constants
 //! Utils
 //! Helpers
@@ -15,6 +13,7 @@ import LogoPng from 'public/Logo.png'
 //! Hooks
 //! Actions
 //! Styles
+import LogoPng from 'public/Logo.png'
 const Logo = styled.figure`
     cursor: pointer;
     margin: 0;
@@ -69,7 +68,7 @@ const MenuButton = styled.div`
 //! Components
 import NavBar from './NavBar'
 import MobileNav from './MobileNav'
-import Icon from './Global/Icon'
+import { FaBars, FaTimes } from 'react-icons/fa'
 
 //! High-order-components
 //! Component : Layout
@@ -81,7 +80,7 @@ const Layout = ({ children }) => {
     return (
         <>
             <header>
-                <Link href="/" as="/" passHref>
+                <Link href="/" passHref>
                     <Logo open={open}>
                         <img alt="Logo of Nicolas Canon" src={LogoPng} loading="eager" />
                     </Logo>
@@ -89,7 +88,23 @@ const Layout = ({ children }) => {
                 <NavBar />
                 <MobileNav open={open} setOpen={setOpen} />
                 <MenuButton onClick={() => setOpen(!open)}>
-                    <Icon icon={open ? 'Cross' : 'Bars'} color="rgb(251, 251, 251)" />
+                    {open ? (
+                        <FaTimes
+                            color="rgb(251, 251, 251)"
+                            style={{
+                                position: 'relative',
+                                zIndex: '-1'
+                            }}
+                        />
+                    ) : (
+                        <FaBars
+                            color="rgb(251, 251, 251)"
+                            style={{
+                                position: 'relative',
+                                zIndex: '-1'
+                            }}
+                        />
+                    )}
                 </MenuButton>
             </header>
             <Main open={open}>{children}</Main>
@@ -97,12 +112,8 @@ const Layout = ({ children }) => {
     )
 }
 
-//! Default Props
-Layout.defaultProps = {
-    Component: 'Layout'
-}
+//! Prop-types
 Layout.propTypes = {
-    Component: PropTypes.string,
     children: PropTypes.object
 }
 

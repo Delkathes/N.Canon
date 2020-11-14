@@ -31,5 +31,8 @@
             "position": "center",
             "text": "Content management system injected in a static html page from netlify's CDN for the website owner to publish and edit the website's content."
         }
-    ]
+    ],
+    "seo": {
+        "description": "Website for Simone Duez, paint artist in Thise, France. Built with Next.js and hosted on Netlify."
+    }
 }

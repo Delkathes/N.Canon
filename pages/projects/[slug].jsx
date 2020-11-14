@@ -1,5 +1,6 @@
 //? IMPORT
 //! Modules
+import { NextSeo } from 'next-seo'
 import PropTypes from 'prop-types'
 
 //! Content
@@ -13,14 +14,17 @@ import { dirToJson } from 'utils/file-system'
 //! Actions
 //! Styles
 //! Components
-import Head from 'components/Global/Head'
 import Main from 'components/Project/Main'
 
 //! High-order-components
 //! SubPage : Project
 const Project = ({ project, projects }) => (
     <>
-        <Head head={project.title + ' | Projects | Nicolas Canon'} />
+        <NextSeo
+            title={`${project.title} | Projects | Nicolas Canon - Web developer`}
+            description={project.seo?.description || 'Empty SEO description'}
+            canonical={`https://${process.env.DOMAIN}/${project.slug}`}
+        />
         <Main projects={projects} {...project} />
     </>
 )

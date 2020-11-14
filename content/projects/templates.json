@@ -25,5 +25,8 @@
             "position": "right",
             "text": "JWT authentication example. Provides a ready to use application structure with limited dependencies."
         }
-    ]
+    ],
+    "seo": {
+        "description": "Private empty reusable templates optimized for specific needs."
+    }
 }
