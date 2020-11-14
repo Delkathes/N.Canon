@@ -1,7 +1,7 @@
 backend:
     name: github
     repo: Delkathes/N.Canon
-    branch: main
+    branch: master
     site_domain: nicolas-canon.netlify.app
     identity_url: 'https://nicolas-canon.netlify.app/.netlify/identity'
     gateway_url: 'https://nicolas-canon.netlify.app/.netlify/git'
