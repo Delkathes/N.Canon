@@ -2,7 +2,7 @@
 //! Modules
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Image, Transformation } from 'cloudinary-react'
+import { Image, Transformation, Placeholder } from 'cloudinary-react'
 
 //! Content
 //! Constants
@@ -104,6 +104,7 @@ const Main = ({
                 responsive
                 loading="eager"
             >
+                <Placeholder />
                 <Transformation dpr="auto" fetchFormat="auto" quality="auto:eco" />
                 <Transformation flags="force_strip.strip_profile.immutable_cache" />
             </Image>

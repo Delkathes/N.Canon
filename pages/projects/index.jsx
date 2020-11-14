@@ -6,7 +6,7 @@ import { NextSeo } from 'next-seo'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { animated } from 'react-spring'
-import { Image, Transformation } from 'cloudinary-react'
+import { Image, Transformation, Placeholder } from 'cloudinary-react'
 
 //! Content
 //! Constants
@@ -248,16 +248,15 @@ const Projects = ({ data, projects }) => {
                                                 height="100%"
                                                 width="auto"
                                                 responsive
-                                                loading="eager"
+                                                loading="lazy"
                                             >
+                                                <Placeholder />
                                                 <Transformation
                                                     dpr="auto"
                                                     fetchFormat="auto"
-                                                    quality="auto:eco"
+                                                    quality="auto:good"
                                                 />
-                                                <Transformation flags="force_strip" />
-                                                <Transformation flags="strip_profile" />
-                                                <Transformation flags="immutable_cache" />
+                                                <Transformation flags="force_strip.strip_profile.immutable_cache" />
                                             </Image>
                                         </Figure>
                                     </Tile>

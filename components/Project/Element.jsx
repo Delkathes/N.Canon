@@ -3,7 +3,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useInView } from 'react-intersection-observer'
-import { Image, Transformation } from 'cloudinary-react'
+import { Image, Transformation, Placeholder } from 'cloudinary-react'
 
 //! Content
 //! Constants
@@ -122,8 +122,9 @@ const Element = ({ image, alt, position, text, background, dark, i }) => {
                     height="100%"
                     width="auto"
                     responsive
-                    loading="eager"
+                    loading="lazy"
                 >
+                    <Placeholder />
                     <Transformation dpr="auto" fetchFormat="auto" quality="auto:eco" />
                     <Transformation flags="force_strip.strip_profile.immutable_cache" />
                 </Image>

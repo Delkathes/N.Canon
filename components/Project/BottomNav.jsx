@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Image, Transformation } from 'cloudinary-react'
+import { Image, Transformation, Placeholder } from 'cloudinary-react'
 
 //! Content
 //! Constants
@@ -150,11 +150,12 @@ const BottomNav = ({ slug, projects }) => (
                                         height="100%"
                                         width="auto"
                                         responsive
-                                        loading="eager"
+                                        loading="lazy"
                                     >
+                                        <Placeholder />
                                         <Transformation
                                             fetchFormat="auto"
-                                            effect="blur:250"
+                                            effect="blur:200"
                                             quality="auto:low:420"
                                         />
                                         <Transformation flags="force_strip.strip_profile.immutable_cache" />

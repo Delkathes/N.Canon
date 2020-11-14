@@ -188,9 +188,7 @@ const Home = ({ home }) => {
                             fetchFormat="auto"
                             quality="auto:eco"
                         />
-                        <Transformation flags="force_strip" />
-                        <Transformation flags="strip_profile" />
-                        <Transformation flags="immutable_cache" />
+                        <Transformation flags="force_strip.strip_profile.immutable_cache" />
                     </Image>
                 </ProfilePic>
             </Section>
