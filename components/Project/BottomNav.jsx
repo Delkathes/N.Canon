@@ -1,18 +1,14 @@
-//? IMPORT
-//! Modules
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Image, Transformation, Placeholder } from 'cloudinary-react'
+// import { Image, Transformation, Placeholder } from 'cloudinary-react'
+import Image from 'next/image'
+import cloudinary from 'cloudinary-core'
 
-//! Content
-//! Constants
-//! Utils
-//! Helpers
-//! Context
-//! Hooks
-//! Actions
-//! Styles
+const cl = cloudinary.Cloudinary.new({
+    cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+})
+
 const Nav = styled.nav`
     ul {
         @media (${({ theme }) => theme.mediaQueries.mobileS}) {
@@ -116,10 +112,6 @@ const Infos = styled.div`
     }
 `
 
-//! Components
-//! High-order-components
-//! Component : BottomNav
-//? EXPORT
 const BottomNav = ({ slug, projects }) => (
     <Nav l={projects.length - 1}>
         <ul>
@@ -128,8 +120,7 @@ const BottomNav = ({ slug, projects }) => (
                     project.slug !== slug && (
                         <Link
                             key={i}
-                            href={`/projects/[slug]?anim=true`}
-                            as={`/projects/${project.slug}`}
+                            href={`/projects/${project.slug}?anim=true`}
                             passHref
                         >
                             <Tile l={projects.length - 1} background={project.background}>
@@ -145,6 +136,22 @@ const BottomNav = ({ slug, projects }) => (
                                     </Infos>
                                     <Image
                                         alt={project.title}
+                                        loading="lazy"
+                                        layout="intrinsic"
+                                        quality={90}
+                                        height={300}
+                                        width={300}
+                                        src={cl.url(project.image, {
+                                            height: 300,
+                                            width: 300,
+                                            crop: 'pad',
+                                            gravity: 'center',
+                                            quality: 'auto:eco',
+                                            flags: ['immutable_cache']
+                                        })}
+                                    />
+                                    {/* <Image
+                                        alt={project.title}
                                         publicId={project.image}
                                         dpr="auto"
                                         height="100%"
@@ -159,7 +166,7 @@ const BottomNav = ({ slug, projects }) => (
                                             quality="auto:low:420"
                                         />
                                         <Transformation flags="force_strip.strip_profile.immutable_cache" />
-                                    </Image>
+                                    </Image> */}
                                 </Figure>
                             </Tile>
                         </Link>
@@ -169,7 +176,6 @@ const BottomNav = ({ slug, projects }) => (
     </Nav>
 )
 
-//! Prop-types
 BottomNav.propTypes = {
     slug: PropTypes.string.isRequired,
     projects: PropTypes.array.isRequired

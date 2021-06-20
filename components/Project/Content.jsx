@@ -1,18 +1,8 @@
-//? IMPORT
-//! Modules
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-//! Content
-//! Constants
-//! Utils
 import { Marked } from 'utils/marked'
 
-//! Helpers
-//! Context
-//! Hooks
-//! Actions
-//! Styles
 const Description = styled.div`
     p {
         @media (${({ theme }) => theme.mediaQueries.mobileS}) {
@@ -48,12 +38,8 @@ const List = styled.ul`
     flex-direction: column;
 `
 
-//! Components
 import Element from './Element'
 
-//! High-order-components
-//! Component : Content
-//? EXPORT
 const Content = ({ background, dark, description, data }) => (
     <>
         <Description>
@@ -67,7 +53,6 @@ const Content = ({ background, dark, description, data }) => (
     </>
 )
 
-//! Prop-types
 Content.propTypes = {
     background: PropTypes.string,
     dark: PropTypes.bool,

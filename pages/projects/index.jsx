@@ -1,24 +1,14 @@
-//? IMPORT
-//! Modules
-// import {useState, useEffect} from 'react'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { animated } from 'react-spring'
-import { Image, Transformation, Placeholder } from 'cloudinary-react'
+import Image from 'next/image'
 
-//! Content
-//! Constants
-//! Utils
 import { dirToJson } from 'utils/file-system'
 
-//! Helpers
-//! Context
-//! Hooks
-//! Actions
-//! Styles
 import { useFadeIn } from '@animations'
+
 const Section = styled(animated.section)`
     height: auto;
     margin: 0px auto;
@@ -176,10 +166,12 @@ const Infos = styled.div`
         }
     }
 `
-//! Components
-//! High-order-components
-//!  Page : Projects
-//? EXPORT
+import cloudinary from 'cloudinary-core'
+
+const cl = cloudinary.Cloudinary.new({
+    cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+})
+
 const Projects = ({ data, projects }) => {
     const pageSpring = useFadeIn()
     const dataLength = data.length - 1
@@ -188,8 +180,7 @@ const Projects = ({ data, projects }) => {
         <>
             <NextSeo
                 title={`Projects | Nicolas Canon - Web developer`}
-                description={projects?.seo.description || 'description seo'}
-                canonical={`https://${process.env.DOMAIN}/projects`}
+                description="Mes projets"
             />
             <Section style={pageSpring}>
                 <Container>
@@ -211,12 +202,7 @@ const Projects = ({ data, projects }) => {
                                 },
                                 i
                             ) => (
-                                <Link
-                                    key={i}
-                                    href={`/projects/[slug]`}
-                                    as={`/projects/${slug}`}
-                                    passHref
-                                >
+                                <Link key={i} href={`/projects/${slug}`} passHref>
                                     <Tile
                                         i={i}
                                         l={dataLength}
@@ -244,20 +230,20 @@ const Projects = ({ data, projects }) => {
                                             </Infos>
                                             <Image
                                                 alt={title}
-                                                publicId={image}
-                                                height="100%"
-                                                width="auto"
-                                                responsive
                                                 loading="lazy"
-                                            >
-                                                <Placeholder />
-                                                <Transformation
-                                                    dpr="auto"
-                                                    fetchFormat="auto"
-                                                    quality="auto:good"
-                                                />
-                                                <Transformation flags="force_strip.strip_profile.immutable_cache" />
-                                            </Image>
+                                                layout="intrinsic"
+                                                quality={90}
+                                                height={300}
+                                                width={300}
+                                                src={cl.url(image, {
+                                                    height: 300,
+                                                    width: 300,
+                                                    crop: 'pad',
+                                                    gravity: 'center',
+                                                    quality: 'auto:eco',
+                                                    flags: ['immutable_cache']
+                                                })}
+                                            />
                                         </Figure>
                                     </Tile>
                                 </Link>

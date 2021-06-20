@@ -1,18 +1,14 @@
-//? IMPORT
-//! Modules
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useInView } from 'react-intersection-observer'
-import { Image, Transformation, Placeholder } from 'cloudinary-react'
+// import { Image, Transformation, Placeholder } from 'cloudinary-react'
+import Image from 'next/image'
+import cloudinary from 'cloudinary-core'
 
-//! Content
-//! Constants
-//! Utils
-//! Helpers
-//! Context
-//! Hooks
-//! Actions
-//! Styles
+const cl = cloudinary.Cloudinary.new({
+    cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+})
+
 const Li = styled.li`
     ${({ position }) =>
         position === 'left'
@@ -43,7 +39,6 @@ const Li = styled.li`
     }
 `
 
-//! Components
 const TileSC = styled.div`
     position: absolute;
 
@@ -97,9 +92,6 @@ Tile.propTypes = {
     position: PropTypes.string
 }
 
-//! High-order-components
-//! Component : Element
-//? EXPORT
 const Element = ({ image, alt, position, text, background, dark, i }) => {
     const [ref, inView] = useInView({
         threshold: 0,
@@ -118,6 +110,24 @@ const Element = ({ image, alt, position, text, background, dark, i }) => {
             {image && inView && (
                 <Image
                     alt={alt}
+                    loading="lazy"
+                    layout="intrinsic"
+                    quality={90}
+                    height={300}
+                    width={300}
+                    src={cl.url(image, {
+                        height: 300,
+                        width: 300,
+                        crop: 'pad',
+                        gravity: 'center',
+                        quality: 'auto:eco',
+                        flags: ['immutable_cache']
+                    })}
+                />
+            )}
+            {/* { image && inView && (
+                <Image
+                    alt={alt}
                     publicId={image}
                     height="100%"
                     width="auto"
@@ -128,7 +138,7 @@ const Element = ({ image, alt, position, text, background, dark, i }) => {
                     <Transformation dpr="auto" fetchFormat="auto" quality="auto:eco" />
                     <Transformation flags="force_strip.strip_profile.immutable_cache" />
                 </Image>
-            )}
+            )} */}
             {text && (
                 <Tile
                     alt={alt}
@@ -142,7 +152,6 @@ const Element = ({ image, alt, position, text, background, dark, i }) => {
     )
 }
 
-//! Prop-types
 Element.propTypes = {
     background: PropTypes.string,
     dark: PropTypes.bool,

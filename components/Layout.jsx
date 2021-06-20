@@ -1,19 +1,11 @@
-//? IMPORT
-//! Modules
 import { useState } from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-//! Content
-//! Constants
-//! Utils
-//! Helpers
-//! Context
-//! Hooks
-//! Actions
-//! Styles
+import Image from 'next/image'
 import LogoPng from 'public/Logo.png'
+
 const Logo = styled.figure`
     cursor: pointer;
     margin: 0;
@@ -27,6 +19,7 @@ const Logo = styled.figure`
     transition-duration: 500ms;
     transition-timing-function: ease-in-out;
     transform: ${({ open }) => (open ? 'translateY(120vh)' : 'translateY(0vh)')};
+
     img {
         @media (${({ theme }) => theme.mediaQueries.mobileS}) {
             height: 50px;
@@ -52,6 +45,7 @@ const MenuButton = styled.div`
     width: 36px;
     align-items: center;
     justify-content: center;
+
     svg {
         cursor: pointer;
         height: 65%;
@@ -65,16 +59,11 @@ const MenuButton = styled.div`
     }
 `
 
-//! Components
 import NavBar from './NavBar'
 import MobileNav from './MobileNav'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
-//! High-order-components
-//! Component : Layout
-//? EXPORT
 const Layout = ({ children }) => {
-    //* useState : open
     const [open, setOpen] = useState(false)
 
     return (
@@ -82,7 +71,12 @@ const Layout = ({ children }) => {
             <header>
                 <Link href="/" passHref>
                     <Logo open={open}>
-                        <img alt="Logo of Nicolas Canon" src={LogoPng} loading="eager" />
+                        <Image
+                            alt="Logo of Nicolas Canon"
+                            src={LogoPng}
+                            priority
+                            loading="eager"
+                        />
                     </Logo>
                 </Link>
                 <NavBar />
@@ -112,7 +106,6 @@ const Layout = ({ children }) => {
     )
 }
 
-//! Prop-types
 Layout.propTypes = {
     children: PropTypes.object
 }

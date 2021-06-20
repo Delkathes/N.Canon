@@ -1,22 +1,12 @@
-//? IMPORT
-//! Modules
 import { useState, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import PropTypes from 'prop-types'
-import { useForm } from '@statickit/react'
 import styled from 'styled-components'
 import { animated, useTransition } from 'react-spring'
 
-//! Content
-//! Constants
-//! Utils
-//! Helpers
-//! Context
-//! Hooks
-//! Actions
-//! Styles
 import { useFadeIn } from '@animations'
 import { Container as Div, PageInfo } from 'styles/Theme'
+
 const Section = styled(animated.section)`
     margin: 0px auto;
     @media (${({ theme }) => theme.mediaQueries.mobileS}) {
@@ -98,34 +88,30 @@ const FromResponse = styled(animated.div)`
     line-height: 2em;
 `
 
-//! Components
-//! High-order-components
-//!  Page : Contact
-//? EXPORT
 const Contact = props => {
     const pageSpring = useFadeIn()
 
-    const [state, handleSubmit] = useForm('contactForm')
+    // const [state, handleSubmit] = useForm('contactForm')
 
-    //* useState : sendingState
-    const [sendingState, setSending] = useState(false)
-    useEffect(() => {
-        if (state.succeeded && !sendingState && state.submitting) {
-            setSending(true)
-        }
-        if (state.succeeded && !state.submitting) {
-            setTimeout(() => {
-                setSending(false)
-            }, 5000)
-        }
-    }, [state])
+    // //* useState : sendingState
+    // const [sendingState, setSending] = useState(false)
+    // useEffect(() => {
+    //     if (state.succeeded && !sendingState && state.submitting) {
+    //         setSending(true)
+    //     }
+    //     if (state.succeeded && !state.submitting) {
+    //         setTimeout(() => {
+    //             setSending(false)
+    //         }, 5000)
+    //     }
+    // }, [state])
 
-    //* useTransition : sendTransition
-    const sendTransition = useTransition(sendingState, item => item, {
-        from: { transform: 'translateX(0%)', opacity: 0 },
-        enter: { transform: 'translateX(0%)', opacity: 1 },
-        leave: { transform: 'translateX(50%)', opacity: 0, position: 'absolute' }
-    })
+    // //* useTransition : sendTransition
+    // const sendTransition = useTransition(sendingState, item => item, {
+    //     from: { transform: 'translateX(0%)', opacity: 0 },
+    //     enter: { transform: 'translateX(0%)', opacity: 1 },
+    //     leave: { transform: 'translateX(50%)', opacity: 0, position: 'absolute' }
+    // })
 
     return (
         <>
@@ -141,7 +127,7 @@ const Contact = props => {
                         <p>Leave a message and say hello!</p>
                     </PageInfo>
                     <FormContainer>
-                        {sendTransition.map(({ item, props, key }) =>
+                        {/* {sendTransition.map(({ item, props, key }) =>
                             item ? (
                                 <FromResponse style={props} key={key}>
                                     {
@@ -201,7 +187,7 @@ const Contact = props => {
                                     </Submit>
                                 </Form>
                             )
-                        )}
+                        )} */}
                     </FormContainer>
                 </Container>
             </Section>
