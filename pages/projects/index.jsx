@@ -172,7 +172,7 @@ const cl = cloudinary.Cloudinary.new({
     cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
 })
 
-const Projects = ({ data, projects }) => {
+const Projects = ({ data /* , projects */ }) => {
     const pageSpring = useFadeIn()
     const dataLength = data.length - 1
 

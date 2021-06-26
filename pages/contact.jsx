@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { animated, useTransition } from 'react-spring'
+import { animated /* , useTransition */ } from 'react-spring'
 
 import { useFadeIn } from '@animations'
 import { Container as Div, PageInfo } from 'styles/Theme'
@@ -33,60 +33,60 @@ const Container = styled(Div)`
 const FormContainer = styled.div`
     position: relative;
 `
-const Form = styled(animated.form)`
-    display: block;
-    width: 100%;
-    position: relative;
-    margin-bottom: 50px;
-`
-const Fieldset = styled.fieldset`
-    padding: 12px 18px;
-    margin: 0px 0px 40px;
-    color: ${({ theme: { colors } }) => colors.primary};
-    border: 1px solid ${({ theme: { colors } }) => colors.primary};
-    legend {
-        padding: 0px 12px;
-    }
-    input {
-        width: 100%;
-        line-height: 2em;
-        background-color: transparent;
-        border: none;
-        color: ${({ theme: { colors } }) => colors.primary};
-        &:focus {
-            outline: none;
-        }
-    }
-    textarea {
-        width: 100%;
-        line-height: 2em;
-        background-color: transparent;
-        border: none;
-        color: ${({ theme: { colors } }) => colors.primary};
-        &:focus {
-            outline: none;
-        }
-    }
-`
-const Submit = styled.button`
-    cursor: pointer;
-    display: block;
-    margin: 0 0 0 auto;
-    line-height: 3em;
-    padding: 0px 66px;
-    color: ${({ theme: { colors } }) => colors.primary};
-    background-color: ${({ theme: { colors } }) => colors.highlight};
-    border: none;
-    font-size: 1.2em;
-    &:hover {
-        background-color: rgb(36, 170, 213);
-    }
-`
-const FromResponse = styled(animated.div)`
-    text-align: justify;
-    font-weight: 1.2em;
-    line-height: 2em;
-`
+// const Form = styled(animated.form)`
+//     display: block;
+//     width: 100%;
+//     position: relative;
+//     margin-bottom: 50px;
+// `
+// const Fieldset = styled.fieldset`
+//     padding: 12px 18px;
+//     margin: 0px 0px 40px;
+//     color: ${({ theme: { colors } }) => colors.primary};
+//     border: 1px solid ${({ theme: { colors } }) => colors.primary};
+//     legend {
+//         padding: 0px 12px;
+//     }
+//     input {
+//         width: 100%;
+//         line-height: 2em;
+//         background-color: transparent;
+//         border: none;
+//         color: ${({ theme: { colors } }) => colors.primary};
+//         &:focus {
+//             outline: none;
+//         }
+//     }
+//     textarea {
+//         width: 100%;
+//         line-height: 2em;
+//         background-color: transparent;
+//         border: none;
+//         color: ${({ theme: { colors } }) => colors.primary};
+//         &:focus {
+//             outline: none;
+//         }
+//     }
+// `
+// const Submit = styled.button`
+//     cursor: pointer;
+//     display: block;
+//     margin: 0 0 0 auto;
+//     line-height: 3em;
+//     padding: 0px 66px;
+//     color: ${({ theme: { colors } }) => colors.primary};
+//     background-color: ${({ theme: { colors } }) => colors.highlight};
+//     border: none;
+//     font-size: 1.2em;
+//     &:hover {
+//         background-color: rgb(36, 170, 213);
+//     }
+// `
+// const FromResponse = styled(animated.div)`
+//     text-align: justify;
+//     font-weight: 1.2em;
+//     line-height: 2em;
+// `
 
 const Contact = props => {
     const pageSpring = useFadeIn()
