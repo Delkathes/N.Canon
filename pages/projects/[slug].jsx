@@ -16,6 +16,11 @@ const Project = ({ project, projects }) => (
     </>
 )
 
+Project.propTypes = {
+    project: PropTypes.object.isRequired,
+    projects: PropTypes.array.isRequired
+}
+
 export const getStaticProps = async ({ params }) => {
     const data = await dirToJson('content/projects')
     let project = data.find(el => el.slug === params.slug)
@@ -33,11 +38,6 @@ export async function getStaticPaths() {
     const data = await dirToJson('content/projects')
     const paths = data.map(({ slug }) => ({ params: { slug } }))
     return { paths, fallback: false }
-}
-
-Project.propTypes = {
-    project: PropTypes.object.isRequired,
-    projects: PropTypes.array.isRequired
 }
 
 export default Project

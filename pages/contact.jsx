@@ -2,37 +2,11 @@
 import { NextSeo } from 'next-seo'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { animated /* , useTransition */ } from 'react-spring'
+// import { /* animated */ /* , useTransition */ } from 'react-spring'
 
-import { useFadeIn } from '@animations'
+// import { useFadeIn } from '@animations'
 import { Container as Div, PageInfo } from 'styles/Theme'
 
-const Section = styled(animated.section)`
-    margin: 0px auto;
-    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
-        width: 84%;
-    }
-    @media (${({ theme }) => theme.mediaQueries.tablet}) {
-        width: 78%;
-    }
-    @media (${({ theme }) => theme.mediaQueries.laptop}) {
-        width: 66%;
-    }
-`
-const Container = styled(Div)`
-    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
-        display: flex;
-        flex-direction: column;
-    }
-    @media (${({ theme }) => theme.mediaQueries.tablet}) {
-        display: grid;
-        grid-template-columns: 50% auto;
-        grid-column-gap: 10px;
-    }
-`
-const FormContainer = styled.div`
-    position: relative;
-`
 // const Form = styled(animated.form)`
 //     display: block;
 //     width: 100%;
@@ -89,7 +63,7 @@ const FormContainer = styled.div`
 // `
 
 const Contact = props => {
-    const pageSpring = useFadeIn()
+    // const pageSpring = useFadeIn()
 
     // const [state, handleSubmit] = useForm('contactForm')
 
@@ -120,7 +94,7 @@ const Contact = props => {
                 description="You can reach me by completing the form. I'll try my best to reply as soon as possible."
                 canonical={`https://${process.env.DOMAIN}/contact`}
             />
-            <Section style={pageSpring}>
+            <Section>
                 <Container>
                     <PageInfo>
                         <h1 className="page-name">{props.Page}</h1>
@@ -194,6 +168,33 @@ const Contact = props => {
         </>
     )
 }
+
+const Section = styled.section`
+    margin: 0px auto;
+    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
+        width: 84%;
+    }
+    @media (${({ theme }) => theme.mediaQueries.tablet}) {
+        width: 78%;
+    }
+    @media (${({ theme }) => theme.mediaQueries.laptop}) {
+        width: 66%;
+    }
+`
+const Container = styled(Div)`
+    @media (${({ theme }) => theme.mediaQueries.mobileS}) {
+        display: flex;
+        flex-direction: column;
+    }
+    @media (${({ theme }) => theme.mediaQueries.tablet}) {
+        display: grid;
+        grid-template-columns: 50% auto;
+        grid-column-gap: 10px;
+    }
+`
+const FormContainer = styled.div`
+    position: relative;
+`
 
 //! Default Props
 Contact.defaultProps = {

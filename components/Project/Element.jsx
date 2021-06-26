@@ -156,7 +156,7 @@ Element.propTypes = {
     background: PropTypes.string,
     dark: PropTypes.bool,
     i: PropTypes.number,
-    image: PropTypes.object,
+    image: PropTypes.string,
     alt: PropTypes.string,
     position: PropTypes.string,
     text: PropTypes.string

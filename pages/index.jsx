@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { animated } from 'react-spring'
+// import { animated } from 'react-spring'
 // import { Image, Transformation } from 'cloudinary-react'
 import Image from 'next/image'
 
@@ -15,8 +15,75 @@ const NavigationLinks = [
 
 import { fileToJson } from 'utils/file-system'
 
-import { useFadeIn } from '@animations'
-const Section = styled(animated.section)`
+// import { useFadeIn } from '@animations'
+
+import Icon from 'components/Global/Icon'
+
+const Home = ({ home }) => {
+    // const pageSpring = useFadeIn()
+
+    return (
+        <>
+            <NextSeo
+                title="Nicolas Canon - Web developer"
+                description={home.seo.description}
+            />
+            <Section>
+                <Container>
+                    <Presentation>
+                        <h1 hidden>Nicolas Canon - Web developer</h1>
+                        <h2>{"Hey, I'm Nicolas."}</h2>
+                        <p>{" I'm a self taught web developer based in Paris, FR."}</p>
+                    </Presentation>
+                    <Nav>
+                        <ul>
+                            {NavigationLinks.map((link, i) => (
+                                <Link key={i} href={`/${link.href}`} passHref>
+                                    <NavLink>
+                                        <span>{link.clean}</span>
+                                        <div>
+                                            <Icon
+                                                icon="ArrowRight"
+                                                color="rgb(26, 160, 203)"
+                                            />
+                                        </div>
+                                    </NavLink>
+                                </Link>
+                            ))}
+                        </ul>
+                    </Nav>
+                </Container>
+                <ProfilePic>
+                    <Image
+                        alt="profile pic from Nicolas Canon"
+                        loading="eager"
+                        priority
+                        layout="intrinsic"
+                        height={350}
+                        width={525}
+                        src="https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache,q_auto:eco/v1580691256/Personal%20Site/hacker.webp"
+                    />
+                    {/* <Image
+                        alt="profile pic from Nicolas Canon"
+                        publicId="v1580691256/Personal%20Site/hacker"
+                        width="auto"
+                        responsive
+                        loading="eager"
+                    >
+                        <Transformation
+                            dpr="auto"
+                            fetchFormat="auto"
+                            quality="auto:eco"
+                        />
+                        <Transformation flags="force_strip.strip_profile.immutable_cache" />
+                    </Image> */}
+                </ProfilePic>
+            </Section>
+        </>
+    )
+}
+
+const Section = styled.section`
     height: 100vh;
     width: 66%;
     margin: auto;
@@ -126,73 +193,9 @@ const ProfilePic = styled.figure`
     }
 `
 
-import Icon from 'components/Global/Icon'
-
-const Home = ({ home }) => {
-    const pageSpring = useFadeIn()
-
-    return (
-        <>
-            <NextSeo
-                title="Nicolas Canon - Web developer"
-                description={home.seo.description}
-            />
-            <Section style={pageSpring}>
-                <Container>
-                    <Presentation>
-                        <h1 hidden>Nicolas Canon - Web developer</h1>
-                        <h2>{"Hey, I'm Nicolas."}</h2>
-                        <p>{" I'm a self taught web developer based in Paris, FR."}</p>
-                    </Presentation>
-                    <Nav>
-                        <ul>
-                            {NavigationLinks.map((link, i) => (
-                                <Link key={i} href={`/${link.href}`} passHref>
-                                    <NavLink>
-                                        <span>{link.clean}</span>
-                                        <div>
-                                            <Icon
-                                                icon="ArrowRight"
-                                                color="rgb(26, 160, 203)"
-                                            />
-                                        </div>
-                                    </NavLink>
-                                </Link>
-                            ))}
-                        </ul>
-                    </Nav>
-                </Container>
-                <ProfilePic>
-                    <Image
-                        alt="profile pic from Nicolas Canon"
-                        loading="eager"
-                        priority
-                        layout="intrinsic"
-                        height={350}
-                        width={525}
-                        src="https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache,q_auto:eco/v1580691256/Personal%20Site/hacker.webp"
-                    />
-                    {/* <Image
-                        alt="profile pic from Nicolas Canon"
-                        publicId="v1580691256/Personal%20Site/hacker"
-                        width="auto"
-                        responsive
-                        loading="eager"
-                    >
-                        <Transformation
-                            dpr="auto"
-                            fetchFormat="auto"
-                            quality="auto:eco"
-                        />
-                        <Transformation flags="force_strip.strip_profile.immutable_cache" />
-                    </Image> */}
-                </ProfilePic>
-            </Section>
-        </>
-    )
-}
 export const getStaticProps = async () => {
     const home = await fileToJson('content/pages/home.json')
+
     return {
         props: {
             home

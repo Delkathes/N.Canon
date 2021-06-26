@@ -135,7 +135,7 @@ Main.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
-    image: PropTypes.object,
+    image: PropTypes.string,
     slug: PropTypes.string.isRequired,
     background: PropTypes.string,
     dark: PropTypes.bool,

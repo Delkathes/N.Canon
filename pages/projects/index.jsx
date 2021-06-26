@@ -2,14 +2,104 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { animated } from 'react-spring'
+// import { animated } from 'react-spring'
 import Image from 'next/image'
 
 import { dirToJson } from 'utils/file-system'
 
-import { useFadeIn } from '@animations'
+// import { useFadeIn } from '@animations'
 
-const Section = styled(animated.section)`
+import cloudinary from 'cloudinary-core'
+
+const cl = cloudinary.Cloudinary.new({
+    cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+})
+
+const Projects = ({ data /* , projects */ }) => {
+    // const pageSpring = useFadeIn()
+    const dataLength = data.length - 1
+
+    return (
+        <>
+            <NextSeo
+                title={`Projects | Nicolas Canon - Web developer`}
+                description="Mes projets"
+            />
+            <Section>
+                <Container>
+                    <h1 className="page-name">Projects</h1>
+                    <Grid>
+                        {data.map(
+                            (
+                                {
+                                    slug,
+                                    top,
+                                    bottom,
+                                    background,
+                                    dark,
+                                    title,
+                                    subtitle,
+                                    image,
+                                    cover,
+                                    long
+                                },
+                                i
+                            ) => (
+                                <Link key={i} href={`/projects/${slug}`} passHref>
+                                    <Tile
+                                        i={i}
+                                        l={dataLength}
+                                        top={top}
+                                        bottom={bottom}
+                                        background={background}
+                                        long={long}
+                                    >
+                                        <Read
+                                            className="read"
+                                            right
+                                            top={top}
+                                            bottom={bottom}
+                                        >
+                                            Read More
+                                        </Read>
+                                        <Figure cover={cover} top={top} bottom={bottom}>
+                                            <Infos
+                                                top={!top}
+                                                bottom={!bottom}
+                                                dark={dark}
+                                            >
+                                                <h2>{title}</h2>
+                                                <h3>{subtitle}</h3>
+                                            </Infos>
+                                            <Image
+                                                alt={title}
+                                                loading="lazy"
+                                                layout="intrinsic"
+                                                quality={90}
+                                                height={300}
+                                                width={300}
+                                                src={cl.url(image, {
+                                                    height: 300,
+                                                    width: 300,
+                                                    crop: 'pad',
+                                                    gravity: 'center',
+                                                    quality: 'auto:eco',
+                                                    flags: ['immutable_cache']
+                                                })}
+                                            />
+                                        </Figure>
+                                    </Tile>
+                                </Link>
+                            )
+                        )}
+                    </Grid>
+                </Container>
+            </Section>
+        </>
+    )
+}
+
+const Section = styled.section`
     height: auto;
     margin: 0px auto;
 
@@ -166,95 +256,6 @@ const Infos = styled.div`
         }
     }
 `
-import cloudinary from 'cloudinary-core'
-
-const cl = cloudinary.Cloudinary.new({
-    cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-})
-
-const Projects = ({ data /* , projects */ }) => {
-    const pageSpring = useFadeIn()
-    const dataLength = data.length - 1
-
-    return (
-        <>
-            <NextSeo
-                title={`Projects | Nicolas Canon - Web developer`}
-                description="Mes projets"
-            />
-            <Section style={pageSpring}>
-                <Container>
-                    <h1 className="page-name">Projects</h1>
-                    <Grid>
-                        {data.map(
-                            (
-                                {
-                                    slug,
-                                    top,
-                                    bottom,
-                                    background,
-                                    dark,
-                                    title,
-                                    subtitle,
-                                    image,
-                                    cover,
-                                    long
-                                },
-                                i
-                            ) => (
-                                <Link key={i} href={`/projects/${slug}`} passHref>
-                                    <Tile
-                                        i={i}
-                                        l={dataLength}
-                                        top={top}
-                                        bottom={bottom}
-                                        background={background}
-                                        long={long}
-                                    >
-                                        <Read
-                                            className="read"
-                                            right
-                                            top={top}
-                                            bottom={bottom}
-                                        >
-                                            Read More
-                                        </Read>
-                                        <Figure cover={cover} top={top} bottom={bottom}>
-                                            <Infos
-                                                top={!top}
-                                                bottom={!bottom}
-                                                dark={dark}
-                                            >
-                                                <h2>{title}</h2>
-                                                <h3>{subtitle}</h3>
-                                            </Infos>
-                                            <Image
-                                                alt={title}
-                                                loading="lazy"
-                                                layout="intrinsic"
-                                                quality={90}
-                                                height={300}
-                                                width={300}
-                                                src={cl.url(image, {
-                                                    height: 300,
-                                                    width: 300,
-                                                    crop: 'pad',
-                                                    gravity: 'center',
-                                                    quality: 'auto:eco',
-                                                    flags: ['immutable_cache']
-                                                })}
-                                            />
-                                        </Figure>
-                                    </Tile>
-                                </Link>
-                            )
-                        )}
-                    </Grid>
-                </Container>
-            </Section>
-        </>
-    )
-}
 
 export const getStaticProps = async () => {
     const data = await dirToJson('content/projects')
