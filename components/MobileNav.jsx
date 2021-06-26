@@ -1,13 +1,9 @@
-//? IMPORT
-//! Modules
 import { memo } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-//! Content
-//! Constants
 const NavigationLinks = [
     { clean: 'Home', href: '/' },
     { clean: 'Projects', href: '/projects' },
@@ -16,12 +12,6 @@ const NavigationLinks = [
     { clean: 'Experiences', href: '/experiences' }
 ]
 
-//! Utils
-//! Helpers
-//! Context
-//! Hooks
-//! Actions
-//! Styles
 const Nav = styled.nav`
     @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         z-index: 2;
@@ -70,12 +60,8 @@ const NavLink = styled.li`
             match ? theme.colors.reverse : theme.colors.primary};
     }
 `
-//! Components
 import Icon from './Global/Icon'
 
-//! High-order-components
-//! Component : MobileNav
-//? EXPORT
 const MobileNav = ({ open, setOpen }) => {
     const { route } = useRouter()
     let shortRoute = route.slice(0, 3)
@@ -117,7 +103,6 @@ const MobileNav = ({ open, setOpen }) => {
     )
 }
 
-//! Default Props
 MobileNav.defaultProps = {
     Component: 'MobileNav'
 }

@@ -1,13 +1,9 @@
-//? IMPORT
-//! Modules
-import { useState, useEffect, memo } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-//! Content
-//! Constants
 const NavigationLinks = [
     { clean: 'Projects', href: '/projects' },
     { clean: 'About', href: '/about' },
@@ -15,8 +11,6 @@ const NavigationLinks = [
     { clean: 'Experiences', href: '/experiences' }
 ]
 
-//! Utils
-//! Helpers
 function getOffset(el) {
     var _x = 0
     var _y = 0
@@ -28,12 +22,8 @@ function getOffset(el) {
     return { top: _y, left: _x }
 }
 
-//! Context
-//! Hooks
 import useOnWindowResize from 'hooks/useOnWindowResize'
 
-//! Actions
-//! Styles
 const Nav = styled.nav`
     position: fixed;
     top: 0px;
@@ -79,12 +69,8 @@ const UnderBar = styled.span`
     transition: all 0.666s cubic-bezier(0.06, 0.975, 0.195, 0.985) 0s;
 `
 
-//! Components
 import Icon from './Global/Icon'
 
-//! High-order-components
-//! Component : NavBar
-//? EXPORT
 const NavBar = () => {
     const { route } = useRouter()
     const [screenWidth] = useOnWindowResize()
@@ -152,7 +138,6 @@ const NavBar = () => {
     )
 }
 
-//! Default Props
 NavBar.defaultProps = {
     Component: 'NavBar'
 }
@@ -160,4 +145,4 @@ NavBar.propTypes = {
     Component: PropTypes.string
 }
 
-export default memo(NavBar)
+export default NavBar

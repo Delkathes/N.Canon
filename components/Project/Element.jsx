@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useInView } from 'react-intersection-observer'
-// import { Image, Transformation, Placeholder } from 'cloudinary-react'
 import Image from 'next/image'
 import cloudinary from 'cloudinary-core'
 
@@ -125,20 +124,6 @@ const Element = ({ image, alt, position, text, background, dark, i }) => {
                     })}
                 />
             )}
-            {/* { image && inView && (
-                <Image
-                    alt={alt}
-                    publicId={image}
-                    height="100%"
-                    width="auto"
-                    responsive
-                    loading="lazy"
-                >
-                    <Placeholder />
-                    <Transformation dpr="auto" fetchFormat="auto" quality="auto:eco" />
-                    <Transformation flags="force_strip.strip_profile.immutable_cache" />
-                </Image>
-            )} */}
             {text && (
                 <Tile
                     alt={alt}

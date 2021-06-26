@@ -2,9 +2,7 @@
 import { NextSeo } from 'next-seo'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-// import { /* animated */ /* , useTransition */ } from 'react-spring'
 
-// import { useFadeIn } from '@animations'
 import { Container as Div, PageInfo } from 'styles/Theme'
 
 // const Form = styled(animated.form)`

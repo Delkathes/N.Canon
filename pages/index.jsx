@@ -2,8 +2,7 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-// import { animated } from 'react-spring'
-// import { Image, Transformation } from 'cloudinary-react'
+
 import Image from 'next/image'
 
 const NavigationLinks = [
@@ -15,13 +14,9 @@ const NavigationLinks = [
 
 import { fileToJson } from 'utils/file-system'
 
-// import { useFadeIn } from '@animations'
-
 import Icon from 'components/Global/Icon'
 
 const Home = ({ home }) => {
-    // const pageSpring = useFadeIn()
-
     return (
         <>
             <NextSeo
@@ -63,20 +58,6 @@ const Home = ({ home }) => {
                         width={525}
                         src="https://res.cloudinary.com/nicolas-canon/image/upload/fl_immutable_cache,q_auto:eco/v1580691256/Personal%20Site/hacker.webp"
                     />
-                    {/* <Image
-                        alt="profile pic from Nicolas Canon"
-                        publicId="v1580691256/Personal%20Site/hacker"
-                        width="auto"
-                        responsive
-                        loading="eager"
-                    >
-                        <Transformation
-                            dpr="auto"
-                            fetchFormat="auto"
-                            quality="auto:eco"
-                        />
-                        <Transformation flags="force_strip.strip_profile.immutable_cache" />
-                    </Image> */}
                 </ProfilePic>
             </Section>
         </>

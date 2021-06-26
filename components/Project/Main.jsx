@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-// import { Image, Transformation, Placeholder } from 'cloudinary-react'
 import Image from 'next/image'
 import cloudinary from 'cloudinary-core'
 
@@ -104,18 +103,6 @@ const Main = ({
                     flags: ['immutable_cache']
                 })}
             />
-            {/* <Image
-                alt={title}
-                publicId={image}
-                height="100%"
-                width="auto"
-                responsive
-                loading="eager"
-            >
-                <Placeholder />
-                <Transformation dpr="auto" fetchFormat="auto" quality="auto:eco" />
-                <Transformation flags="force_strip.strip_profile.immutable_cache" />
-            </Image> */}
         </Hero>
         <section>
             <Content

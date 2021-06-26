@@ -1,25 +1,45 @@
-//? IMPORT
-//! Modules
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { animated } from 'react-spring'
 
-//! Content
-//! Constants
-//! Utils
 import { fileToJson } from 'utils/file-system'
 import { markedKeysToString, Marked } from 'utils/marked'
 
-//! Helpers
-//! Context
-//! Hooks
-//! Actions
-//! Styles
-import { useFadeIn } from '@animations'
 import { Container as Div, PageInfo } from 'styles/Theme'
-const Section = styled(animated.section)`
+
+const About = ({ about }) => {
+    return (
+        <>
+            <NextSeo
+                title={`About | Nicolas Canon - Web developer`}
+                description={about.seo.description}
+            />
+            <Section>
+                <Container>
+                    <PageInfo>
+                        <h1 className="page-name">About me</h1>
+                    </PageInfo>
+                    <Article>
+                        <P>
+                            <Marked markdown={about.text} />
+                        </P>
+                        <p id="contact">
+                            {
+                                'If that sounds like someone you’d like to collaborate with then'
+                            }
+                            <Link href="/contact" as="/contact">
+                                <a> get in touch.</a>
+                            </Link>
+                        </p>
+                    </Article>
+                </Container>
+            </Section>
+        </>
+    )
+}
+
+const Section = styled.section`
     @media (${({ theme }) => theme.mediaQueries.mobileS}) {
         width: 84%;
     }
@@ -60,44 +80,6 @@ const P = styled.div`
         margin-bottom: 14px;
     }
 `
-
-//! Components
-//! High-order-components
-//!  Page : About
-//? EXPORT
-const About = ({ about }) => {
-    const pageSpring = useFadeIn()
-
-    return (
-        <>
-            <NextSeo
-                title={`About | Nicolas Canon - Web developer`}
-                description={about.seo.description}
-                canonical={`https://${process.env.DOMAIN}/about`}
-            />
-            <Section style={pageSpring}>
-                <Container>
-                    <PageInfo>
-                        <h1 className="page-name">About me</h1>
-                    </PageInfo>
-                    <Article>
-                        <P>
-                            <Marked markdown={about.text} />
-                        </P>
-                        <p id="contact">
-                            {
-                                'If that sounds like someone you’d like to collaborate with then'
-                            }
-                            <Link href="/contact" as="/contact">
-                                <a> get in touch.</a>
-                            </Link>
-                        </p>
-                    </Article>
-                </Container>
-            </Section>
-        </>
-    )
-}
 
 export const getStaticProps = async () => {
     let about = await fileToJson('content/pages/about.json')

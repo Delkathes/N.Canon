@@ -8,7 +8,6 @@ import './_app.css'
 import Theme from 'styles/Theme'
 
 import { ThemeProvider } from 'styled-components'
-// import { CloudinaryContext } from 'cloudinary-react'
 
 const MyApp = ({ Component, pageProps }) => (
     <>
@@ -23,8 +22,6 @@ const MyApp = ({ Component, pageProps }) => (
                 }
             `}</style>
         </ThemeProvider>
-        {/* <CloudinaryContext secure cloudName={process.env.CLOUDINARY_CLOUD_NAME}>
-        </CloudinaryContext> */}
     </>
 )
 

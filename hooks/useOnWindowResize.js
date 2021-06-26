@@ -1,9 +1,6 @@
-//? IMPORT
-//! Modules
 import { useState, useEffect } from 'react'
 
 function useOnWindowResize() {
-    //* useState : dimensions
     const [dimensions, setDimensions] = useState([1920, 1080])
 
     useEffect(() => {

@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-// import { animated } from 'react-spring'
 import Image from 'next/image'
 
 import { dirToJson } from 'utils/file-system'
@@ -16,7 +15,6 @@ const cl = cloudinary.Cloudinary.new({
 })
 
 const Projects = ({ data /* , projects */ }) => {
-    // const pageSpring = useFadeIn()
     const dataLength = data.length - 1
 
     return (

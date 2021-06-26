@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-// import { Image, Transformation, Placeholder } from 'cloudinary-react'
 import Image from 'next/image'
 import cloudinary from 'cloudinary-core'
 
@@ -150,23 +149,6 @@ const BottomNav = ({ slug, projects }) => (
                                             flags: ['immutable_cache']
                                         })}
                                     />
-                                    {/* <Image
-                                        alt={project.title}
-                                        publicId={project.image}
-                                        dpr="auto"
-                                        height="100%"
-                                        width="auto"
-                                        responsive
-                                        loading="lazy"
-                                    >
-                                        <Placeholder />
-                                        <Transformation
-                                            fetchFormat="auto"
-                                            effect="blur:200"
-                                            quality="auto:low:420"
-                                        />
-                                        <Transformation flags="force_strip.strip_profile.immutable_cache" />
-                                    </Image> */}
                                 </Figure>
                             </Tile>
                         </Link>

@@ -28,8 +28,6 @@ const Theme = {
     }
 }
 
-//? EXPORTS
-//! Devices
 export const device = {
     mobileS: Theme.mediaQueries.mobileS,
     mobileM: Theme.mediaQueries.mobileM,
@@ -40,7 +38,7 @@ export const device = {
     desktop: Theme.mediaQueries.desktop,
     desktopL: Theme.mediaQueries.desktop
 }
-//! PageName Component
+
 export const Container = styled.div`
     width: 100%;
     @media (${device.mobileS}) {
@@ -67,5 +65,5 @@ export const PageName = styled.div`
         font-size: 3em;
     }
 `
-//! Theme
+
 export default Theme

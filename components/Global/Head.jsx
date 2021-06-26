@@ -1,17 +1,6 @@
-//? IMPORT
-//! Modules
 import Head from 'next/head'
 import PropTypes from 'prop-types'
 
-//! Constants
-//! Utils
-//! Context
-//! Hooks
-//! Actions
-//! Styles
-//! Components
-//! High-order-components
-//! Component : CustomHead
 const CustomHead = ({ head, description }) => (
     <Head>
         <title>{head}</title>
